@@ -1,17 +1,17 @@
-void	*ft_memset(void *ptr, int value, unsigned int num);
+void	*ft_memset(void *b, int c, size_t len);
 
-void	*ft_memset(void *ptr, int value, unsigned int num)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	unsigned int		i;
-	void			*tmp;
+	size_t	i;
+	void	*tmp;
 
 	i = 0;
-	tmp = ptr;
-	while (i < num)
+	tmp = b;
+	while (i < len)
 	{
-		*ptr = value;
-		ptr++;
-		i += sizeof(value);
+		*b = c;
+		b++;
+		i += sizeof(c);
 	}
 	return (tmp);
 }

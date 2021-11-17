@@ -1,15 +1,15 @@
-void	*ft_memcpy(void *dest, const void *src, unsigned int num);
+void	*ft_memcpy(void *dst, const void *src, size_t n);
 
-void	*ft_memcpy(void *dest, const void *src, unsigned int num)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	unsigned int		i;
+	size_t		i;
 
 	i = 0;
-	num /= sizeof(*src);
-	while (i < num)
+	n /= sizeof(*src);
+	while (i < n)
 	{
-		dest[i] = src[i];
+		dst[i] = src[i];
 		i++;
 	}
-	return (dest);
+	return (dst);
 }

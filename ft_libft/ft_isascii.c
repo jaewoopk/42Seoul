@@ -1,8 +1,8 @@
-int	ft_isascii(int ch);
+int	ft_isascii(int c);
 
-int	ft_isascii(int ch)
+int	ft_isascii(int c)
 {
-	if (ch >= 0 && ch <= 127)
+	if (c >= 0 && c <= 127)
 		return (1);
 	return (0);
 }

@@ -1,8 +1,8 @@
-int	ft_isdigit(int ch);
+int	ft_isdigit(int c);
 
-int	ft_isdigit(int ch)
+int	ft_isdigit(int c)
 {
-	if (ch >= '0' && ch <= '9')
+	if (c >= '0' && c <= '9')
 		return (1);
 	return (0);
 }

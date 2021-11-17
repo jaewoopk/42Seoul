@@ -1,10 +1,10 @@
-int	ft_isalpha(int ch);
+int	ft_isalpha(int c);
 
-int	ft_isalpha(int ch)
+int	ft_isalpha(int c)
 {
-	if (ch >= 'A' && ch <= 'Z')
+	if (c >= 'A' && c <= 'Z')
 		return (1);
-	else if (ch >= 'a' && ch <= 'z')
+	else if (c >= 'a' && c <= 'z')
 		return (2);
 	return (0);
 }

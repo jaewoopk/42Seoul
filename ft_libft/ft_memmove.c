@@ -1,27 +1,27 @@
-void	*ft_memmove(void *dest, const void *src, unsigned int num);
+void	*ft_memmove(void *dst, const void *src, size_t len);
 
-void	*ft_memmove(void *dest, const void *src, unsigned int num)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned int		i;
+	size_t		i;
 
 	i = 0;
-	num /= sizeof(*src);
-	if (dest < src)
+	len /= sizeof(*src);
+	if (dst < src)
 	{
-		while (i < num)
+		while (i < len)
 		{
-			dest[i] = src[i];
+			dst[i] = src[i];
 			i++;
 		}
 	}
 	else
 	{
-		num--;
-		while (-1 < num)
+		len--;
+		while (-1 < len)
 		{
-			dest[num] = src[num];
-			num--;
+			dst[len] = src[len];
+			len--;
 		}
 	}
-	return (dest);
+	return (dst);
 }

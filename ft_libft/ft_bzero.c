@@ -1,11 +1,11 @@
-void	ft_bzero(void *ptr, unsigned int num);
+void	ft_bzero(void *s, size_t n);
 
-void	ft_bzero(void *ptr, unsigned int num)
+void	ft_bzero(void *s, size_t n)
 {
-	unsigned int		i;
+	size_t		i;
 
 	i = 0;
-	while (i < num)
+	while (i < n)
 	{
 		ptr[i] = 0;
 		i++;

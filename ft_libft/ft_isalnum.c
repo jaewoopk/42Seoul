@@ -1,18 +1,8 @@
-bool	ft_isalpha(int ch);
-int	ft_isalnum(int ch);
+int	ft_isalnum(int c);
 
-bool	ft_isalpha(int ch)
+int	ft_isalnum(int c)
 {
-	if (ch >= 'A' && ch <= 'Z')
-		return (true);
-	else if (ch >= 'a' && ch <= 'z')
-		return (true);
-	return (false);
-}
-
-int	ft_isalnum(int ch)
-{
-	if (ft_isalpha(ch) && ch >= '0' && ch <= '9')
+	if (ft_isalpha(c) && c >= '0' && c <= '9')
 		return (1);
 	return (0);
 }

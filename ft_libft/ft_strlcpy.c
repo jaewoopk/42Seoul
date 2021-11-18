@@ -1,14 +1,16 @@
+#include "libft.h"
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	while (*src && dstsize > 1)
+	size_t		i;
+
+	i = 0;
+	while (src[i] && i + 1 < dstsize)
 	{
-		*dst = *src;
-		dst++;
-		src++;
-		dstsize--;
+		dst[i] = src[i];
+		i++;
 	}
-	*dst = '\0';
-	return (ft_strlen(src));
+	dst[i] = '\0';
+	return (ft_strlen(dst));
 }

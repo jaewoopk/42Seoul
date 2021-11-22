@@ -8,15 +8,15 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	unsigned char		*tmp_dst;
 	unsigned char		*tmp_src;
 
+	if (dst == (void *)0 && src == (void *)0)
+		return ((void *)0);
 	tmp_dst = (unsigned char *)dst;
 	tmp_src = (unsigned char *)src;
 	i = 0;
-	while ((tmp_dst[i] || tmp_src[i]) && i < n)
+	while (i < n)
 	{
 		tmp_dst[i] = tmp_src[i];
 		i++;
 	}
-	if (i < n)
-		tmp_dst[i] = '\0';
 	return (tmp_dst);
 }

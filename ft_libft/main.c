@@ -80,17 +80,24 @@ int	main(void)
 	printf("'' Are they same? strncmp's answer is %d.\n",strncmp(arr , src6, 4));
 	printf("'hello nice' Are they same? strncmp's answer is %d.\n\n\n",strncmp(arr , "hello nice", 2));
 
-	char	memdst[20] = "1234";
-	char	memsrc[20] = "abcdef";
+	char			memdst[20] = "1234";
+	char			memsrc[20] = "abcdef";
+	const size_t	size10 = 10;
+	char			*src10 = (char *)malloc(size10);
+	char			*buff10 = (char *)malloc(size10);
 
-	printf("memcpy size 0, my ft_memcpy answer is %s\n",(char *)ft_memcpy(memdst,memsrc,1));
+	__builtin___strcpy_chk (src10, "NYANCATSH", __builtin_object_size (src10, 2 > 1 ? 1 : 0));
+	printf("memcpy size 10, my ft_memcpy answer is %s\n",(char *)ft_memcpy(buff10, src10, size10));
+	printf("memcpy size 0, my ft_memcpy answer is %s\n",(char *)ft_memcpy(NULL,NULL,0));
 	printf("memcpy size 5, my ft_memcpy answer is %s\n",(char *)ft_memcpy(memdst,memsrc,5));
 	printf("memcpy size 8, my ft_memcpy answer is %s\n\n\n",(char *)ft_memcpy(memdst,memsrc,8));
 
 	char	memdst2[20] = "1234";
 	char	memsrc2[20] = "abcdef";
 
-	printf("memcpy size 0, memcpy answer is %s\n",(char *)memcpy(memdst2,memsrc2,1));
+	__builtin___strcpy_chk (src10, "NYANCATSH", __builtin_object_size (src10, 2 > 1 ? 1 : 0));
+	printf("memcpy size 10, memcpy answer is %s\n",(char *)memcpy(buff10, src10, size10));
+	printf("memcpy size 0, memcpy answer is %s\n",(char *)memcpy(NULL,NULL,0));
 	printf("memcpy size 5, memcpy answer is %s\n",(char *)memcpy(memdst2,memsrc2,5));
 	printf("memcpy size 8, memcpy answer is %s\n\n\n",(char *)memcpy(memdst2,memsrc2,8));
 
@@ -107,6 +114,13 @@ int	main(void)
 	printf("memmove size 0, memmove answer is %s\n",(char *)memmove(memmove3, memmove3 + 4, 0));
 	printf("memmove size 5, memmove answer is %s\n",(char *)memmove(memmove3, memmove3 + 4, 5));
 	printf("memmove size 15, memmove answer is %s\n\n\n",(char *)memmove(memmove3, memmove3 + 4, 15));
-	
+
+	char	n[40] = "999999912216294567294";
+	int		i1 = atoi(n);
+	int		i2 = ft_atoi(n);
+
+	printf("my ft_atoi answer is %d\n", i2);
+	printf("atoi answer is %d\n", i1);
+
 	return (0);
 }

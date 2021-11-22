@@ -94,19 +94,19 @@ int	main(void)
 	printf("memcpy size 5, memcpy answer is %s\n",(char *)memcpy(memdst2,memsrc2,5));
 	printf("memcpy size 8, memcpy answer is %s\n\n\n",(char *)memcpy(memdst2,memsrc2,8));
 
-	char	memmove1[20] = "blackpants~!";
-	char	memmove2[20] = "";
+	char	memmove1[20] = "black~!";
+	char	memmove2[20] = "whiteshoe";
 
-	printf("memmove size 0, ft_memmove answer is %s\n",(char *)ft_memmove(memmove1, memmove2, 0));
-	printf("memmove size 5, ft_memmove answer is %s\n",(char *)ft_memmove(memmove1, memmove2, 5));
-	printf("memmove size 13, ft_memmove answer is %s\n\n\n",(char *)ft_memmove(memmove1, memmove2, 13));
+	printf("memmove size 0, ft_memmove answer is %s\n",(char *)ft_memmove(memmove1, memmove1 + 4, 0));
+	printf("memmove size 5, ft_memmove answer is %s\n",(char *)ft_memmove(memmove1, memmove1 + 4, 5));
+	printf("memmove size 15, ft_memmove answer is %s\n\n\n",(char *)ft_memmove(memmove1, memmove1 + 4, 15));
 	
-	char	memmove3[20] = "blackpants~!";
-	char	memmove4[20] = "";
+	char	memmove3[20] = "black~!";
+	char	memmove4[20] = "whiteshoe";
 
-	printf("memmove size 0, memmove answer is %s\n",(char *)memmove(memmove3, memmove4, 0));
-	printf("memmove size 5, memmove answer is %s\n",(char *)memmove(memmove3, memmove4, 5));
-	printf("memmove size 13, memmove answer is %s\n\n\n",(char *)memmove(memmove3, memmove4, 13));
+	printf("memmove size 0, memmove answer is %s\n",(char *)memmove(memmove3, memmove3 + 4, 0));
+	printf("memmove size 5, memmove answer is %s\n",(char *)memmove(memmove3, memmove3 + 4, 5));
+	printf("memmove size 15, memmove answer is %s\n\n\n",(char *)memmove(memmove3, memmove3 + 4, 15));
 	
 	return (0);
 }

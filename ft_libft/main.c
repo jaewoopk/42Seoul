@@ -115,7 +115,7 @@ int	main(void)
 	printf("memmove size 5, memmove answer is %s\n",(char *)memmove(memmove3, memmove3 + 4, 5));
 	printf("memmove size 15, memmove answer is %s\n\n\n",(char *)memmove(memmove3, memmove3 + 4, 15));
 
-	char	n[40] = "999999912216294567294";
+	char	n[40] = "9223372036854775809000012";
 	int		i1 = atoi(n);
 	int		i2 = ft_atoi(n);
 

@@ -3,7 +3,7 @@ $> hostname; uname -msr
 c7r6s8.42seoul.kr
 Darwin 19.6.0 x86_64
 $> date
-Thu Nov 25 13:12:52 KST 2021
+Thu Nov 25 16:36:27 KST 2021
 $> gcc --version
 Apple clang version 12.0.0 (clang-1200.0.32.28)
 Target: x86_64-apple-darwin19.6.0
@@ -53,7 +53,7 @@ $> make bonus
 make: *** No rule to make target `bonus'.  Stop.
 
 $> ls -la libft.a
--rw-r--r--  1 jaewopar  2021_seoul  21744 Nov 25 13:12 /Users/jaewopar/desktop/test/dirlibft/libft.a
+-rw-r--r--  1 jaewopar  2021_seoul  21680 Nov 25 16:36 /Users/jaewopar/desktop/test/dirlibft/libft.a
 
 = Part1_functions ==============================================================
 

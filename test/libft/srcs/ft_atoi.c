@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/25 13:51:56 by jaewopar          #+#    #+#             */
+/*   Updated: 2021/11/25 13:51:58 by jaewopar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int		ft_atoi(const char *str);
+int	ft_atoi(const char *str);
 
-int		ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	long long		sign;
 	long long		n;
@@ -19,11 +31,9 @@ int		ft_atoi(const char *str)
 			sign = -1;
 		str++;
 	}
-	while (*str >= '0' && *str <= '9')
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		n *= 10;
-		n += (*str - '0');
-		str++;
+		n = (n * 10) + (str[i] - '0');
 		i++;
 	}
 	if (i >= 19 && sign == -1)

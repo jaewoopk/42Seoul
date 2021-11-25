@@ -120,7 +120,12 @@ int	main(void)
 	int		i2 = ft_atoi(n);
 
 	printf("my ft_atoi answer is %d\n", i2);
-	printf("atoi answer is %d\n", i1);
+	printf("atoi answer is %d\n\n\n", i1);
 
+	char	*name = NULL;
+	char	charac = 'a';
+
+	printf("strchr answer is %s\n\n\n", strchr(name,charac));
+	printf("my ft_strchr answer is %s\n", ft_strchr(name,charac));
 	return (0);
 }

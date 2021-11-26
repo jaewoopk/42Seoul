@@ -1,39 +1,39 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/25 13:53:29 by jaewopar          #+#    #+#             */
+/*   Updated: 2021/11/25 13:53:30 by jaewopar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void	*ft_memmove(void *dst, const void *src, size_t len);
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t		i;
-	char		*tmp_dst;
-	char		*tmp_src;
-	char		tmp[len + 1];
-	i = 0;
+	size_t				i;
+	unsigned char		*tmp_dst;
+	unsigned char		*tmp_src;
 
-	if (len == 0)
+	i = -1;
+	tmp_dst = (unsigned char *)dst;
+	tmp_src = (unsigned char *)src;
+	if (len == 0 || (dst == (void *)0 && src == (const void *)0))
 		return (dst);
-	tmp_dst = (char *)dst;
-	tmp_src = (char *)src;
-	while (i < len && tmp_src[i])
+	if (tmp_dst < tmp_src)
 	{
-		tmp[i] = tmp_src[i];
-		i++;
+		while (++i < len)
+			tmp_dst[i] = tmp_src[i];
 	}
-	if (i < len)
+	else
 	{
-		tmp[i] = '\0';
-		i++;
-	}
-	i = 0;
-	while (i < len)
-	{
-		tmp_dst[i] = tmp[i];
-		i++;
-	}
-	if (i < len)
-	{
-		tmp_dst[i] = '\0';
-		i++;
+		while (++i < len)
+			tmp_dst[len - i - 1] = tmp_src[len - i - 1];
 	}
 	return (dst);
 }

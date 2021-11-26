@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/25 13:53:21 by jaewopar          #+#    #+#             */
+/*   Updated: 2021/11/25 13:53:23 by jaewopar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void	*ft_memcpy(void *dst, const void *src, size_t n);
@@ -18,5 +30,5 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 		tmp_dst[i] = tmp_src[i];
 		i++;
 	}
-	return (tmp_dst);
+	return (dst);
 }

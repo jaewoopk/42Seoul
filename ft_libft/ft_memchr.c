@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/25 13:53:06 by jaewopar          #+#    #+#             */
+/*   Updated: 2021/11/25 13:53:09 by jaewopar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n);
@@ -11,7 +23,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	tmp_s = (char *)s;
 	tmp_c = (char)c;
 	i = 0;
-	while (n && tmp_s[i])
+	while (n)
 	{
 		if (tmp_s[i] == c)
 			return ((void *)(s + i));

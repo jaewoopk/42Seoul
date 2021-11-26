@@ -6,9 +6,11 @@
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 15:35:07 by jaewopar          #+#    #+#             */
-/*   Updated: 2021/11/17 16:26:52 by jaewopar         ###   ########.fr       */
+/*   Updated: 2021/11/25 13:52:33 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isalpha(int c);
 

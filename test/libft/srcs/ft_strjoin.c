@@ -14,6 +14,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (0);
 	ft_memmove(tmp, s1, ft_strlen(s1) + 1);
 	ft_strlcat(tmp, s2, len + 1);
-	tmp[len + 1] = '\0';
+	tmp[len] = '\0';
 	return (tmp);
 }

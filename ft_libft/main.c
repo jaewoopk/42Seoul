@@ -125,7 +125,14 @@ int	main(void)
 	char	*name = NULL;
 	char	charac = 'a';
 
-	printf("strchr answer is %s\n\n\n", strchr(name,charac));
 	printf("my ft_strchr answer is %s\n", ft_strchr(name,charac));
+	printf("strchr answer is %s\n\n\n", strchr(name,charac));
+
+	printf("my ft_itoa answer is %s\n", ft_itoa(-2148473648));
+	printf("my ft_itoa answer is %s\n", ft_itoa(10505));
+	printf("my ft_itoa answer is %s\n", ft_itoa(-2148473648222));
+	printf("itoa answer is %s\n\n\n", itoa(-2148473648));
+	printf("itoa answer is %s\n\n\n", itoa(10505));
+	printf("itoa answer is %s\n\n\n", itoa(-2148473648222));
 	return (0);
 }

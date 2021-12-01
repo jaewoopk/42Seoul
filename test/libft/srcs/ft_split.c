@@ -72,14 +72,16 @@ char	**ft_split(char const *s, char c)
 		return (0);
 	i = -1;
 	len = 0;
-	if (!(tmp = (char **)malloc(sizeof(char *) * (ft_wordcount(s, c) + 1))))
+	tmp = (char **)malloc(sizeof(char *) * (ft_wordcount(s, c) + 1));
+	if (!tmp)
 		return (0);
 	tmp_s = (char *)s;
 	while (++i < ft_wordcount(s, c))
 	{
 		tmp_s = ft_find_first(tmp_s, c);
 		len = ft_wordlen(tmp_s, c);
-		if (!(tmp[i] = (char *)malloc(sizeof(char *) * (len + 1))))
+		tmp[i] = (char *)malloc(sizeof(char *) * (len + 1));
+		if (!tmp[i])
 			return (0);
 		ft_memmove(tmp[i], tmp_s, len + 1);
 		tmp[i][len] = '\0';

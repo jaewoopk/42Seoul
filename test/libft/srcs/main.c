@@ -1,4 +1,4 @@
-#include "libft.h"
+/*#include "libft.h"
 
 int	main(void)
 {
@@ -126,4 +126,4 @@ int	main(void)
 	printf("strchr answer is %s\n\n\n", strchr(name,charac));
 	printf("my ft_strchr answer is %s\n", ft_strchr(name,charac));
 	return (0);
-}
+}*/

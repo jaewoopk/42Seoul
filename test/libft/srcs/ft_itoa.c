@@ -24,7 +24,8 @@ char	*ft_min_n(int n)
 {
 	char		*tmp_n;
 
-	if (!(tmp_n = (char *)malloc(sizeof(char) * (ft_ilen(-n) + 2))))
+	tmp_n = (char *)malloc(sizeof(char) * (ft_ilen(-n) + 2));
+	if (!tmp_n)
 		return (0);
 	tmp_n[0] = '-';
 	tmp_n[1] = '2';
@@ -50,7 +51,8 @@ char	*ft_minus_n(int n)
 
 	minus_n = -n;
 	count = ft_ilen(minus_n);
-	if (!(tmp_n = (char *)malloc(sizeof(char) * (count + 2))))
+	tmp_n = (char *)malloc(sizeof(char) * (count + 2));
+	if (!tmp_n)
 		return (0);
 	i = count;
 	while (i)
@@ -80,7 +82,8 @@ char	*ft_itoa(int n)
 	else
 	{
 		count = ft_ilen(n);
-		if (!(tmp_n = (char *)malloc(sizeof(char) * (count + 1))))
+		tmp_n = (char *)malloc(sizeof(char) * (count + 1));
+		if (!tmp_n)
 			return (0);
 		i = count - 1;
 		while (i > -1)

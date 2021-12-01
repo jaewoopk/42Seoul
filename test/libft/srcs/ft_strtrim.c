@@ -58,7 +58,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (*tmp_s1 == '\0')
 		return (tmp_s1);
 	len = ft_checkblank2(tmp_s1, set);
-	if (!(tmp = (char *)malloc(sizeof(char) * (len + 2))))
+	tmp = (char *)malloc(sizeof(char) * (len + 2));
+	if (!tmp)
 		return (0);
 	ft_memmove(tmp, tmp_s1, len + 1);
 	tmp[len + 1] = '\0';

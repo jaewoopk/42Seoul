@@ -8,7 +8,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (s == 0)
 		return (0);
-	if (!(tmp = (char *)malloc(sizeof(char) * (len + 1))))
+	tmp = (char *)malloc(sizeof(char) * (len + 1));
+	if (!tmp)
 		return (0);
 	if (start < ft_strlen(s))
 		ft_memmove(tmp, s + start, len);

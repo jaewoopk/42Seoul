@@ -54,9 +54,11 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	if (s1 == 0)
 		return (0);
+	if (set == 0)
+		return (ft_strdup(""));
 	tmp_s1 = ft_checkblank1((char *)s1, set);
 	if (*tmp_s1 == '\0')
-		return (tmp_s1);
+		return (ft_strdup(""));
 	len = ft_checkblank2(tmp_s1, set);
 	tmp = (char *)malloc(sizeof(char) * (len + 2));
 	if (!tmp)

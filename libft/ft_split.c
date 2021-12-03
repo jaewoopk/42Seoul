@@ -71,7 +71,6 @@ char	**ft_split(char const *s, char c)
 	if (s == 0)
 		return (0);
 	i = -1;
-	len = 0;
 	tmp = (char **)malloc(sizeof(char *) * (ft_wordcount(s, c) + 1));
 	if (!tmp)
 		return (0);
@@ -80,11 +79,10 @@ char	**ft_split(char const *s, char c)
 	{
 		tmp_s = ft_find_first(tmp_s, c);
 		len = ft_wordlen(tmp_s, c);
-		tmp[i] = (char *)malloc(sizeof(char *) * (len + 1));
+		tmp[i] = (char *)malloc(sizeof(char) * (len + 1));
 		if (!tmp[i])
 			return (0);
-		ft_memmove(tmp[i], tmp_s, len + 1);
-		tmp[i][len] = '\0';
+		ft_strlcpy(tmp[i], tmp_s, len + 1);
 		tmp_s += len;
 	}
 	tmp[ft_wordcount(s, c)] = 0;

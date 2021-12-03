@@ -1,9 +1,9 @@
 = Host-specific information ====================================================
 $> hostname; uname -msr
-c5r4s1.42seoul.kr
+c7r6s8.42seoul.kr
 Darwin 19.6.0 x86_64
 $> date
-Wed Dec  1 16:43:05 KST 2021
+Fri Dec  3 13:23:41 KST 2021
 $> gcc --version
 Apple clang version 12.0.0 (clang-1200.0.32.28)
 Target: x86_64-apple-darwin19.6.0
@@ -63,7 +63,7 @@ $> make bonus
 make: *** No rule to make target `bonus'.  Stop.
 
 $> ls -la libft.a
--rw-r--r--  1 jaewopar  2021_seoul  33584 Dec  1 16:43 /Users/jaewopar/desktop/test/dirlibft/libft.a
+-rw-r--r--  1 jaewopar  2021_seoul  33568 Dec  3 13:23 /Users/jaewopar/desktop/test/dirlibft/libft.a
 
 = Part2_functions ==============================================================
 

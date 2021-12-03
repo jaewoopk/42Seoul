@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/03 13:19:22 by jaewopar          #+#    #+#             */
+/*   Updated: 2021/12/03 13:29:39 by jaewopar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 size_t	ft_ilen(int n);
@@ -49,6 +61,8 @@ char	*ft_minus_n(int n)
 	int			minus_n;
 	char		*tmp_n;
 
+	if (n == -2147483648)
+		return (ft_min_n(n));
 	minus_n = -n;
 	count = ft_ilen(minus_n);
 	tmp_n = (char *)malloc(sizeof(char) * (count + 2));
@@ -73,24 +87,18 @@ char	*ft_itoa(int n)
 	char		*tmp_n;
 
 	if (n < 0)
-	{
-		if (n == -2147483648)
-			tmp_n = ft_min_n(n);
-		else
-			tmp_n = ft_minus_n(n);
-	}
+		tmp_n = ft_minus_n(n);
 	else
 	{
 		count = ft_ilen(n);
 		tmp_n = (char *)malloc(sizeof(char) * (count + 1));
 		if (!tmp_n)
 			return (0);
-		i = count - 1;
-		while (i > -1)
+		i = count;
+		while (--i > -1)
 		{
 			tmp_n[i] = '0' + (n % 10);
 			n /= 10;
-			i--;
 		}
 		tmp_n[count] = '\0';
 	}

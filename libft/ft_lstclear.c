@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/06 19:00:28 by jaewopar          #+#    #+#             */
-/*   Updated: 2021/12/06 19:00:29 by jaewopar         ###   ########.fr       */
+/*   Created: 2021/12/06 18:59:59 by jaewopar          #+#    #+#             */
+/*   Updated: 2021/12/06 19:00:00 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst);
+void	ft_lstclear(t_list **lst, void (*del)(void *));
 
-t_list	*ft_lstlast(t_list *lst)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
+	t_list	*tmp;
+
 	if (!lst)
-		return (NULL);
-	while (lst->next)
+		return ;
+	if (!(*lst))
+		return ;
+	tmp = *lst;
+	while (*lst)
 	{
-		lst = lst->next;
+		*lst = tmp->next;
+		del(tmp->content);
+		free(tmp);
+		tmp = *lst;
 	}
-	return (lst);
 }

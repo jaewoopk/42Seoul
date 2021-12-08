@@ -6,7 +6,7 @@
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 19:04:20 by jaewopar          #+#    #+#             */
-/*   Updated: 2021/12/06 19:04:22 by jaewopar         ###   ########.fr       */
+/*   Updated: 2021/12/08 14:37:09 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <string.h>
-# include <ctype.h>
-# include <memory.h>
 
 typedef struct s_list
 {

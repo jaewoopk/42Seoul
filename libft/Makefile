@@ -6,9 +6,11 @@
 #    By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/06 19:04:48 by jaewopar          #+#    #+#              #
-#    Updated: 2021/12/06 20:13:07 by jaewopar         ###   ########.fr        #
+#    Updated: 2021/12/08 14:16:35 by jaewopar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+NAME = libft.a
 
 CC = gcc
 
@@ -47,45 +49,39 @@ SRCS = ft_memset.c \
 	   ft_putchar_fd.c \
 	   ft_putstr_fd.c \
 	   ft_putendl_fd.c \
-	   ft_putnbr_fd.c \
+	   ft_putnbr_fd.c
 
-BONUS = ft_lstnew.c \
-		ft_lstadd_front.c \
-		ft_lstadd_back.c \
-		ft_lstsize.c \
-		ft_lstlast.c \
-		ft_lstclear.c \
-		ft_lstdelone.c \
-		ft_lstiter.c \
-		ft_lstmap.c
+SRCS_BONUS = ft_lstnew.c \
+	ft_lstadd_front.c \
+	ft_lstadd_back.c \
+	ft_lstsize.c \
+	ft_lstlast.c \
+	ft_lstclear.c \
+	ft_lstdelone.c \
+	ft_lstiter.c \
+	ft_lstmap.c
 
 OBJS = $(SRCS:.c=.o)
 
-BONUS_OBJS = $(BONUS:.c=.o)
-
-NAME = libft.a
+OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
 all:	$(NAME)
 
-.c.o:
+%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
-
 	ar -rc $@ $(OBJS)
 
-bonus: $(OBJS) $(BONUS_OBJS)
-
-	ar rc $@ $(OBJS) $(BONUS_OBJS)
+bonus: $(OBJS_BONUS)
+	ar -rc $(NAME) $(OBJS_BONUS)
 
 clean:
-
 	rm -f *.o
 
-fclean:
-
+fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY : all clean fclean re
+.PHONY : all clean fclean re bonus

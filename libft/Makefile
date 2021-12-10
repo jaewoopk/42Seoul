@@ -65,16 +65,22 @@ OBJS = $(SRCS:.c=.o)
 
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
+ifdef WITH_BONUS
+	OBJ_FILES = $(OBJS_BONUS)
+else
+	OBJ_FILES = $(OBJS)
+endif
+
 all:	$(NAME)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
-	ar -rc $@ $(OBJS)
+	ar -rc WITH_BONUS=0 $@ $(OBJS_FILES)
 
 bonus: $(OBJS_BONUS)
-	ar -rc $(NAME) $(OBJS_BONUS)
+	ar -rc WITH_BONUS=1 $(NAME) $(OBJ_FILES)
 
 clean:
 	rm -f *.o

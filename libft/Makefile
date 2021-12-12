@@ -6,7 +6,7 @@
 #    By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/06 19:04:48 by jaewopar          #+#    #+#              #
-#    Updated: 2021/12/08 14:16:35 by jaewopar         ###   ########.fr        #
+#    Updated: 2021/12/12 16:44:32 by jaewopar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,22 +65,16 @@ OBJS = $(SRCS:.c=.o)
 
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
-ifdef WITH_BONUS
-	OBJ_FILES = $(OBJS_BONUS)
-else
-	OBJ_FILES = $(OBJS)
-endif
-
 all:	$(NAME)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
-	ar -rc WITH_BONUS=0 $@ $(OBJS_FILES)
+	ar -rc $(NAME) $(OBJS)
 
 bonus: $(OBJS_BONUS)
-	ar -rc WITH_BONUS=1 $(NAME) $(OBJ_FILES)
+	@make OBJS="$(OBJS_BONUS)" all
 
 clean:
 	rm -f *.o

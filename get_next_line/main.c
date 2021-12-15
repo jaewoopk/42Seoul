@@ -23,6 +23,7 @@ int main()
 	int				fd1;
 	int				fd2;
 	static int		cnt;
+	char			*buf;
 
 	cnt = 0;
 	limit = sysconf(_SC_OPEN_MAX);
@@ -46,12 +47,28 @@ int main()
 	fd = open("test.txt", O_RDONLY);
 	if (fd < 0)
 		printf("file open error\n");
-	/*else
+	else
 	{
 		cnt = 0;
 		buf = get_next_line(fd);
 		printf("%s\n",buf);
+		buf = get_next_line(fd);
+		printf("%s\n",buf);
+		buf = get_next_line(fd);
+		printf("%s\n",buf);
+		buf = get_next_line(fd);
+		printf("%s\n",buf);
+		buf = get_next_line(fd);
+		printf("%s\n",buf);
+		buf = get_next_line(fd);
+		printf("%s\n",buf);
+		buf = get_next_line(fd);
+		printf("%s\n",buf);
+		buf = get_next_line(fd);
+		printf("%s\n",buf);
+		buf = get_next_line(fd);
+		printf("%s\n",buf);
 		close(fd);
-	}*/
+	}
 	return (0);
 }

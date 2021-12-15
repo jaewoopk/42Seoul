@@ -1,30 +1,29 @@
 #include "get_next_line.h"
 
-size_t	ft_findNewline(int fd)
-{
-	size_t		i;
-	char		buff[BUFFER_SIZE];
-
-	i = 1;
-	while (1)
-	{
-		read(fd, buff, 1);
-		if (*buff == '\n' || *buff == 0)
-			return (i);
-		i++;
-	}
-	return (i);
-}
-
 char	*get_next_line(int fd)
 {
-	char		buf[BUFFER_SIZE];
-	char		*tmp;
+	static char			*tmp;
+	char				buf[BUFFER_SIZE + 1];
+	static size_t		i = 0;
+	static size_t		cut = 0;
 
 	if (fd < 0)
 		return (0);
-	tmp = (char *)malloc(sizeof(char) * ft_findNewline(fd) + 1);
-	read(fd, buf, ft_findNewline(fd));
-	ft_strlcpy(tmp, buf, ft_findNewline(fd) + 1);
+	read(fd, buf, BUFFER_SIZE);
+	buf[BUFFER_SIZE] = '\0';
+	while (1)
+	{
+		if (buf[i] == '\n' || buf[i] == 0)
+			break;
+		i++;
+	}
+	tmp = (char *)malloc(sizeof(char) * (i + 1 - cut));
+	if (!tmp)
+		return (0);
+	ft_strlcpy(tmp, buf + cut, i + 1 - cut);
+	if (!tmp)
+		return (0);
+	i++;
+	cut = i;
 	return (tmp);
 }

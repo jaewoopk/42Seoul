@@ -1,15 +1,30 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include "get_next_line_utils.c"
+
+size_t	ft_findEnter(char *buf)
+{
+	int		cnt;
+
+	cnt = 0;
+	while (*buf != 0 || *buf != '\n')
+	{
+		cnt++;
+		buf++;
+	}
+	return (cnt);
+}
 
 int main()
 {
-	long	limit;
-	int		fd;
-	int		fd1;
-	int		fd2;
-	char	buf[BUFFER_SIZE];
+	long			limit;
+	int				fd;
+	int				fd1;
+	int				fd2;
+	static int		cnt;
 
+	cnt = 0;
 	limit = sysconf(_SC_OPEN_MAX);
 	printf("%ld File Descriptors can be used\n", limit);
 
@@ -31,11 +46,12 @@ int main()
 	fd = open("test.txt", O_RDONLY);
 	if (fd < 0)
 		printf("file open error\n");
-	else
+	/*else
 	{
-		read(fd, buf, sizeof(buf));
+		cnt = 0;
+		buf = get_next_line(fd);
 		printf("%s\n",buf);
 		close(fd);
-	}
+	}*/
 	return (0);
 }

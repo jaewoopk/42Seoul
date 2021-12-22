@@ -1,29 +1,69 @@
 #include "get_next_line.h"
 
+static char	*ft_rdline(int fd, char *buf, char *backup)
+{
+	int			byte;
+	char		*tmp;
+
+	byte = 1;
+	while (byte)
+	{
+		byte = read(fd, buf, BUFFER_SIZE);
+		if (byte == -1)
+			return (0);
+		else if (byte == 0)
+			break ;
+		buf[byte] = '\0';
+		if (!backup)
+			backup = ft_strdup("");
+		tmp = backup;
+		backup = ft_strjoin(tmp, buf);
+		if (!backup)
+			return (0);
+		free(tmp);
+		if (ft_strchr(buf, '\n'))
+			break ;
+	}
+	return (backup);
+}
+
+static char	*ft_line(char *line)
+{
+	int		i;
+	char	*tmp;
+
+	i = 0;
+	while (line[i] != '\n' && line[i] != '\0')
+		i++;
+	if (line[i] == '\0')
+		return (0);
+	tmp = ft_substr(line, i + 1, ft_strlen(line) - i);
+	if (!tmp)
+		return (0);
+	if (tmp[0] == '\0')
+	{
+		free(tmp);
+		return (0);
+	}
+	line[i + 1] = '\0';
+	return (tmp);
+}
+
 char	*get_next_line(int fd)
 {
-	static char			*tmp;
-	char				buf[BUFFER_SIZE + 1];
-	static size_t		i;
-	static size_t		cut;
+	char			*buf;
+	char			*line;
+	static char		*backup;
 
-	if (fd < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
-	read(fd, buf, BUFFER_SIZE);
-	buf[BUFFER_SIZE] = '\0';
-	while (1)
-	{
-		if (buf[i] == '\n' || buf[i] == 0)
-			break;
-		i++;
-	}
-	tmp = (char *)malloc(sizeof(char) * (i + 1 - cut));
-	if (!tmp)
+	buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!buf)
 		return (0);
-	ft_strlcpy(tmp, buf + cut, i + 1 - cut);
-	if (!tmp)
+	line = ft_rdline(fd, buf, backup);
+	free(buf);
+	if (!line)
 		return (0);
-	i++;
-	cut = i;
-	return (tmp);
+	backup = ft_line(line);
+	return (line);
 }

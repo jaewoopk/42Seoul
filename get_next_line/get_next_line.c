@@ -4,8 +4,8 @@ char	*get_next_line(int fd)
 {
 	static char			*tmp;
 	char				buf[BUFFER_SIZE + 1];
-	static size_t		i = 0;
-	static size_t		cut = 0;
+	static size_t		i;
+	static size_t		cut;
 
 	if (fd < 0)
 		return (0);

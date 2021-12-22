@@ -51,23 +51,19 @@ int main()
 	{
 		cnt = 0;
 		buf = get_next_line(fd);
-		printf("%s\n",buf);
+		printf("[%s]",buf);
 		buf = get_next_line(fd);
-		printf("%s\n",buf);
+		printf("[%s]",buf);
 		buf = get_next_line(fd);
-		printf("%s\n",buf);
+		printf("[%s]",buf);
 		buf = get_next_line(fd);
-		printf("%s\n",buf);
+		printf("[%s]",buf);
 		buf = get_next_line(fd);
-		printf("%s\n",buf);
+		printf("[%s]",buf);
 		buf = get_next_line(fd);
-		printf("%s\n",buf);
+		printf("[%s]",buf);
 		buf = get_next_line(fd);
-		printf("%s\n",buf);
-		buf = get_next_line(fd);
-		printf("%s\n",buf);
-		buf = get_next_line(fd);
-		printf("%s\n",buf);
+		printf("[%s]",buf);
 		close(fd);
 	}
 	return (0);

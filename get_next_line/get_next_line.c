@@ -6,12 +6,25 @@
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 18:07:32 by jaewopar          #+#    #+#             */
-/*   Updated: 2021/12/22 18:10:05 by jaewopar         ###   ########.fr       */
+/*   Updated: 2022/01/05 15:42:29 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
+
+char	*ft_get_enter(const char *s, int c)
+{
+	size_t	i;
+
+	i = 0;
+	while (i <= ft_strlen(s))
+	{
+		if (s[i] == (char)c)
+			return ((char *)(s + i));
+		i++;
+	}
+	return (0);
+}
 
 static char	*ft_rdline(int fd, char *buf, char *backup)
 {
@@ -34,7 +47,7 @@ static char	*ft_rdline(int fd, char *buf, char *backup)
 		if (!backup)
 			return (0);
 		free(tmp);
-		if (ft_strchr(buf, '\n'))
+		if (ft_get_enter(buf, '\n'))
 			break ;
 	}
 	return (backup);

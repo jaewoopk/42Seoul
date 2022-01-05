@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/05 15:42:21 by jaewopar          #+#    #+#             */
+/*   Updated: 2022/01/05 15:42:22 by jaewopar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
 size_t	ft_strlen(const char *s)
@@ -8,20 +20,6 @@ size_t	ft_strlen(const char *s)
 	while (s[i])
 		i++;
 	return (i);
-}
-
-char	*ft_strchr(const char *s, int c)
-{
-	size_t	i;
-
-	i = 0;
-	while (i <= ft_strlen(s))
-	{
-		if (s[i] == (char)c)
-			return ((char *)(s + i));
-		i++;
-	}
-	return (0);
 }
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
@@ -40,29 +38,6 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	return (ft_strlen(src));
 }
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
-{
-	size_t		i;
-	size_t		j;
-	size_t		dst_len;
-	size_t		src_len;
-
-	dst_len = ft_strlen(dst);
-	src_len = ft_strlen(src);
-	i = dst_len;
-	j = 0;
-	if (dst_len > dstsize)
-		return (dstsize + src_len);
-	while (i + 1 < dstsize && src[j])
-	{
-		dst[i] = src[j];
-		i++;
-		j++;
-	}
-	dst[i] = '\0';
-	return (dst_len + src_len);
-}
-
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*tmp;
@@ -75,7 +50,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!tmp)
 		return (0);
 	ft_strlcpy(tmp, s1, ft_strlen(s1) + 1);
-	ft_strlcat(tmp, s2, len + 1);
+	ft_strlcpy(tmp + ft_strlen(s1), s2, len + 1);
 	tmp[len] = '\0';
 	return (tmp);
 }

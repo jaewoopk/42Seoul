@@ -6,7 +6,7 @@
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 16:01:04 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/01/05 16:51:45 by jaewopar         ###   ########.fr       */
+/*   Updated: 2022/01/05 20:24:23 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ char	*get_next_line(int fd)
 {
 	char			*buf;
 	char			*line;
-	static char		*backup[4097];
+	static char		*backup[256];
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);

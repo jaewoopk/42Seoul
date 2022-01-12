@@ -50,3 +50,8 @@ aws의 인스턴스 서버에 접속하여 해당 머신에 명령을 내리기 
 Ubuntu Firewall의 약자로, 우분투의 기본적인 방화벽을 뜻한다.
 
 참고한 링크 : https://tbonelee.tistory.com/m/16
+
+macbook m1에서 먼저 가상환경을 통해 경험해보려했으나
+
+현재 VM은 m1에서 동작하지 않아서 해보지 못했다.
+

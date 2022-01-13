@@ -49,8 +49,6 @@ aws의 인스턴스 서버에 접속하여 해당 머신에 명령을 내리기 
 
 Ubuntu Firewall의 약자로, 우분투의 기본적인 방화벽을 뜻한다.
 
-참고한 링크 : https://tbonelee.tistory.com/m/16
-
 9. 가상 머신
 
 가상 머신이란, 하나의 컴퓨터로 다른 운영체제를 실행하고자 할 때 소프트웨어로 하드웨어 기능을 시뮬레이션하여 실행하는 것이다.
@@ -67,3 +65,6 @@ macbook m1에서 먼저 가상환경을 통해 경험해보려했으나
 
 가장 중요한 VM을 통해 데비안을 설치하는 것이 안된다. 문제점을 해결하기 위해 다른 방법을 찾아봐야할 것 같다.
 
+참고한 링크 : https://tbonelee.tistory.com/m/16
+https://www.tecmint.com/difference-between-apt-and-aptitude/
+https://jjjaeu.tistory.com/33

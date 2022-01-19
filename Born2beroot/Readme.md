@@ -66,5 +66,7 @@ macbook m1에서 먼저 가상환경을 통해 경험해보려했으나
 가장 중요한 VM을 통해 데비안을 설치하는 것이 안된다. 문제점을 해결하기 위해 다른 방법을 찾아봐야할 것 같다.
 
 참고한 링크 : https://tbonelee.tistory.com/m/16
+
 https://www.tecmint.com/difference-between-apt-and-aptitude/
+
 https://jjjaeu.tistory.com/33

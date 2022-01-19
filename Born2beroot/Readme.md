@@ -65,8 +65,14 @@ macbook m1에서 먼저 가상환경을 통해 경험해보려했으나
 
 가장 중요한 VM을 통해 데비안을 설치하는 것이 안된다. 문제점을 해결하기 위해 다른 방법을 찾아봐야할 것 같다.
 
+debian의 iso파일의 버전이 11이 넘어갈 경우, 제대로 실행이 되지 않는 것을 발견했다.
+
+버전 10의 iso파일을 받은 후, goinfre의 경로로 설정하여 다운로드를 진행해야 제대로 설치가 된다.
+
 참고한 링크 : https://tbonelee.tistory.com/m/16
 
 https://www.tecmint.com/difference-between-apt-and-aptitude/
 
 https://jjjaeu.tistory.com/33
+
+https://m.blog.naver.com/dudwo567890/130158001734

@@ -47,7 +47,7 @@ aws의 인스턴스 서버에 접속하여 해당 머신에 명령을 내리기 
 
 8. UFW
 
-Ubuntu Firewall의 약자로, 우분투의 기본적인 방화벽을 뜻한다.
+Uncomplication Firewall의 약자로, 우분투의 기본적인 방화벽을 뜻한다.
 
 9. 가상 머신
 

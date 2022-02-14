@@ -1,3 +1,28 @@
+### 1. **CentOS와 데비안의 주요 차이점**
+
+둘의 차이점을 정리하자면 다음과 같다.
+
+- 데비안은 일반적으로 최신 패키지가 더 많고 최신 버전으로 업그레이드하기 쉽다. 많은 사람들이 Red Hat Linux로 GNU/Linux를 시작했으며 데스크탑에서는 항상 CentOS와 Fedora를 사용해 왔다.
+- CentOS에 더 익숙 하고 [CentOS](https://www.educba.com/what-is-centos/)로 작업하는 데 더 익숙하거나 오랫동안 사용해 왔다면 Debian으로 마이그레이션할 실제 이유가 없다. CentOS와 Debian은 모두 웹 서버나 다른 서버에 설치할 GNU/Linux 배포판을 선택할 때 선택할 수 있는 최상의 옵션이다.
+- Web Server를 설치할 때 명심해야 할 것이 있다. 이 서버를 리셀러 도구로 사용하려는 경우 cPanel이라는 도구를 설치하고 싶을 수 있으며, 이 경우 공식적으로 지원되는 CentOS를 사용하는 것이 좋다.
+
+### 2. Apt와 Aptitude의 주요 차이점
+
+둘의 차이점을 정리하자면 다음과 같다.
+
+- Aptitude는 Apt의 상위 수준 패키지 관리자라고 생각하면 된다. Aptitude는 Apt보다 기능면에서 더 광범위하며 apt-get, apt-mark, apt-cache를 포함한 기타 변형을 통합한다.
+- Apt는 모든 패키지 설치, 업그레이드, 시스템 업그레이드 등을 처리하기 위해 옵션과 명령을 적절히 사용해야한다면, Aptitude는 패키지를 자동 또는 수동으로 설치할 수 있도록 표시하고, 패키지를 업그레이드할 수 없도록 유지하는 등의 작업을 수행할 수 있다.
+- Aptitude는 패키지를 검색하는데 사용할 수 있는 강력한 검색을 제공한다. Apt는 패키지를 검색하기 위해서 apt-get이 아닌 apt-cache가 필요한 것 처럼 Apt의 변형을 줘야 한다.
+
+### 3. SELinux와 AppArmor의 주요 차이점
+
+둘의 차이점을 정리하자면 다음과 같다.
+
+- SELinux는 CentOS에서 채택하고 있는 리눅스 보안 아키텍처이고, AppArmor는 데비안에서 채택하고 있는 리눅스 보안 아키텍처이다. 둘은 매우 비슷한 형태를 지니고 있지만, AppArmor가 SELinux에 비해 보안프로필이 사용자 친화적이고, 덜 복잡하며, 더 적은 수 의 작업을 제어한다.
+- SELinux와 AppArmor 모두 주체 (프로세스 혹은 사용자)가 객체 (파일, 디렉터리 등)에 엑세스할 수 있도록 허용하는 규칙을 기반으로 이를 제어할 수 있도록 Type Enforcement 보안 모델을 지원한다. 그러나 AppArmor에는 MLS(Multi-Level Security)와 MCS(Multi-Category Security)가 없다. 이는 AppArmor에서는 컨테이너들 사이의 seperation을 유지할 수 없다는 것을 의미한다.
+- SELinux는 AppArmor보다 시스템에서 더 많은 작업을 제어하고 기본적으로 컨테이너를 분리하는 더 복잡한 기술이기 때문에, 제어와 환경 면에서 SELinux가 더 광범위하게 적용될 수 있다.
+
+
 born2beroot라는 과제의 큰 틀은 “나의 첫 번째 서버를 설정할 수 있느냐” 이다.
 
 따라서 이를 과제에 맞게 구현하기 위해 크게 5가지의 역량을 요구하고 있다.

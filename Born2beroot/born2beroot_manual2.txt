@@ -22,8 +22,7 @@
 - SELinux와 AppArmor 모두 주체 (프로세스 혹은 사용자)가 객체 (파일, 디렉터리 등)에 엑세스할 수 있도록 허용하는 규칙을 기반으로 이를 제어할 수 있도록 Type Enforcement 보안 모델을 지원한다. 그러나 AppArmor에는 MLS(Multi-Level Security)와 MCS(Multi-Category Security)가 없다. 이는 AppArmor에서는 컨테이너들 사이의 seperation을 유지할 수 없다는 것을 의미한다.
 - SELinux는 AppArmor보다 시스템에서 더 많은 작업을 제어하고 기본적으로 컨테이너를 분리하는 더 복잡한 기술이기 때문에, 제어와 환경 면에서 SELinux가 더 광범위하게 적용될 수 있다.
 
-
-born2beroot라는 과제의 큰 틀은 “나의 첫 번째 서버를 설정할 수 있느냐” 이다.
+born2beroot라는 과제의 큰 틀은 “나의 첫 번째 서버를 설정할 수 있냐” 이다.
 
 따라서 이를 과제에 맞게 구현하기 위해 크게 5가지의 역량을 요구하고 있다.
 
@@ -37,7 +36,13 @@ born2beroot라는 과제의 큰 틀은 “나의 첫 번째 서버를 설정할 
 
 이를 수행하기 위해 세세한 항목들을 중심으로 다섯 가지 역량을 진행해보려 한다.
 
-첫 번째, 과제에서 제시한 대로 cent os나 데비안을 virtualbox를 통해 실행시킬 수 있는가.
+데비안 10.10버전 링크
+
+[http://cdimage.debian.org/cdimage/archive/10.10.0/amd64/iso-cd/](http://cdimage.debian.org/cdimage/archive/10.10.0/amd64/iso-cd/)
+
+---
+
+**첫 번째, 과제에서 제시한 대로 cent os나 데비안을 virtualbox를 통해 실행시킬 수 있는가.**
 
 1. virtualbox는 cluster mac에서 앱스토어를 통해 설치할 수 없으므로 managed software center를 통해 설치한다.
 2. cent os같은 경우 용량이 너무 크고, 서버를 처음 다루기에는 어려운 이슈가 있으므로 본 과제는 데비안으로 진행한다.
@@ -54,12 +59,143 @@ born2beroot라는 과제의 큰 틀은 “나의 첫 번째 서버를 설정할 
 13. 파치션을 분리하기 위해 seperate home partiton을 고른다.
 14. 기존 드라이브를 LVM으로 분할 및 덮어쓰기, 그리고 사용하기 위해 yes를 고른다.
 15. 암호화된 LVM에 대한 비밀번호를 설정한다.
-16. LVM 분할 볼륨을 추천해준  8.1gb로 설정한다.
+16. LVM 분할 볼륨을 추천해준  8.1gb로 설정하고, disk를 덮어 쓰기 위해 yes를 고른다.
 17. 이 후, 국가와 설정등을 설정해준 뒤, update, upgrade 및 프로그램 추가를 위한 미러사이트를 추천해준 대로 설정한다.
 18. iso파일에는 핵심부분만 설치되어 있기 때문에 software selection의 경우 체크되어있는 부분을 추가로 설치한다. (ssh,standard system utilities)
 19. grub(Grand Unified Bootloader)를 master boot record로 설정하는 것에 대해서는 서브젝트에 명시된것이 없기 때문에 no를 선택하여 설정하지 않는다.
 20. 과제에 명시된 부트 경로 지정을 위해 manually로 설정하고, 이에 대해 과제에서 제시한대로 경로를 /dev/sda1로 설정해준다.
-21. continue를 눌러 설치를 마무리한다.
+21. continue를 눌러 설치를 마무리한다. 
+
+---
+
+**두 번째, ssh와 ufw등 과제에서 제시한대로 나의 서버에 설정을 마칠 수 있는가.**
+
+AppArmor 가동 시키기
+
+1. 먼저 su - 명령어를 통해 패스워드를 입력한 후 root계정으로 이동한다.
+2. apparmor가 설치되어 있는지 확인하기 위해 dpkg -l apparmor를 입력하여 여부를 확인한다.
+3. apparmor가 설치되어 있지 않다면 apt install apparmor를 통해 설치한다.
+4. apparmor utils도 설치하기 위해 apt install apparmor-utils를 통해 설치한다.
+5. aa-enabled를 통해 apparmor의 활성화 여부를 파악할 수 있다.
+
+- **AppArmor란?**
+
+- 시스템 관리자가 응용 프로그램의 역량, 권한을 제한할 수 있도록 하는 리눅스 커널 보안 모듈이다. 프로그램의 프로필을 통하여 네트워크 엑세스, raw 소켓 엑세스, 파일의 읽기, 쓰기 실행 권한 등 해당 프로그램이 취할 수 있는 작업을 제한하고 관리한다.
+
+ssh 설정하기
+
+1. apt search openssh-server 명령어를 통해 openssh가 설치되어있는지 확인한다.
+2. 설치되어 있지 않다면, apt install open ssh-server를 통해 설치한다.
+3. systemctl status ssh 명령어를 통해 openssh  실행 여부와 사용 포트를 확인한다. (active 및  port 22)
+4. sudo vim /etc/ssh/sshd_config 명령어를 통해 ssh설정을 변경한다. (이전에 sudo apt install vim 설치)
+5. 과제에서 제시한대로 Port 22라고 되어있는 부분을 주석처리를 삭제하고  Port 4242로 변경해준다.
+6. 과제에서 제시한대로 PertminRootLogin 부분을 no로 바꾼뒤 주석처리를 삭제한다. → 외부에서 root로 로그인하는 것을 방지한다. 
+7. sudo systemctl restart ssh 명령어를 통해 ssh를 재시작하며, 바꾼 설정을 적용한다.
+
+- **SSH란?**
+
+- SSH는 Secure Shell의 줄임말로, 원격 호스트에 접속하기 위해 사용되는 보안 프로토콜이다. ssh는 키를 통해 사용자(클라이언트)와 서버(호스트)를 상대로 연결 시켜준다. 이 때 사용되는 것이 개인 키와 공개 키이다. 대표적으로 깃 푸시와 같은 데이터 전송과 aws 클라우드 서비스와 같은 원격제어가 있다.
+
+ufw 설정하기
+
+1. sudo apt install ufw 명령어로 ufw를 설치한다.
+2. sudo ufw status verbose 명령어로 ufw 상태를 확인한다.
+3. sudo ufw enable 명령어로 부팅 시 ufw가 활성화 되도록 설정한다.
+4. sudo ufw default deny 명령어로 기본 incoming deny가 되게 설정한다.
+5. sudo ufw allow 4242 명령어를 통해 ssh 연결을 허용한다.
+6. ufw 정책을 삭제하기 위해 sudo ufw status numberd으로 Rule의 상태를 조회한다.
+7. sudo ufw delete RULEINUM을 통해 RULEINIUM에 해당하는 포트에 대한 Rule을 삭제할 수 있다.
+
+→ sudo ufw - -help를 통해 ufw command를 확인할 수 있다.
+
+- **UFW란?**
+    
+    
+
+- UFW란 Uncomplicated Firewall의 줄임말로, 데비안 계열 및 다양한 리눅스 환경에서 작동되는 사용하기 쉬운 방화벽 관리 프로그램이다. 간단한 명령 및 명력수가 적은 CLI를 통해 사용하며, 프로그램 구성에는 iptabled가 있다.
+
+고정 ip 확보
+
+1. ss -tunlp 명령어를 통해 4242포트만 열어지는지 혹은 dhclient 항목이 잡히는 지 확인한다.
+2. dhcp, ip를 자동할당 및 반환하는 동적 IP를 받고 있다는 뜻이기에 이를 제거하고 고정 IP를 설정한다.
+3. 가상환경의 ip를 확인하기 위해 ip addr명령어를 사용한다.
+4. 가상환경의 gateway주소를 확인하기 위해 ip route 명령어를 사용한다. (default via 다음 부분이 gateway주소)
+5. /etc/network/interfaces에 현재 IP설정이 있는데, # The primary~ 밑 부분에 기존 설정이 dhcp를 이용한 동적 할당임을 확인한다.
+6. 해당 부분을 주석처리해주고 위에서 확인한 ip와 gateway 주소로 고정한다.
+
+#The primary network interface
+
+#allow-hotplug enp0s3
+
+#iface enp0s3 inet dhcp
+
+auto enp0s3
+
+iface enp0s3 inet static
+
+address 10.0.2.15
+
+netmask 255.255.255.0
+
+gateway 10.0.2.2
+
+1. sudo ifdown enp0s3, sudo ifup enp0s3, sudo reboot를 해준 뒤 ss -tunlp 명령을 통해 dhclient가 사라져 있는 것을 확인할 수 있다.
+
+ifdown : 이더넷 카드 장치를 종료 한다. 일반적으로 새로운 네트워크 설정을 적용하기 위에 ifdown을 사용하여 디바이스를 종료시키고 ifup명령어를 통해 새로운 설정을 적용한다.
+
+ifup : interface 파일에 저장 되어 있는 네트워크 정보로 이더넷 카드에 적용시켜 디바이스를 구동 시킨다.
+
+---
+
+**세 번째, 강력한 패스워드 정책을 설정할 수 있는가.**
+
+1. chage -l jaewopar 를 통해 현재 사용자의 암호를 확인한다.
+2. chage 명령어를 통해 과제에 제시된 것과 같게 패스워드 정책을 설정한다.
+
+1. sudo chage -M 30 -m 2 -W 7 jaewopar를 통해 과제에서 제시된 3개의 조건을 충족시킨다.
+2. chage 명령어 같은 경우는 해당 계정의 패스워드 정책만 바꿀 수 있기 때문에, 후에 생성될 계정들에 대해서도 같은 패스워드 정책을 수행하기 위한 수단을 만들어야 한다.
+3. 따라서 sudo vim /etc/login.defs파일을 들어가 PASSWORD 정책 관련된 부분을 수정해준다
+4. 해당 수정은 PASS_MAX_DAYS 30, PASS_MIN_DAYS 2, PASS_WARN_AGE 7로 설정해준다.
+5. 다른 조건들을 충족시키기 위해 sudo vim /etc/pam.d/common-password 명령어를 통해 해당 파일에 들어간다.
+6. 먼저 해당 파일을 수정하기 전에, 패스워드 정책 설정을 위해 apt install libpam-cracklib 명령어를 통해 해당하는 모듈을 설치해준다.
+    1. 그러면 password requisie pam_crack~ 줄이 추가된 것을 확인할 수 있다.
+7. 설치된 모듈에 적용될 수 있는 옵션은 다음과 같고, 밑에 나와있는 부분을 통해 과제에 제시된 패스워드 정책을 수행할 수 있다.
+
+**retry=N**                      암호 입력 재시도 가능 횟수
+
+**difok=N**                      이전 암호와의 비교. 최소 N개 이상의 문자가 달라야 함
+
+**minlen=N**                   암호의 최소 길이
+
+**dcredit=N                  (N < 0)** 암호가 포함해야 하는 숫자의 최소 개수                                   **(N >= 0)** 숫자에 주어지는 credit 값
+
+**ucredit=N**                  알파벳 대문자
+
+**lcredit=N**                   알파벳 소문자
+
+**ocredit=N**                  숫자 / 알파벳을 제외한 기타 문자
+
+**minclass=N**               암호에 있어야 하는 최소 문자 종류. (숫자, 대문자, 소문자, 기타 문자) 의 네 종류 중 N 가지가 있어야 함
+
+**maxrepeat=N**           연속된 같은 문자를 N개까지만 허용
+
+**maxsequence=N**      단순한 나열의 문자가 N개 이상 있는 암호 거부. N=5 인 경우 'abcde', N=4 인 경우 '9876' 등을 거부함
+
+**maxclassrepeat=N**   같은 종류의 문자를 N개까지만 허용. N=4 인 경우 abcD는 가능하나 abcd 를 거부함
+
+**reject_username**       암호가 계정의 이름을 포함하는지 검사.  root의 경우, root123 / Toor 등을 거부함
+
+**enforce_for_root**       root 계정에도 상기의 옵션들은 적용.
+
+하지만, root에게는 이전 암호를 묻지 않으므로 difok 은 적용되지 않음
+
+→ **retry=3 minlen=10 difok=7 dcredit=-1 lcredit=-1 ucredit=-1 maxrepeat=3 reject_username enforce_for_root** (해당 내용을 pam_cracklib.so 뒤에 붙여주게 되면 암호 입력 재시도 3회, 최소 10글자의 길이, 숫자와 소문자 대문자를 하나씩 포함하고 이전 패스워드와 7글자 이상이 다르며 계정명을 포함하지 않고 같은 글자의 반복을 3자까지만 허용하는 패스워드 정책을 시행할 수 있다.)
+
+1. 현재의 비밀번호가 조건에 부합하지 않을 때, 서브젝트 조건에 맞추어 새로 적용해야 한다.
+2. 계정의 비밀번호는 passwd -e jaewopar로 바꿀 수 있다.
+3. 명령어를 입력하고 logout을 한 뒤, 다시 로그인할 때 비밀번호를 변경할 수 있다.
+
+---
 
 **네 번째, sudo 그룹에 대해 강력한 구성을 설정할 수 있는가.**
 
@@ -80,6 +216,8 @@ sudo 적용
 2. sudo와 user42 그룹에 유저를 추가하기 위해 usermod -aG sudo,user42 jaewopar  명령어를 통해 해당 그룹에 유저를 추가한다. (-a == append 그룹에 추가하는 기능 ,  -G== groups 지정한 그룹들에 유저를 추가하는 기능)
 3. usermod -g user42 jaewopar 명령어를 통해 user42 그룹이 primary group이 되도록 한다. (-g == group ,G옵션과 달리 그룹 하나만 있을 때 사용하는 옵션)
 
+→ id jaewopar 를 통해 확인
+
 - **tty란? teletypewriter, 즉, 표준 입력에 연결된 터미널의 파일 이름을 인쇄하는 유닉스 명령이다.**
 
 - 컴퓨터를 조작할 때 사용하는 입출력 장치를 콘솔이라고 하고 명령조작에 사용하는 애플리케이션이나 OS자체를 콘솔 또는 콘솔애플리케이션이라고 하는데 보통 많은 사람들이 콘솔이라고 부른다. 또한 우리가 많이 사용하는 cmd도 콘솔이고 사용하는 터미널도 콘솔이다.
@@ -88,9 +226,9 @@ sudo 적용
 - **sudoer란?**
 
 - sudo 명령은 해당 명령을 잠시 다른 계정(주로 root)의 권한으로 실행하고자 할 때, 계정 전환 등의 절차 없이 유용하게 사용할 수 있는 명령이다. 다른 계정의 권한을 빌릴 수 있다는 말은 그 계정으로 할 수 있는 모든 일을 할 수 있다는 것을 의미하므로 사용시 유의해야 한다.
-
+    
     보안상 상당히 위해가 될 수 있는 명령이기 때문에 리눅스 시스템에서는 모든 계정에게 sudo 명령을 사용할 수있는 권한을 부여하지 않고, sudoers라는 설정 파일을 통해 이 명령을 사용할 수 있는 계정의 범위를 한정한다.
-
+    
 - **secure_path란?**
 
 - sudo명령 실행 시 현재 계정의 쉘이 아닌 새로운 쉘을 생성하고 그 안에서 명령을 실행하는데, 이 때 명령을 찾을 경로를 나열한 환경변수인 PATH값이 secure_path이다. 이는 트로이목마 해킹 공격에 대한 일차적인 방어 기능을 제공한다.

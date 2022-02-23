@@ -1,6 +1,6 @@
 #!/bin/bash
 
-printf "#Architecture : "
+printf "#Architecture: "
  uname -srvmo
 
 printf "#CPU physical : "
@@ -9,31 +9,29 @@ printf "#CPU physical : "
 printf "#vCPU : "
  cat /proc/cpuinfo | grep processor | wc -l
 
-printf "#Memory Usage : "
- df -BM -a | grep /dev/mapper/ | awk '{sum+=$3}END{print sum}' | tr -d '\n'
-printf "/"
- df -H -a | grep /dev/mapper/ | awk '{sum+=$4}END{print sum}' | tr -d '\n'
-printf "GB ("
- df -BM -a | grep /dev/mapper/ | awk '{sum1+=$3 ; sum2+=$4 }END{printf "%d", sum1 / sum2 * 100}' | tr -d '\n'
-printf "%%)\n"
+printf "#Memory Usage: "
+ free -m | awk 'NR==2{printf "%s/%sMB (%.2f%%)\n", $3,$2,$3*100/$2}'
 
-printf "#CUP load : "
+printf "#Disk Usage: "
+ df -h | awk '$NF=="/"{printf "%d%dGb (%s)\n", $3,$2,$5}'
+
+printf "#CPU load: "
  mpstat | grep all | awk '{printf "%.2f%%\n", 100-%13}'
 
-printf "#Last boot : "
+printf "#Last boot: "
  who -b | sed 's/^ *system boot //g'
 
-printf "#LVM use : "
+printf "#LVM use: "
  if [ "$(lsblk | grep lvm | wc -l)" -gt 0 ] ; then printf "yes\n" ; else printf "no\n" ; fi
 
 printf "#Connections TCP : "
  ss | grep -i tcp | wc -l | tr -d '\n'
 printf " ESTABLISHED\n"
 
-printf "#User log : "
+printf "#User log: "
  who | wc -l
 
-printf "#Network : IP "
+printf "#Network: IP "
  /sbin/ifconfig | grep broadcast | sed 's/inet//g' | sed 's/netmask.*//g' | sed 's/ //g' | tr -d '\n'
 
 printf " ("

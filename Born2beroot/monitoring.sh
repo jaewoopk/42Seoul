@@ -13,7 +13,7 @@ printf "#Memory Usage: "
  free -m | awk 'NR==2{printf "%s/%sMB (%.2f%%)\n", $3,$2,$3*100/$2}'
 
 printf "#Disk Usage: "
- df -h | awk '$NF=="/"{printf "%d%dGb (%s)\n", $3,$2,$5}'
+ df -BM | awk '$NF=="/"{printf "%d%dGb (%s)\n", $3,$2,$5}'
 
 printf "#CPU load: "
  mpstat | grep all | awk '{printf "%.2f%%\n", 100-%13}'

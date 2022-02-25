@@ -1,7 +1,7 @@
 #!/bin/bash
 
 printf "#Architecture: "
- uname -srvmo
+ uname -a
 
 printf "#CPU physical : "
  nproc --all
@@ -13,29 +13,29 @@ printf "#Memory Usage: "
  free -m | awk 'NR==2{printf "%s/%sMB (%.2f%%)\n", $3,$2,$3*100/$2}'
 
 printf "#Disk Usage: "
- df -BM | awk '$NF=="/"{printf "%d%dGb (%s)\n", $3,$2,$5}'
+ df -h | awk '$NF=="/"{printf "%d/%dGb (%s)\n", $3,$2,$5}'
 
 printf "#CPU load: "
- mpstat | grep all | awk '{printf "%.2f%%\n", 100-%13}'
+ mpstat | grep all | awk '{printf "%.1f%%\n", 100-$13}'
 
 printf "#Last boot: "
- who -b | sed 's/^ *system boot //g'
+ who -b | sed 's/^ *system boot  //g'
 
 printf "#LVM use: "
  if [ "$(lsblk | grep lvm | wc -l)" -gt 0 ] ; then printf "yes\n" ; else printf "no\n" ; fi
 
 printf "#Connections TCP : "
- ss | grep -i tcp | wc -l | tr -d '\n'
+ cat /proc/net/tcp | wc -l | awk '{print$1-1}' | tr -d '\n'
 printf " ESTABLISHED\n"
 
 printf "#User log: "
  who | wc -l
 
 printf "#Network: IP "
- /sbin/ifconfig | grep broadcast | sed 's/inet//g' | sed 's/netmask.*//g' | sed 's/ //g' | tr -d '\n'
+ ip route list | grep link | awk '{print $9}'| tr -d '\n'
 
 printf " ("
- /sbin/ifconfig | grep 'ether ' | sed 's/.*ether //g' | sed 's/ .*//g' | tr -d '\n'
+ ip link show | grep link/ether | awk '{print $2}' | tr -d '\n'
 printf " )\n"
 
 printf "#Sudo : "

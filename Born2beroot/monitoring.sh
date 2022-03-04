@@ -36,7 +36,7 @@ printf "#Network: IP "
 
 printf " ("
  ip link show | grep link/ether | awk '{print $2}' | tr -d '\n'
-printf " )\n"
+printf ")\n"
 
 printf "#Sudo : "
  grep 'sudo:' /var/log/auth.log | grep 'COMMAND=' | wc -l | tr -d '\n'

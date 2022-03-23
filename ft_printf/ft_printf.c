@@ -50,6 +50,10 @@ void	ft_format(char c, void *args)
 	}
 	else if (c == 'p')
 	{
+		char	*ptr;
+		ptr = (char *)malloc(sizeof(char) * (ft_strlen((char*)&args) + 1));
+		if (!ptr)
+			return ;
 		
 	}
 	else if (c == 'd')

@@ -24,7 +24,7 @@ void	printf_string(int args, ...)
 	for (int i = 0; i < args; i++)
 	{
 		char *str = va_arg(ap, char *);
-		printf("%s %lu",str,sizeof(char *));
+		printf("%s %lu",str,sizeof(void *));
 	}
 	va_end(ap);
 

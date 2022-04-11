@@ -13,6 +13,12 @@ int main()
 	printf("k2 = %p\n",&k);
 	ft_printf("%d\n",1234567);
 	printf("%d\n",1234567);
+	ft_printf("%u\n",51515152);
+	printf("%u\n",51515152);
+	ft_printf("%x\n",2314);
+	printf("%x\n",2314);
+	ft_printf("%X\n",501230213);
+	printf("%X\n",501230213);
 	return (0);
 }
 
@@ -30,11 +36,12 @@ int	ft_printf(const char *format, ...)
 
 int	devide_by_format(va_list ap, char *format)
 {
-	int		result;
-	char		c;
-	char		*s;
-	int			i;
-	long long	l;
+	int				result;
+	char			c;
+	char			*s;
+	int				i;
+	unsigned int	ui;
+	long long		l;
 
 	result = 0;
 	while (*format)
@@ -66,19 +73,31 @@ int	devide_by_format(va_list ap, char *format)
 				write (1, "0x", 2);
 				ft_puthexa(l);
 			}
-			else if (*format == 'd')
+			else if (*format == 'd' || *format == 'i')
 			{
 				i = va_arg(ap, int);
 				ft_putnbr_int(i);
+			}
+			else if (*format == 'u')
+			{
+				ui = va_arg(ap, unsigned int);
+				ft_putnbr_uint(ui);
+			}
+			else if (*format == 'x')
+			{
+				l = va_arg(ap, long long);
+				ft_puthexa(l);
+			}
+			else if (*format == 'X')
+			{
+				l = va_arg(ap, long long);
+				ft_put_uphexa(l);
 			}
 		}
 		format++;
 	}
 	return (result);
-	/*else if (c == 'u')
-
-	else if (c == 'x')
-	else if (c == 'X')
+	/*
 	else if (c == '%')
 	*/
 }

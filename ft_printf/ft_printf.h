@@ -11,5 +11,8 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr(long long n);
 void	ft_puthexa(long long n);
+void	ft_put_uphexa(long long n);
 void	ft_putnbr_int(int n);
+void	ft_putnbr_uint(unsigned int n);
+
 #endif

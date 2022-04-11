@@ -52,6 +52,7 @@ void	test_printf()
 	printf("%X %X %X\n",a,b,c);
 	printf("%% %% %%\n");
 }
+
 int	main(void)
 {
 	printf("%d\n", sum(10,1,2,3,4,5,6,7,8,9,10));

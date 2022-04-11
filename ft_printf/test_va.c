@@ -11,7 +11,10 @@ int	sum(int count, ...)
 	va_start(ap,count);
 
 	for (i = 0; i < count; i++)
+	{
+		printf("ap memory = %p\n",&ap);
 		res += va_arg(ap, int);
+	}
 	va_end(ap);
 	return (res);
 }

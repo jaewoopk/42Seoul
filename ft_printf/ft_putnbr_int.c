@@ -1,10 +1,11 @@
 #include "ft_printf.h"
 
-void	ft_putnbr_int(int n);
+int	ft_putnbr_int(int n);
 
-void	ft_putnbr_int(int n)
+int	ft_putnbr_int(int n)
 {
 	char		ch;
+	static int	result;
 
 	if (n == -2147483648)
 		write (1, "-2147483648", 11);
@@ -12,15 +13,18 @@ void	ft_putnbr_int(int n)
 	{
 		write (1, "-", 1);
 		ft_putnbr_int(-n);
+		result++;
 	}
 	else if (n < 10)
 	{
 		ch = '0' + n;
 		write (1, &ch, 1);
+		result++;
 	}
 	else
 	{
 		ft_putnbr_int(n / 10);
 		ft_putnbr_int(n % 10);
 	}
+	return (result);
 }

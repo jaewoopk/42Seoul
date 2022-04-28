@@ -1,8 +1,8 @@
 #include "ft_printf.h"
 
-int	ft_puthexa(unsigned int n);
+int	ft_puthexa_pointer(unsigned long n);
 
-int	ft_puthexa(unsigned int n)
+int	ft_puthexa_pointer(unsigned long n)
 {
 	char		ch;
 	static int	result;
@@ -17,8 +17,8 @@ int	ft_puthexa(unsigned int n)
 	}
 	else
 	{
-		ft_puthexa(n / 16);
-		ft_puthexa(n % 16);
+		ft_puthexa_pointer(n / 16);
+		ft_puthexa_pointer(n % 16);
 	}
 	return (result);
 }

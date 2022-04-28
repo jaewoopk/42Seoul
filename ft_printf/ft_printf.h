@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/28 16:18:58 by jaewopar          #+#    #+#             */
+/*   Updated: 2022/04/28 21:12:33 by jaewopar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
@@ -5,14 +17,13 @@
 # include <unistd.h>
 # include <stdarg.h>
 
-size_t	ft_strlen(const char *s);
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putendl_fd(char *s, int fd);
-void	ft_putnbr(long long n);
-void	ft_puthexa(long long n);
-void	ft_put_uphexa(long long n);
-void	ft_putnbr_int(int n);
-void	ft_putnbr_uint(unsigned int n);
+int ft_printf(const char *ch, ...);
+int devide_by_format(va_list ap, char *format);
+int	ft_putchar_fd(char c, int fd);
+int	ft_puthexa(unsigned int n);
+int	ft_puthexa_pointer(unsigned long n);
+int	ft_put_uphexa(unsigned int n);
+int	ft_putnbr_int(int n);
+int	ft_putnbr_uint(unsigned int n);
 
 #endif

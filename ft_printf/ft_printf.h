@@ -17,13 +17,14 @@
 # include <unistd.h>
 # include <stdarg.h>
 
-int ft_printf(const char *ch, ...);
-int devide_by_format(va_list ap, char *format);
-int	ft_putchar_fd(char c, int fd);
-int	ft_puthexa(unsigned int n);
-int	ft_puthexa_pointer(unsigned long n);
-int	ft_put_uphexa(unsigned int n);
-int	ft_putnbr_int(int n);
-int	ft_putnbr_uint(unsigned int n);
+int		ft_printf(const char *ch, ...);
+void	devide_by_format(va_list ap, char *format, int *result);
+int		ft_putchar_fd(char c, int fd);
+int		ft_putstr(char *str);
+int		ft_puthexa(unsigned int n);
+int		ft_puthexa_pointer(unsigned long n);
+int		ft_put_uphexa(unsigned int n);
+int		ft_putnbr_int(int n);
+int		ft_putnbr_uint(unsigned int n);
 
 #endif

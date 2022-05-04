@@ -22,7 +22,8 @@ SRCS = 	ft_printf.c \
 		ft_puthexa_pointer.c \
 		ft_put_uphexa.c \
 		ft_putnbr_int.c \
-		ft_putnbr_uint.c
+		ft_putnbr_uint.c \
+		ft_putstr.c
 
 OBJS = $(SRCS:.c=.o)
 

@@ -8,7 +8,10 @@ int	ft_putnbr_int(int n)
 	static int	result;
 
 	if (n == -2147483648)
+	{
 		write (1, "-2147483648", 11);
+		result += 11;
+	}
 	else if (n < 0)
 	{
 		write (1, "-", 1);

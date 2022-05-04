@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/25 13:52:25 by jaewopar          #+#    #+#             */
-/*   Updated: 2021/11/25 13:52:26 by jaewopar         ###   ########.fr       */
+/*   Created: 2022/05/04 16:54:15 by jaewopar          #+#    #+#             */
+/*   Updated: 2022/05/04 16:54:17 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int	ft_isalnum(int c);
-
-int	ft_isalnum(int c)
+int	ft_putchar(char c)
 {
-	if (ft_isalpha(c) || (c >= '0' && c <= '9'))
-		return (1);
-	return (0);
+	write (1, &c, 1);
+	return (1);
 }

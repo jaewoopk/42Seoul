@@ -6,7 +6,7 @@
 #    By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/28 16:17:47 by jaewopar          #+#    #+#              #
-#    Updated: 2022/04/28 21:14:14 by jaewopar         ###   ########.fr        #
+#    Updated: 2022/05/04 16:50:47 by jaewopar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 SRCS = 	ft_printf.c \
-		ft_putchar_fd.c \
+		ft_putchar.c \
 		ft_puthexa.c \
 		ft_puthexa_pointer.c \
 		ft_put_uphexa.c \

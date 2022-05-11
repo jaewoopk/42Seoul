@@ -11,14 +11,10 @@ int main(void)
 	int img_height;
 
 	mlx = mlx_init();
-	win = mlx_new_window(mlx, 384, 384, "my_mlx");
-	//AnyConv.com__grass.xpm
-	//AnyConv.com__player.xpm
-	//AnyConv.com__rock.xpm
-	//AnyConv.com__wall.xpm
-	img = mlx_xpm_file_to_image(mlx, "./images/AnyConv.com__grass.xpm", &img_width, &img_height);
-	img2 = mlx_xpm_file_to_image(mlx, "./images/AnyConv.com__player.xpm", &img_width, &img_height);
-	img3 = mlx_xpm_file_to_image(mlx, "./images/AnyConv.com__wall.xpm", &img_width, &img_height);
+	win = mlx_new_window(mlx, 500, 500, "my_mlx");
+	img = mlx_xpm_file_to_image(mlx, "./images/background.xpm", &img_width, &img_height);
+	img2 = mlx_xpm_file_to_image(mlx, "./images/player.xpm", &img_width, &img_height);
+	img3 = mlx_xpm_file_to_image(mlx, "./images/obstacle.xpm", &img_width, &img_height);
 	mlx_put_image_to_window(mlx, win, img, 0, 0);
 	mlx_put_image_to_window(mlx, win, img, 0, 128);
 	mlx_put_image_to_window(mlx, win, img, 128, 0);

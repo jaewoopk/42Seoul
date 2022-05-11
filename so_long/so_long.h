@@ -11,6 +11,7 @@
 # define KEY_D			2
 
 # include <unistd.h>
+# include <stdio.h>
 # include <mlx.h>
 
 typedef struct s_param
@@ -35,7 +36,7 @@ typedef struct s_game
 	t_img	img;
 	int		width;
 	int		height;
-	char	*line;
+	char	*one_line;
 	int		col;
 	int		count;
 	int		walk_count;

@@ -9,6 +9,13 @@
 
 # include <unistd.h>
 # include <stdarg.h>
+# include <mlx.h>
+
+typedef struct s_param
+{
+	int	x;
+	int	y;
+}	t_param;
 
 typedef struct s_img
 {

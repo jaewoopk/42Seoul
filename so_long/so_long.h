@@ -3,6 +3,7 @@
 
 # define X_EVENT_KEY_PRESS	2
 # define X_EVENT_KEY_RELEASE 3
+# define X_EVENT_KEY_RELEASE 17
 
 # define KEY_ESC		53
 # define KEY_W			13
@@ -10,7 +11,7 @@
 # define KEY_S			1
 # define KEY_D			2
 
-# include <unistd.h>
+# include "get_next_line.h"
 # include <stdio.h>
 # include <mlx.h>
 
@@ -42,4 +43,15 @@ typedef struct s_game
 	int		walk_count;
 }	t_game;
 
+
+char	*ft_strjoin(char const *s1, char const *s2);
+void	*ft_memmove(void *dst, const void *src, size_t len);
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
+char	*ft_strdup(const char *s1);
+size_t	ft_strlen(const char *s);
+
+void	map_check(t_game *g);
+void	map_check_parameter(t_game *g);
+void	map_check_wall(t_game *g);
+void	map_read(char *file, t_game *g);
 #endif

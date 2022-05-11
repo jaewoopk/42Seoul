@@ -37,7 +37,7 @@ typedef struct s_game
 	int		width;
 	int		height;
 	char	*one_line;
-	int		col;
+	int		collect;
 	int		count;
 	int		walk_count;
 }	t_game;

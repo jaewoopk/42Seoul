@@ -47,3 +47,38 @@ void	map_check_wall(t_game *g)
 		i++;
 	}
 }
+
+void	map_check_parameter(t_game *g)
+{
+	int		i;
+	int		e;
+	int		p;
+
+	i = 0;
+	e = 0;
+	p = 0;
+	while (i < ft_strlen(g->one_line))
+	{
+		if (g->one_line[i] == 'E')
+			e++;
+		else if (g->one_line[i] == 'P')
+			p++;
+		else if (g->one_line[i] == 'C')
+			g->collective++;
+		i++;
+	}
+	if (e == 0)
+		print_error("There's no exit.\n");
+	if (p != 1)
+		print_error("There's wrong player set.\n");
+	if (g->collective == 0)
+		print_errot("There's uncollectible.\n");
+}
+
+void	map_check(t_game *g)
+{
+	if (g->height * g->width != ft_strlen(g->one_line))
+		print_error("It's wrong to make mapping.\n");
+	map_check_wall(g);
+	map_check_parameter(g);
+}

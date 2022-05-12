@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/12 15:19:22 by jaewopar          #+#    #+#             */
+/*   Updated: 2022/05/12 15:31:13 by jaewopar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
@@ -39,6 +51,7 @@ typedef struct s_game
 	int		height;
 	char	*one_line;
 	int		collect;
+	int		total_collect;
 	int		count;
 	int		walk_count;
 }	t_game;

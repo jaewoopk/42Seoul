@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/12 15:19:11 by jaewopar          #+#    #+#             */
+/*   Updated: 2022/05/12 15:19:13 by jaewopar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 void	print_error(char *s)
@@ -41,7 +53,7 @@ int main(int argc, char *argv[])
 {
 	t_game	*game;
 
-	if (ac != 2)
+	if (argc != 2)
 		print_error("There's wrong input.\n");
 	game = (t_game *)malloc(sizeof(t_game));
 	init_game(game, argv[1]);

@@ -10,14 +10,14 @@ void	map_read(char *file, t_game *g)
 	g->height = 0;
 	g->walk_count = 0;
 	g->width = ft_strlen(line) - 1;
-	g->one_line = ft_strdup(line);
+	g->one_line = ft_strdup2(line);
 	free(line);
 	while (line)
 	{
 		g->height++;
 		line = get_next_line(fd);
 		if (line)
-			g->one_line = ft_strjoin(g->one_line, line);
+			g->one_line = ft_strjoin2(g->one_line, line);
 	}
 	close(fd);
 }
@@ -64,14 +64,14 @@ void	map_check_parameter(t_game *g)
 		else if (g->one_line[i] == 'P')
 			p++;
 		else if (g->one_line[i] == 'C')
-			g->collect++;
+			g->total_collect++;
 		i++;
 	}
 	if (e == 0)
 		print_error("There's no exit.\n");
 	if (p != 1)
 		print_error("There's wrong player set.\n");
-	if (g->collect == 0)
+	if (g->total_collect == 0)
 		print_error("There's uncollectible.\n");
 }
 

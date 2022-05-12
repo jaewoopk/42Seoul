@@ -6,7 +6,7 @@
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 15:38:16 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/05/12 15:38:17 by jaewopar         ###   ########.fr       */
+/*   Updated: 2022/05/12 17:18:49 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	game_done(t_game *g)
 {
 	g->walk_count++;
-	printf("%s %d%s", "All Clear! Totally : ", g->walk_count, "Steps.\n");
+	printf("%s %d%s", "All Clear! Total Steps :", g->walk_count, " Steps.\n");
 	exit(0);
 }
 

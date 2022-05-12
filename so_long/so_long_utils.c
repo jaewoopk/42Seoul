@@ -6,23 +6,13 @@
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 15:20:07 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/05/12 16:10:00 by jaewopar         ###   ########.fr       */
+/*   Updated: 2022/05/12 16:29:23 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	ft_strlen(const char *s)
-{
-	int		i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
-char	*ft_strdup(const char *s1)
+char	*ft_strdup2(const char *s1)
 {
 	int			i;
 	char		*tmp;
@@ -88,7 +78,7 @@ void	*ft_memmove(void *dst, const void *src, int len)
 	return (dst);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin2(char const *s1, char const *s2)
 {
 	char	*tmp;
 	int		len;

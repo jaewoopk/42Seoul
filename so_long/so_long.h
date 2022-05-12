@@ -6,7 +6,7 @@
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 15:19:22 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/05/12 16:10:24 by jaewopar         ###   ########.fr       */
+/*   Updated: 2022/05/12 16:29:09 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,10 @@ typedef struct s_game
 }	t_game;
 
 
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin2(char const *s1, char const *s2);
 void	*ft_memmove(void *dst, const void *src, int len);
 int		ft_strlcat(char *dst, const char *src, int dstsize);
-char	*ft_strdup(const char *s1);
-int		ft_strlen(const char *s);
+char	*ft_strdup2(const char *s1);
 
 void	map_check(t_game *g);
 void	map_check_parameter(t_game *g);

@@ -6,7 +6,7 @@
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 15:20:14 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/05/12 15:20:15 by jaewopar         ###   ########.fr       */
+/*   Updated: 2022/05/12 16:12:03 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_get_enter(const char *s, int c)
 {
-	size_t	i;
+	int		i;
 
 	i = 0;
 	while (i <= ft_strlen(s))

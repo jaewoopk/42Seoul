@@ -6,15 +6,15 @@
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 15:20:07 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/05/12 15:20:08 by jaewopar         ###   ########.fr       */
+/*   Updated: 2022/05/12 16:10:00 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-size_t	ft_strlen(const char *s)
+int	ft_strlen(const char *s)
 {
-	size_t		i;
+	int		i;
 
 	i = 0;
 	while (s[i])
@@ -24,7 +24,7 @@ size_t	ft_strlen(const char *s)
 
 char	*ft_strdup(const char *s1)
 {
-	size_t		i;
+	int			i;
 	char		*tmp;
 
 	i = 0;
@@ -41,12 +41,12 @@ char	*ft_strdup(const char *s1)
 	return (tmp);
 }
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+int	ft_strlcat(char *dst, const char *src, int dstsize)
 {
-	size_t		i;
-	size_t		j;
-	size_t		dst_len;
-	size_t		src_len;
+	int		i;
+	int		j;
+	int		dst_len;
+	int		src_len;
 
 	dst_len = ft_strlen(dst);
 	src_len = ft_strlen(src);
@@ -64,9 +64,9 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	return (dst_len + src_len);
 }
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_memmove(void *dst, const void *src, int len)
 {
-	size_t				i;
+	int					i;
 	unsigned char		*tmp_dst;
 	unsigned char		*tmp_src;
 
@@ -91,7 +91,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*tmp;
-	size_t	len;
+	int		len;
 
 	if (s1 == 0 || s2 == 0)
 		return (0);

@@ -6,15 +6,15 @@
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 15:20:36 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/05/12 15:20:40 by jaewopar         ###   ########.fr       */
+/*   Updated: 2022/05/12 16:13:08 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *s)
+int	ft_strlen(const char *s)
 {
-	size_t		i;
+	int		i;
 
 	i = 0;
 	while (s[i])
@@ -22,9 +22,9 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+int	ft_strlcpy(char *dst, const char *src, int dstsize)
 {
-	size_t		i;
+	int		i;
 
 	i = 0;
 	if (dstsize == 0)
@@ -41,7 +41,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*tmp;
-	size_t	len;
+	int		len;
 
 	if (s1 == 0 || s2 == 0)
 		return (0);
@@ -57,7 +57,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 char	*ft_strdup(const char *s1)
 {
-	size_t		i;
+	int			i;
 	char		*tmp;
 
 	i = 0;
@@ -74,7 +74,7 @@ char	*ft_strdup(const char *s1)
 	return (tmp);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, int len)
 {
 	char			*tmp;
 	unsigned int	s_len;

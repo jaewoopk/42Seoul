@@ -6,7 +6,7 @@
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 15:19:11 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/05/12 15:19:13 by jaewopar         ###   ########.fr       */
+/*   Updated: 2022/05/12 16:03:24 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,16 @@ void	print_error(char *s)
 void	init_game(t_game *g, char *map)
 {
 	g->mlx = mlx_init();
-	g->img = img_init(g->mlx);
+	g->img = init_img(g->mlx);
 	map_read(map, g);
 	map_check(g);
 	g->win = mlx_new_window(g->mlx, g->width * 64, g->height * 64, "so_long");
 	setting_img(g);
 }
 
-void	exit_game(t_game *g)
+int	exit_game(t_game *g)
 {
-	mlx_destoy_window(g->mlx, g->win);
+	mlx_destroy_window(g->mlx, g->win);
 	exit(0);
 }
 

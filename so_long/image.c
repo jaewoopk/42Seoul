@@ -6,13 +6,13 @@
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 15:19:31 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/05/12 15:19:32 by jaewopar         ###   ########.fr       */
+/*   Updated: 2022/05/12 15:57:08 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-t_img	img_init(void *mlx)
+t_img	init_img(void *mlx)
 {
 	t_img	init;
 	int		w;

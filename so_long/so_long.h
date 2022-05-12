@@ -6,7 +6,7 @@
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 15:19:22 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/05/12 16:29:09 by jaewopar         ###   ########.fr       */
+/*   Updated: 2022/05/12 18:01:57 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ typedef struct s_param
 
 typedef struct s_img
 {
-	void	*player;
-	void	*background;
-	void	*obstacle;
+	void	*play;
+	void	*back;
+	void	*obs;
 	void	*point;
 	void	*goal;
 }	t_img;
@@ -56,7 +56,6 @@ typedef struct s_game
 	int		count;
 	int		walk_count;
 }	t_game;
-
 
 char	*ft_strjoin2(char const *s1, char const *s2);
 void	*ft_memmove(void *dst, const void *src, int len);

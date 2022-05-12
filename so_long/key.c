@@ -6,7 +6,7 @@
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 15:38:16 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/05/12 17:18:49 by jaewopar         ###   ########.fr       */
+/*   Updated: 2022/05/12 18:01:00 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ void	move_w(t_game *g)
 		g->collect++;
 	if (g->one_line[i - g->width] == 'E' && g->total_collect == g->collect)
 		game_done(g);
-	else if (g->one_line[i - g->width] != '1' && g->one_line[i - g->width] != 'E')
+	else if (g->one_line[i - g->width] != '1' \
+			&& g->one_line[i - g->width] != 'E')
 	{
 		g->one_line[i] = '0';
 		g->one_line[i - g->width] = 'P';
@@ -84,7 +85,8 @@ void	move_s(t_game *g)
 		g->collect++;
 	if (g->one_line[i + g->width] == 'E' && g->total_collect == g->collect)
 		game_done(g);
-	else if (g->one_line[i + g->width] != '1' && g->one_line[i + g->width] != 'E')
+	else if (g->one_line[i + g->width] != '1' \
+			&& g->one_line[i + g->width] != 'E')
 	{
 		g->one_line[i] = '0';
 		g->one_line[i + g->width] = 'P';

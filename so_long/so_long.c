@@ -6,7 +6,7 @@
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 15:19:11 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/05/12 16:03:24 by jaewopar         ###   ########.fr       */
+/*   Updated: 2022/05/12 17:58:32 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	print_error(char *s)
 {
-	printf("%s",s);
+	printf("%s", s);
 	exit(0);
 }
 
@@ -49,7 +49,7 @@ int	press_key(int key, t_game *g)
 	return (0);
 }
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
 	t_game	*game;
 
@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
 		print_error("There's wrong input.\n");
 	game = (t_game *)malloc(sizeof(t_game));
 	init_game(game, argv[1]);
-	mlx_hook(game->win, X_EVENT_KEY_PRESS, 0, &press_key, game);	
+	mlx_hook(game->win, X_EVENT_KEY_PRESS, 0, &press_key, game);
 	mlx_hook(game->win, X_EVENT_KEY_EXIT, 0, &exit_game, game);
 	mlx_loop(game->mlx);
 	return (0);

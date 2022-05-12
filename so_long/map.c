@@ -6,7 +6,7 @@
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 17:57:40 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/05/12 17:57:41 by jaewopar         ###   ########.fr       */
+/*   Updated: 2022/05/12 20:39:33 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,15 @@ void	map_read(char *file, t_game *g)
 	g->walk_count = 0;
 	g->width = ft_strlen(line) - 1;
 	g->one_line = ft_strdup2(line);
-	free(line);
 	while (line)
 	{
+		free(line);
 		g->height++;
 		line = get_next_line(fd);
 		if (line)
 			g->one_line = ft_strjoin2(g->one_line, line);
 	}
+	free(line);
 	close(fd);
 }
 
@@ -44,17 +45,17 @@ void	map_check_wall(t_game *g)
 		if (i < g->width)
 		{
 			if (g->one_line[i] != '1')
-				print_error("Map must be surrounded by walls.\n");
+				print_error("Error\nMap must be surrounded by walls.\n");
 		}
 		else if (i % g->width == 0 || i % g->width == g->width - 1)
 		{
 			if (g->one_line[i] != '1')
-				print_error("Map must be surrounded by walls.\n");
+				print_error("Error\nMap must be surrounded by walls.\n");
 		}
 		else if (i > ft_strlen(g->one_line) - g->width)
 		{
 			if (g->one_line[i] != '1')
-				print_error("Map must be surrounded by walls.\n");
+				print_error("Error\nMap must be surrounded by walls.\n");
 		}
 		i++;
 	}
@@ -80,17 +81,17 @@ void	map_check_parameter(t_game *g)
 		i++;
 	}
 	if (e == 0)
-		print_error("There's no exit.\n");
+		print_error("Error\nThere's no exit.\n");
 	if (p != 1)
-		print_error("There's wrong player set.\n");
+		print_error("Error\nThere's wrong player set.\n");
 	if (g->total_collect == 0)
-		print_error("There's uncollectible.\n");
+		print_error("Error\nThere's uncollectible.\n");
 }
 
 void	map_check(t_game *g)
 {
 	if (g->height * g->width != ft_strlen(g->one_line))
-		print_error("It's wrong to make mapping.\n");
+		print_error("Error\nIt's wrong to make mapping.\n");
 	map_check_wall(g);
 	map_check_parameter(g);
 }

@@ -6,7 +6,7 @@
 #    By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/12 15:39:47 by jaewopar          #+#    #+#              #
-#    Updated: 2022/05/12 16:27:00 by jaewopar         ###   ########.fr        #
+#    Updated: 2022/05/12 20:57:51 by jaewopar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ all:	$(NAME)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -lmlx -framework OpenGL -framework AppKit
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -L./mlx -lmlx -framework OpenGL -framework AppKit
 
 clean:
 	rm -f $(OBJS)

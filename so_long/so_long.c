@@ -6,7 +6,7 @@
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 15:19:11 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/05/12 17:58:32 by jaewopar         ###   ########.fr       */
+/*   Updated: 2022/05/12 20:46:52 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	main(int argc, char *argv[])
 	t_game	*game;
 
 	if (argc != 2)
-		print_error("There's wrong input.\n");
+		print_error("Error\nThere's wrong input.\n");
 	game = (t_game *)malloc(sizeof(t_game));
 	init_game(game, argv[1]);
 	mlx_hook(game->win, X_EVENT_KEY_PRESS, 0, &press_key, game);

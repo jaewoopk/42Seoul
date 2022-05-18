@@ -6,7 +6,7 @@
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 17:57:40 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/05/18 14:53:18 by jaewopar         ###   ########.fr       */
+/*   Updated: 2022/05/18 18:47:33 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,14 @@ void	map_read(char *file, t_game *g)
 	g->total_collect = 0;
 	g->width = ft_strlen(line) - 1;
 	g->one_line = ft_strdup2(line);
+	free(line);
 	while (line)
 	{
-		free(line);
 		g->height++;
 		line = get_next_line(fd);
 		if (line)
 			g->one_line = ft_strjoin2(g->one_line, line);
 	}
-	free(line);
 	close(fd);
 }
 

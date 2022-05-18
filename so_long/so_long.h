@@ -6,7 +6,7 @@
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 15:19:22 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/05/12 18:01:57 by jaewopar         ###   ########.fr       */
+/*   Updated: 2022/05/18 14:54:16 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct s_img
 	void	*play;
 	void	*back;
 	void	*obs;
+	void	*obs2;
 	void	*point;
 	void	*goal;
 }	t_img;
@@ -53,7 +54,6 @@ typedef struct s_game
 	char	*one_line;
 	int		collect;
 	int		total_collect;
-	int		count;
 	int		walk_count;
 }	t_game;
 

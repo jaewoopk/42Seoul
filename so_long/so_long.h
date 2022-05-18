@@ -6,7 +6,7 @@
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 15:19:22 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/05/18 14:54:16 by jaewopar         ###   ########.fr       */
+/*   Updated: 2022/05/18 19:03:13 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ typedef struct s_game
 	int		walk_count;
 }	t_game;
 
-char	*ft_strjoin2(char const *s1, char const *s2);
+char	*ft_strjoin2(char *s1, char *s2);
 void	*ft_memmove(void *dst, const void *src, int len);
 int		ft_strlcat(char *dst, const char *src, int dstsize);
 char	*ft_strdup2(const char *s1);

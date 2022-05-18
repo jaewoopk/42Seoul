@@ -6,7 +6,7 @@
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 15:20:07 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/05/12 16:29:23 by jaewopar         ###   ########.fr       */
+/*   Updated: 2022/05/18 19:02:42 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	*ft_memmove(void *dst, const void *src, int len)
 	return (dst);
 }
 
-char	*ft_strjoin2(char const *s1, char const *s2)
+char	*ft_strjoin2(char *s1, char *s2)
 {
 	char	*tmp;
 	int		len;
@@ -92,5 +92,7 @@ char	*ft_strjoin2(char const *s1, char const *s2)
 	ft_memmove(tmp, s1, ft_strlen(s1) + 1);
 	ft_strlcat(tmp, s2, len);
 	tmp[len - 1] = '\0';
+	free(s1);
+	free(s2);
 	return (tmp);
 }

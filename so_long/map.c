@@ -6,7 +6,7 @@
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 17:57:40 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/05/18 19:04:48 by jaewopar         ###   ########.fr       */
+/*   Updated: 2022/05/20 17:38:22 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	map_read(char *file, t_game *g)
 	char	*line;
 
 	fd = open(file, O_RDONLY);
+	if (fd < 0)
+		print_error("Error\nwrong file\n");
 	line = get_next_line(fd);
 	g->height = 0;
 	g->walk_count = 0;

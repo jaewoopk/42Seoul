@@ -6,7 +6,7 @@
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 15:19:31 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/05/18 14:47:59 by jaewopar         ###   ########.fr       */
+/*   Updated: 2022/05/20 16:25:56 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,7 @@ void	put_img(t_game *g, int w, int h)
 		mlx_put_image_to_window(g->mlx, g->win, g->img.obs2, w * 64, h * 64);
 	}
 	else if (g->one_line[h * g->width + w] == 'P')
-	{
-		mlx_put_image_to_window(g->mlx, g->win, g->img.back, w * 64, h * 64);
 		mlx_put_image_to_window(g->mlx, g->win, g->img.play, w * 64, h * 64);
-	}
 	else if (g->one_line[h * g->width + w] == 'C')
 	{
 		mlx_put_image_to_window(g->mlx, g->win, g->img.back, w * 64, h * 64);
@@ -51,8 +48,10 @@ void	put_img(t_game *g, int w, int h)
 		mlx_put_image_to_window(g->mlx, g->win, g->img.back, w * 64, h * 64);
 		mlx_put_image_to_window(g->mlx, g->win, g->img.goal, w * 64, h * 64);
 	}
-	else
+	else if (g->one_line[h * g->width + w] == '0')
 		mlx_put_image_to_window(g->mlx, g->win, g->img.back, w * 64, h * 64);
+	else
+		print_error("Error\nwrong input found!\n");
 }
 
 void	setting_img(t_game *g)

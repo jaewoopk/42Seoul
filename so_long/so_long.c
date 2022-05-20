@@ -6,7 +6,7 @@
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 15:19:11 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/05/12 20:46:52 by jaewopar         ###   ########.fr       */
+/*   Updated: 2022/05/20 16:21:04 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,12 @@ int	main(int argc, char *argv[])
 
 	if (argc != 2)
 		print_error("Error\nThere's wrong input.\n");
+	else if (argv[1][ft_strlen(argv[1]) - 3] != 'b')
+		print_error("Error\nmap was not consisted of ber\n");
+	else if (argv[1][ft_strlen(argv[1]) - 2] != 'e')
+		print_error("Error\nmap was not consisted of ber\n");
+	else if (argv[1][ft_strlen(argv[1]) - 1] != 'r')
+		print_error("Error\nmap was not consisted of ber\n");
 	game = (t_game *)malloc(sizeof(t_game));
 	init_game(game, argv[1]);
 	mlx_hook(game->win, X_EVENT_KEY_PRESS, 0, &press_key, game);

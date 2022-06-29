@@ -6,7 +6,7 @@
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 20:11:34 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/06/29 17:29:31 by jaewopar         ###   ########.fr       */
+/*   Updated: 2022/06/29 17:35:51 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,9 @@ int main(int argc, char **argv)
 {
 	if (argc != 3 || !ft_strlen(argv[2]))
 		exit(1);
+	ft_putstr_fd("Client PID : ", 1);
+	ft_putnbr_fd(getpid(), 1);
+	ft_putchar_fd('\n', 1);
 	ft_putstr_fd("Sent message		: ", 1);
 	ft_putnbr_fd(ft_strlen(argv[2]), 1);
 	ft_putchar_fd('\n', 1);

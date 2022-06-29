@@ -6,44 +6,51 @@
 #    By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/29 16:45:23 by jaewopar          #+#    #+#              #
-#    Updated: 2022/06/29 17:00:54 by jaewopar         ###   ########.fr        #
+#    Updated: 2022/06/29 18:49:51 by jaewopar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = server client
+NAME_SERVER = server
+
+NAME_CLIENT = client
+
+NAME_LIBFT = libft.a
 
 CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = server.c \
-	   client.c
+SRCS_SERVER = server.c
 
-OBJS = $(SRCS:.c=.o)
+SRCS_CLIENT = client.c
 
-all:	$(NAME)
+OBJS_SERVER = $(SRCS_SERVER:.c=.o)
 
-bonus:	$(NAME)
+OBJS_CLIENT = $(SRCS_CLIENT:.c=.o)
 
-server: server.o libft
-	$(CC) -o $@ $< -Llibft -lft
+all:	$(NAME_LIBFT) $(NAME_SERVER) $(NAME_CLIENT)
 
-client: client.o libft
-	$(CC) -o $@ $< -Llibft -lft
+bonus:	$(NAME_LIBFT) $(NAME_SERVER) $(NAME_CLIENT)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-libft:
+$(NAME_LIBFT):
 	make -C libft
 
+$(NAME_SERVER): $(OBJS_SERVER) $(NAME_LIBFT)
+	$(CC) $(CFLAGS) $< -o $@ -L./libft -lft
+
+$(NAME_CLIENT): $(OBJS_CLIENT) $(NAME_LIBFT)
+	$(CC) $(CFLAGS) $< -o $@ -L./libft -lft
+
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS_SERVER) $(OBJS_CLIENT)
 	make -C libft clean
 
 fclean: clean
-	rm -f $(NAME) libft/libft.a
+	rm -f $(NAME_SERVER) $(NAME_CLIENT) libft/libft.a
 
 re: fclean all
 
-.PHONY: all bonus libft clean fclean re
+.PHONY: all bonus clean fclean re

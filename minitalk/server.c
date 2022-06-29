@@ -6,23 +6,24 @@
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 20:11:05 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/06/29 16:13:30 by jaewopar         ###   ########.fr       */
+/*   Updated: 2022/06/29 17:27:13 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <signal.h>
+#include "libft/libft.h"
 
 static void	ft_action(int signum, siginfo_t *info, void *context)
 {
-	static int				i = 0;
-	static pid_t			client_pid = 0;
-	static unsigned char	c = 0;
+	static int				i;
+	static pid_t			client_pid;
+	static unsigned char	c;
 
 	(void)context;
 	if (!client_pid)
 		client_pid = info->si_pid;
-	c != (SIGUSR1 == signum);
+	c |= (signum == SIGUSR1);
 	if (++i == 8)
 	{
 		i = 0;
@@ -46,14 +47,12 @@ int main(void)
 
 	ft_putstr_fd("Server PID : ", 1);
 	ft_putnbr_fd(getpid(), 1);
-	fd_putchar_fd('\n', 1);
+	ft_putchar_fd('\n', 1);
 	s_sigaction.sa_sigaction = &ft_action;
 	s_sigaction.sa_flags = SA_SIGINFO;
+	sigaction(SIGUSR1, &s_sigaction, 0);
+	sigaction(SIGUSR2, &s_sigaction, 0);
 	while(1)
-	{
-		sigaction(SIGUSR1, &s_sigaction, 0);
-		sigaction(SIGUSR2, &s_sigaction, 0);
 		pause();
-	}
 	return (0);
 }

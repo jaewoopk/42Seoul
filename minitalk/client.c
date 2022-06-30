@@ -6,7 +6,7 @@
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 20:11:34 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/06/29 17:35:51 by jaewopar         ###   ########.fr       */
+/*   Updated: 2022/06/30 14:05:53 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_send_message(int pid, char *message)
 	int		i;
 	char	c;
 
-	while(*message)
+	while (*message)
 	{
 		i = 8;
 		c = *message++;
@@ -54,7 +54,7 @@ void	ft_send_message(int pid, char *message)
 	}
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	if (argc != 3 || !ft_strlen(argv[2]))
 		exit(1);

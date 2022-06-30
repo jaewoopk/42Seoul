@@ -6,7 +6,7 @@
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 20:11:05 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/06/29 17:27:13 by jaewopar         ###   ########.fr       */
+/*   Updated: 2022/06/30 14:06:17 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void	ft_action(int signum, siginfo_t *info, void *context)
 		c <<= 1;
 }
 
-int main(void)
+int	main(void)
 {
 	struct sigaction	s_sigaction;
 
@@ -52,7 +52,7 @@ int main(void)
 	s_sigaction.sa_flags = SA_SIGINFO;
 	sigaction(SIGUSR1, &s_sigaction, 0);
 	sigaction(SIGUSR2, &s_sigaction, 0);
-	while(1)
+	while (1)
 		pause();
 	return (0);
 }

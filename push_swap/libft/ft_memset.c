@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_uint.c                                   :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/04 16:54:25 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/05/04 16:54:27 by jaewopar         ###   ########.fr       */
+/*   Created: 2021/11/25 13:53:35 by jaewopar          #+#    #+#             */
+/*   Updated: 2021/12/06 19:01:10 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_putnbr_uint(unsigned int n, int *result)
+void	*ft_memset(void *b, int c, size_t len);
+
+void	*ft_memset(void *b, int c, size_t len)
 {
-	char		ch;
+	size_t			i;
+	unsigned char	*tmp;
 
-	if (n < 10)
+	i = 0;
+	tmp = (unsigned char *)b;
+	while (i < len)
 	{
-		ch = '0' + n;
-		write (1, &ch, 1);
-		*result += 1;
+		*tmp = (unsigned char)c;
+		tmp++;
+		i++;
 	}
-	else
-	{
-		ft_putnbr_uint(n / 10, result);
-		ft_putnbr_uint(n % 10, result);
-	}
-	return (*result);
+	return (b);
 }

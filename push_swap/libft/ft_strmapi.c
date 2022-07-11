@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/04 16:55:29 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/05/04 16:55:32 by jaewopar         ###   ########.fr       */
+/*   Created: 2021/12/06 19:03:18 by jaewopar          #+#    #+#             */
+/*   Updated: 2021/12/06 19:03:21 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_putstr(char *str)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int		i;
+	size_t		i;
+	size_t		len;
+	char		*tmp_s;
 
 	i = 0;
-	if (!str)
+	if (s == 0 || f == 0)
+		return (0);
+	len = ft_strlen(s);
+	tmp_s = (char *)malloc(sizeof(char) * (len + 1));
+	if (!tmp_s)
+		return (0);
+	while (i < len)
 	{
-		write (1, "(null)", 6);
-		i += 6;
+		tmp_s[i] = f(i, s[i]);
+		i++;
 	}
-	else
-	{
-		while (*str)
-		{
-			write (1, str, 1);
-			str++;
-			i++;
-		}
-	}
-	return (i);
+	tmp_s[i] = '\0';
+	return (tmp_s);
 }

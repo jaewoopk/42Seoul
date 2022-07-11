@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
 # include <stdlib.h>
 
@@ -19,11 +20,22 @@ typedef struct s_node
 	struct s_node	*prev;
 	struct s_node	*next;
 	int				data;
-} t_node;
+}	t_node;
 
 typedef struct s_list
 {
 	struct s_node	*head;
-} t_list;
+}	t_list;
+
+typedef struct s_info
+{
+	int	size_a;
+	struct s_node	*top_a;
+	struct s_node	*bottom_a;
+	int	size_b;
+	struct s_node	*top_b;
+	struct s_node	*bottom_b;
+}	t_info;
+
 
 #endif

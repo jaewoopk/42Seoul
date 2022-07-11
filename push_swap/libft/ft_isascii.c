@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 17:33:09 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/07/05 19:16:46 by jaewopar         ###   ########.fr       */
+/*   Created: 2021/11/25 13:52:40 by jaewopar          #+#    #+#             */
+/*   Updated: 2021/11/25 14:12:19 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int main(void)
+int	ft_isascii(int c);
+
+int	ft_isascii(int c)
 {
-	t_list	*a;
-	t_list	*b;
-	if (!a == (t_list*)malloc(sizeof(t_list)) \
-			|| !b == (t_list*)malloc(sizeof(t_list)))
-		exit(1);
-	free(a);
-	free(b);
+	if (c >= 0 && c <= 127)
+		return (1);
 	return (0);
 }

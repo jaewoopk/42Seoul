@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 17:33:09 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/07/05 19:16:46 by jaewopar         ###   ########.fr       */
+/*   Created: 2021/12/06 19:02:56 by jaewopar          #+#    #+#             */
+/*   Updated: 2021/12/06 19:02:57 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int main(void)
+char	*ft_strjoin(char const *s1, char const *s2);
+
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	t_list	*a;
-	t_list	*b;
-	if (!a == (t_list*)malloc(sizeof(t_list)) \
-			|| !b == (t_list*)malloc(sizeof(t_list)))
-		exit(1);
-	free(a);
-	free(b);
-	return (0);
+	char	*tmp;
+	size_t	len;
+
+	if (s1 == 0 || s2 == 0)
+		return (0);
+	len = ft_strlen(s1) + ft_strlen(s2);
+	tmp = (char *)malloc(sizeof(char) * (len + 1));
+	if (!tmp)
+		return (0);
+	ft_memmove(tmp, s1, ft_strlen(s1) + 1);
+	ft_strlcat(tmp, s2, len + 1);
+	tmp[len] = '\0';
+	return (tmp);
 }

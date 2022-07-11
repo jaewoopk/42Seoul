@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 17:33:09 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/07/05 19:16:46 by jaewopar         ###   ########.fr       */
+/*   Created: 2021/12/06 19:00:45 by jaewopar          #+#    #+#             */
+/*   Updated: 2021/12/06 19:00:46 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int main(void)
+int	ft_lstsize(t_list *lst);
+
+int	ft_lstsize(t_list *lst)
 {
-	t_list	*a;
-	t_list	*b;
-	if (!a == (t_list*)malloc(sizeof(t_list)) \
-			|| !b == (t_list*)malloc(sizeof(t_list)))
-		exit(1);
-	free(a);
-	free(b);
-	return (0);
+	int			i;
+
+	i = 0;
+	while (lst)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
 }

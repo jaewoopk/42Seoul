@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 17:33:09 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/07/05 19:16:46 by jaewopar         ###   ########.fr       */
+/*   Created: 2021/11/25 13:53:50 by jaewopar          #+#    #+#             */
+/*   Updated: 2021/11/25 13:53:52 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int main(void)
+char	*ft_strdup(const char *s1);
+
+char	*ft_strdup(const char *s1)
 {
-	t_list	*a;
-	t_list	*b;
-	if (!a == (t_list*)malloc(sizeof(t_list)) \
-			|| !b == (t_list*)malloc(sizeof(t_list)))
-		exit(1);
-	free(a);
-	free(b);
-	return (0);
+	size_t		i;
+	char		*tmp;
+
+	i = 0;
+	tmp = (char *)malloc(sizeof(char) * (ft_strlen(s1) + 1));
+	if (tmp == 0)
+		return (0);
+	while (*s1)
+	{
+		tmp[i] = *s1;
+		s1++;
+		i++;
+	}
+	tmp[i] = '\0';
+	return (tmp);
 }

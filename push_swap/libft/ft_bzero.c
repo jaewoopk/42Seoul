@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 17:33:09 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/07/05 19:16:46 by jaewopar         ###   ########.fr       */
+/*   Created: 2021/11/25 13:52:07 by jaewopar          #+#    #+#             */
+/*   Updated: 2021/11/25 13:52:09 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int main(void)
+void	ft_bzero(void *s, size_t n);
+
+void	ft_bzero(void *s, size_t n)
 {
-	t_list	*a;
-	t_list	*b;
-	if (!a == (t_list*)malloc(sizeof(t_list)) \
-			|| !b == (t_list*)malloc(sizeof(t_list)))
-		exit(1);
-	free(a);
-	free(b);
-	return (0);
+	size_t		i;
+	char		*ptr;
+
+	ptr = (char *)s;
+	i = 0;
+	while (i < n)
+	{
+		ptr[i] = 0;
+		i++;
+	}
 }

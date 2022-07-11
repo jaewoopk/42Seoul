@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthexa_pointer.c                               :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/04 16:55:44 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/05/04 16:55:46 by jaewopar         ###   ########.fr       */
+/*   Created: 2021/11/25 13:54:31 by jaewopar          #+#    #+#             */
+/*   Updated: 2021/11/25 13:54:32 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_puthexa_pointer(unsigned long n, int *result)
+size_t	ft_strlen(const char *s);
+
+size_t	ft_strlen(const char *s)
 {
-	char		ch;
+	size_t		i;
 
-	if (n < 16)
-	{
-		ch = '0' + n;
-		if (n >= 10)
-			ch = 'a' + n - 10;
-		write (1, &ch, 1);
-		*result += 1;
-	}
-	else
-	{
-		ft_puthexa_pointer(n / 16, result);
-		ft_puthexa_pointer(n % 16, result);
-	}
-	return (*result);
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }

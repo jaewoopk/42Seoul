@@ -19,8 +19,9 @@ void	init(t_node *a, t_node *b, t_info *info, int argc, char *argv[])
 	t_node	*tmp;
 	t_node	*previous;
 
+	(void)b;
 	i = 1;
-	b = NULL;
+	a->data = 0;
 	tmp = a;
 	while (i < argc)
 	{
@@ -54,6 +55,7 @@ int main(int argc, char *argv[])
 	t_node	*b;
 	t_info	*info;
 	t_node	*tmp;
+	t_node	*tmp2;
 
 	if (!(a = malloc(sizeof(t_node))) ||\
 		!(b = malloc(sizeof(t_node))) ||\
@@ -61,8 +63,8 @@ int main(int argc, char *argv[])
 		exit(1);
 
 	init(a ,b, info, argc, argv);
-	a = a->next;
 	tmp = a;
+	tmp2= b;
 	for (int i = 0; i < info->size_a; i++)
 	{
 		printf("%d\n",a->data);
@@ -85,7 +87,24 @@ int main(int argc, char *argv[])
 		printf("%d\n",a->data);
 		a = a->next;
 	}
+	printf("=====================\n");
 	b = b->next;
+	for (int i = 0; i < info->size_b; i++)
+	{
+		printf("%d\n",b->data);
+		b = b->next;
+	}
+	a = tmp;
+	b = tmp2;
+
+	rr(a,b);
+	printf("=====================\n");
+	for (int i = 0; i < info->size_a; i++)
+	{
+		printf("%d\n",a->data);
+		a = a->next;
+	}
+	printf("=====================\n");
 	for (int i = 0; i < info->size_b; i++)
 	{
 		printf("%d\n",b->data);

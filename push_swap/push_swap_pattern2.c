@@ -46,3 +46,50 @@ void    pb(t_node *a, t_node *b, t_info *info)
     info->size_b += 1;
     printf("pb\n");
 }
+
+void    ra(t_node *a)
+{
+    t_node  *tmp;
+    int tp;
+
+    tmp = a;
+    while (tmp->next)
+        tmp = tmp->next;
+    
+    tp = tmp->data;
+    tmp = a;
+    while (tmp->next)
+    {
+        tmp->next->data = tmp->data;
+        tmp = tmp->next;
+    }
+    a->data = tp;
+    printf("ra\n");
+}
+
+void    rb(t_node *b)
+{
+    t_node  *tmp;
+    int tp;
+
+    tmp = b;
+    while (tmp->next)
+        tmp = tmp->next;
+    
+    tp = tmp->data;
+    tmp = b;
+    while (tmp->next)
+    {
+        tmp->next->data = tmp->data;
+        tmp = tmp->next;
+    }
+    b->data = tp;
+    printf("rb\n");
+}
+
+void    rr(t_node *a, t_node *b)
+{
+    ra(a);
+    rb(b);
+    printf("rr\n");
+}

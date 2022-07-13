@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include <stdlib.h>
+# include <unistd.h>
 
 typedef struct s_node
 {
@@ -21,11 +22,6 @@ typedef struct s_node
 	struct s_node	*next;
 	int				data;
 }	t_node;
-
-typedef struct s_list
-{
-	struct s_node	*head;
-}	t_list;
 
 typedef struct s_info
 {

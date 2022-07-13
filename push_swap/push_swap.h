@@ -13,6 +13,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -33,5 +34,8 @@ typedef struct s_info
 	struct s_node	*bottom_b;
 }	t_info;
 
+void	init(t_node *a, t_node *b, t_info *info, int argc, char *argv[]);
+t_node*	new_node(int data);
+void    sa(t_node *a);
 
 #endif

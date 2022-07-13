@@ -16,7 +16,8 @@ CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra
 
-SRCS = push_swap.c
+SRCS = 	push_swap.c \
+		push_swap_pattern.c
 
 OBJS = $(SRCS:.c=.o) 
 

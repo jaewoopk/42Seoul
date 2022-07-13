@@ -12,16 +12,12 @@
 
 #include "push_swap.h"
 #include "libft/libft.h"
-#include <stdio.h>
-#include <unistd.h>
-
-void	init(t_node *a, t_node *b, t_info *info, int argc, char *argv[]);
-t_node*	new_node(int data);
 
 void	init(t_node *a, t_node *b, t_info *info, int argc, char *argv[])
 {
 	int 	i;
 	t_node	*tmp;
+	t_node	*previous;
 
 	i = 1;
 	b = NULL;
@@ -30,7 +26,9 @@ void	init(t_node *a, t_node *b, t_info *info, int argc, char *argv[])
 	{
 		t_node* newNode = new_node(ft_atoi(argv[i]));
 		tmp->next = newNode;
+		previous = tmp;
 		tmp = tmp->next;
+		tmp->prev = previous;
 		if (i == 1)
 			info->bottom_a = newNode;
 		i++;
@@ -66,12 +64,21 @@ int main(int argc, char *argv[])
 		exit(1);
 
 	init(a ,b, info, argc, argv);
-	tmp = a;
+	tmp = a->next;
+	a = a->next;
 	for (int i = 0; i < info->size_a - 1; i++)
 	{
-		a = a->next;
 		printf("%d\n",a->data);
+		a = a->next;
 	}
+	a = tmp;
+	sa(a);
+	for (int i = 0; i < info->size_a - 1; i++)
+	{
+		printf("%d\n",a->data);
+		a = a->next;
+	}
+	tmp = tmp->prev;
 	for (int i = 0; i < info->size_a; i++)
 	{
 		free(tmp);

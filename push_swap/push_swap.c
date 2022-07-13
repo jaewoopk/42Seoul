@@ -29,13 +29,10 @@ void	init(t_node *a, t_node *b, t_info *info, int argc, char *argv[])
 		previous = tmp;
 		tmp = tmp->next;
 		tmp->prev = previous;
-		if (i == 1)
-			info->bottom_a = newNode;
 		i++;
 	}
-	info->size_a = i;
+	info->size_a = i - 1;
 	info->size_b = 0;
-	info->top_a = tmp;
 }
 
 t_node*	new_node(int data)
@@ -64,20 +61,37 @@ int main(int argc, char *argv[])
 		exit(1);
 
 	init(a ,b, info, argc, argv);
-	tmp = a->next;
 	a = a->next;
-	for (int i = 0; i < info->size_a - 1; i++)
+	tmp = a;
+	for (int i = 0; i < info->size_a; i++)
 	{
 		printf("%d\n",a->data);
 		a = a->next;
 	}
 	a = tmp;
 	sa(a);
-	for (int i = 0; i < info->size_a - 1; i++)
+	for (int i = 0; i < info->size_a; i++)
 	{
 		printf("%d\n",a->data);
 		a = a->next;
 	}
+	a = tmp;
+
+	pb(a,b,info);
+	pb(a,b,info);
+	pb(a,b,info);
+	for (int i = 0; i < info->size_a; i++)
+	{
+		printf("%d\n",a->data);
+		a = a->next;
+	}
+	b = b->next;
+	for (int i = 0; i < info->size_b; i++)
+	{
+		printf("%d\n",b->data);
+		b = b->next;
+	}
+
 	tmp = tmp->prev;
 	for (int i = 0; i < info->size_a; i++)
 	{

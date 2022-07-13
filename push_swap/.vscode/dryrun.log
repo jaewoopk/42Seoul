@@ -1,9 +1,5 @@
 make --dry-run --keep-going --print-directory
 make: Entering directory `/Users/jaewopar/Desktop/42Seoul/push_swap'
-gcc -Wall -Werror -Wextra -g3 -c push_swap.c -o push_swap.o
- 
-gcc -Wall -Werror -Wextra -g3 -c push_swap_pattern.c -o push_swap_pattern.o
-make -C libft/
-gcc -Wall -Werror -Wextra -o push_swap push_swap.o push_swap_pattern.o  -L./libft/ -lft
+make: Nothing to be done for `all'.
 make: Leaving directory `/Users/jaewopar/Desktop/42Seoul/push_swap'
  

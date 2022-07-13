@@ -27,15 +27,15 @@ typedef struct s_node
 typedef struct s_info
 {
 	int	size_a;
-	struct s_node	*top_a;
-	struct s_node	*bottom_a;
 	int	size_b;
-	struct s_node	*top_b;
-	struct s_node	*bottom_b;
 }	t_info;
 
 void	init(t_node *a, t_node *b, t_info *info, int argc, char *argv[]);
 t_node*	new_node(int data);
 void    sa(t_node *a);
+void    sb(t_node *b);
+void    ss(t_node *a, t_node *b);
+void    pa(t_node *a, t_node *b, t_info *info);
+void    pb(t_node *a, t_node *b, t_info *info);
 
 #endif

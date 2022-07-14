@@ -50,40 +50,38 @@ void    pb(t_node *a, t_node *b, t_info *info)
 void    ra(t_node *a)
 {
     t_node  *tmp;
-    int tp;
+    int     tp;
 
-    tmp = a;
+    tmp = a->next;
     while (tmp->next)
         tmp = tmp->next;
     
     tp = tmp->data;
-    tmp = a;
-    while (tmp->next)
+    while (tmp != a)
     {
-        tmp->next->data = tmp->data;
-        tmp = tmp->next;
+        tmp->data = tmp->prev->data;
+        tmp = tmp->prev;
     }
-    a->data = tp;
+    a->next->data = tp;
     printf("ra\n");
 }
 
 void    rb(t_node *b)
 {
     t_node  *tmp;
-    int tp;
+    int     tp;
 
-    tmp = b;
+    tmp = b->next;
     while (tmp->next)
         tmp = tmp->next;
     
     tp = tmp->data;
-    tmp = b;
-    while (tmp->next)
+    while (tmp != b)
     {
-        tmp->next->data = tmp->data;
-        tmp = tmp->next;
+        tmp->data = tmp->prev->data;
+        tmp = tmp->prev;
     }
-    b->data = tp;
+    b->next->data = tp;
     printf("rb\n");
 }
 

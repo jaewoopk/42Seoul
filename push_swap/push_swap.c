@@ -114,8 +114,8 @@ int main(int argc, char *argv[])
 	printf("=====================\n");
 	for (int i = 0; i < info->size_b; i++)
 	{
-		printf("%d\n",b->data);
 		b = b->next;
+		printf("%d\n",b->data);
 	}
 
 	a = tmp;

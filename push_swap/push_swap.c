@@ -67,42 +67,49 @@ int main(int argc, char *argv[])
 	tmp2= b;
 	for (int i = 0; i < info->size_a; i++)
 	{
-		printf("%d\n",a->data);
 		a = a->next;
+		printf("%d\n",a->data);
 	}
 	a = tmp;
 	sa(a);
 	for (int i = 0; i < info->size_a; i++)
 	{
-		printf("%d\n",a->data);
 		a = a->next;
+		printf("%d\n",a->data);
 	}
 	a = tmp;
-
+	b = tmp2;
 	pb(a,b,info);
+	a = tmp;
+	b = tmp2;
 	pb(a,b,info);
+	a = tmp;
+	b = tmp2;
 	pb(a,b,info);
+	a = tmp;
 	for (int i = 0; i < info->size_a; i++)
 	{
-		printf("%d\n",a->data);
 		a = a->next;
+		printf("%d\n",a->data);
 	}
 	printf("=====================\n");
-	b = b->next;
+	b = tmp2;
 	for (int i = 0; i < info->size_b; i++)
 	{
-		printf("%d\n",b->data);
 		b = b->next;
+		printf("%d\n",b->data);
 	}
 	a = tmp;
 	b = tmp2;
 
 	rr(a,b);
+	a = tmp;
+	b = tmp2;
 	printf("=====================\n");
 	for (int i = 0; i < info->size_a; i++)
 	{
-		printf("%d\n",a->data);
 		a = a->next;
+		printf("%d\n",a->data);
 	}
 	printf("=====================\n");
 	for (int i = 0; i < info->size_b; i++)
@@ -111,10 +118,13 @@ int main(int argc, char *argv[])
 		b = b->next;
 	}
 
-	tmp = tmp->prev;
+	a = tmp;
+	tmp = a->next;
+	printf("=====================\n");
 	for (int i = 0; i < info->size_a; i++)
 	{
-		free(tmp);
+		free(a);
+		a = tmp;
 		tmp = tmp->next;
 	}
 	free(b);

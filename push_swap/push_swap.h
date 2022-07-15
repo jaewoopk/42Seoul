@@ -40,5 +40,8 @@ void    pb(t_node *a, t_node *b, t_info *info);
 void    ra(t_node *a);
 void    rb(t_node *b);
 void    rr(t_node *a, t_node *b);
+void    rra(t_node *a);
+void    rrb(t_node *b);
+void    rrr(t_node *a, t_node *b);
 
 #endif

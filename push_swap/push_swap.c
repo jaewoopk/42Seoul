@@ -117,6 +117,23 @@ int main(int argc, char *argv[])
 		b = b->next;
 		printf("%d\n",b->data);
 	}
+	a = tmp;
+	b = tmp2;
+	rrr(a,b);
+	a = tmp;
+	b = tmp2;
+	printf("=====================\n");
+	for (int i = 0; i < info->size_a; i++)
+	{
+		a = a->next;
+		printf("%d\n",a->data);
+	}
+	printf("=====================\n");
+	for (int i = 0; i < info->size_b; i++)
+	{
+		b = b->next;
+		printf("%d\n",b->data);
+	}
 
 	a = tmp;
 	b = tmp2;

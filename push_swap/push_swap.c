@@ -25,7 +25,7 @@ void	init(t_node *a, t_node *b, t_info *info, int argc, char *argv[])
 	tmp = a;
 	while (i < argc)
 	{
-		t_node* newNode = new_node(ft_atoi(argv[i]));
+		t_node* newNode = new_node(ft_atoi(argv[argc - i]));
 		tmp->next = newNode;
 		previous = tmp;
 		tmp = tmp->next;
@@ -56,6 +56,8 @@ int main(int argc, char *argv[])
 	t_info	*info;
 	t_node	*tmp;
 	t_node	*tmp2;
+	t_node	*tmp_last;
+	t_node	*tmp_last2;
 
 	if (!(a = malloc(sizeof(t_node))) ||\
 		!(b = malloc(sizeof(t_node))) ||\
@@ -63,19 +65,30 @@ int main(int argc, char *argv[])
 		exit(1);
 
 	init(a ,b, info, argc, argv);
+	tmp_last = a;
+	tmp_last2 = b;
+	while (tmp_last->next)
+		tmp_last = tmp_last->next;
+	while (tmp_last2->next)
+		tmp_last2 = tmp_last2->next;
+
 	tmp = a;
 	tmp2= b;
+	a = tmp_last;
+	b = tmp_last2;
 	for (int i = 0; i < info->size_a; i++)
 	{
-		a = a->next;
 		printf("%d\n",a->data);
+		a = a->prev;
 	}
 	a = tmp;
 	sa(a);
+	a = tmp_last;
+	b = tmp_last2;
 	for (int i = 0; i < info->size_a; i++)
 	{
-		a = a->next;
 		printf("%d\n",a->data);
+		a = a->prev;
 	}
 	a = tmp;
 	b = tmp2;
@@ -87,54 +100,62 @@ int main(int argc, char *argv[])
 	b = tmp2;
 	pb(a,b,info);
 	a = tmp;
+	b = tmp2;
+	tmp_last = a;
+	tmp_last2 = b;
+	while (tmp_last->next)
+		tmp_last = tmp_last->next;
+	while (tmp_last2->next)
+		tmp_last2 = tmp_last2->next;
+	a = tmp_last;
+	b = tmp_last2;
 	for (int i = 0; i < info->size_a; i++)
 	{
-		a = a->next;
 		printf("%d\n",a->data);
+		a = a->prev;
 	}
 	printf("=====================\n");
-	b = tmp2;
 	for (int i = 0; i < info->size_b; i++)
 	{
-		b = b->next;
 		printf("%d\n",b->data);
+		b = b->prev;
 	}
 	a = tmp;
 	b = tmp2;
 
 	rr(a,b);
-	a = tmp;
-	b = tmp2;
+	
 	printf("=====================\n");
+	a = tmp_last;
+	b = tmp_last2;
 	for (int i = 0; i < info->size_a; i++)
 	{
-		a = a->next;
 		printf("%d\n",a->data);
+		a = a->prev;
 	}
 	printf("=====================\n");
 	for (int i = 0; i < info->size_b; i++)
 	{
-		b = b->next;
 		printf("%d\n",b->data);
+		b = b->prev;
 	}
 	a = tmp;
 	b = tmp2;
 	rrr(a,b);
-	a = tmp;
-	b = tmp2;
 	printf("=====================\n");
+	a = tmp_last;
+	b = tmp_last2;
 	for (int i = 0; i < info->size_a; i++)
 	{
-		a = a->next;
 		printf("%d\n",a->data);
+		a = a->prev;
 	}
 	printf("=====================\n");
 	for (int i = 0; i < info->size_b; i++)
 	{
-		b = b->next;
 		printf("%d\n",b->data);
+		b = b->prev;
 	}
-
 	a = tmp;
 	b = tmp2;
 	tmp = a->next;

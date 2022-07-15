@@ -4,34 +4,28 @@
 void    sa(t_node *a)
 {
     t_node  *tmp;
-    t_node  *tmp2;
+    int     temp;
 
     tmp = a;
     while (tmp->next->next)
         tmp = tmp->next;
-    tmp2 = tmp->next;
-    tmp->prev->next = tmp2;
-    tmp2->prev = tmp->prev;
-    tmp2->next = tmp;
-    tmp->prev = tmp2;
-    tmp->next = NULL;
+    temp = tmp->data;
+    tmp->data = tmp->next->data;
+    tmp->next->data = temp;
     printf("sa\n");
 }
 
 void    sb(t_node *b)
 {
     t_node  *tmp;
-    t_node  *tmp2;
+    int     temp;
 
     tmp = b;
     while (tmp->next->next)
         tmp = tmp->next;
-    tmp2 = tmp->next;
-    tmp->prev->next = tmp2;
-    tmp2->prev = tmp->prev;
-    tmp2->next = tmp;
-    tmp->prev = tmp2;
-    tmp->next = NULL;
+    temp = tmp->data;
+    tmp->data = tmp->next->data;
+    tmp->next->data = temp;
     printf("sb\n");
 }
 

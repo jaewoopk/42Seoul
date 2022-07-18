@@ -85,7 +85,7 @@ void	init(t_node *a, t_node *b, t_info *info, int argc, char *argv[])
 	{
 		char	**split = ft_split(argv[i],' ');
 		j = 0;
-		while (split++)
+		while (*split)
 		{	
 			t_node* newNode = new_node(check_num(split[j]));
 			tmp->next = newNode;
@@ -93,6 +93,7 @@ void	init(t_node *a, t_node *b, t_info *info, int argc, char *argv[])
 			tmp = tmp->next;
 			tmp->prev = previous;
 			j++;
+			split++;
 		}
 	}
 	info->size_a = i - 1;

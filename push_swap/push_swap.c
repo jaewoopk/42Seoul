@@ -13,24 +13,87 @@
 #include "push_swap.h"
 #include "libft/libft.h"
 
+void	error_message(int check)
+{
+	if (check == 1)
+	{
+		printf("Error\nIt's not number\n");
+		exit(1);
+	}
+}
+
+void	check_overlap(t_node *a)
+{
+	t_node	*tmp;
+	t_node	*tmp2;
+
+	tmp = a->next;
+	while (tmp)
+	{
+		tmp2 = tmp->next;
+		while (tmp2)
+		{
+			if (tmp2->data == tmp->data)
+				error_message(1);
+			tmp2 = tmp2->next;
+		}
+		tmp = tmp->next;
+	}
+}
+
+int		check_num(const char *str)
+{
+	long long		sign;
+	long long		n;
+	int				i;
+	int				checker;
+
+	sign = 1;
+	n = 0;
+	i = 0;
+	checker = 0;
+	while ((*str >= 9 && *str <= 13) || *str == 32)
+		str++;
+	if (*str == '-')
+		sign = -1;
+	if (*str == '-' || *str == '+')
+		str++;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		n = (n * 10) + (str[i] - '0');
+		i++;
+		checker++;
+	}
+	if (n * sign > 2147483647 || n * sign < -2147483648 \
+		|| checker == 0)
+		error_message(1);
+	return (n * sign);
+}
+
 void	init(t_node *a, t_node *b, t_info *info, int argc, char *argv[])
 {
 	int 	i;
+	int		j;
 	t_node	*tmp;
 	t_node	*previous;
 
 	(void)b;
-	i = 1;
+	i = 0;
 	a->data = 0;
 	tmp = a;
-	while (i < argc)
+	while (++i < argc)
 	{
-		t_node* newNode = new_node(ft_atoi(argv[argc - i]));
-		tmp->next = newNode;
-		previous = tmp;
-		tmp = tmp->next;
-		tmp->prev = previous;
-		i++;
+		char	**split = ft_split(argv[i],' ');
+		j = 0;
+		while (split++)
+		{	
+			t_node* newNode = new_node(check_num(split[j]));
+			tmp->next = newNode;
+			previous = tmp;
+			tmp = tmp->next;
+			tmp->prev = previous;
+			j++;
+		}
 	}
 	info->size_a = i - 1;
 	info->size_b = 0;

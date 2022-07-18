@@ -32,6 +32,9 @@ typedef struct s_info
 
 void	init(t_node *a, t_node *b, t_info *info, int argc, char *argv[]);
 t_node*	new_node(int data);
+void	error_message(int check);
+void	check_overlap(t_node *a);
+int		check_num(const char *str);
 void    sa(t_node *a);
 void    sb(t_node *b);
 void    ss(t_node *a, t_node *b);

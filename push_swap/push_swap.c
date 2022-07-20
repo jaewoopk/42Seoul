@@ -128,6 +128,7 @@ int main(int argc, char *argv[])
 		exit(1);
 
 	init(a, info, argc, argv);
+	check_overlap(a);
 	tmp_last = a;
 	tmp_last2 = b;
 	while (tmp_last->next)

@@ -4,7 +4,8 @@
 void    ft_sandglass(t_node *a, t_node* b, t_info *info)
 {
     int chunk = (info->size_a + info->size_b)/ 2;
-    a_to_b(a,b,info,chunk);
+    a_to_b(a, b, info, chunk);
+    b_to_a(a, b, info);
 }
 
 void    a_to_b(t_node *a, t_node *b, t_info *info, int chunk)

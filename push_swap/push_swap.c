@@ -70,33 +70,32 @@ int		check_num(const char *str)
 	return (n * sign);
 }
 
-void	init(t_node *a, t_node *b, t_info *info, int argc, char *argv[])
+void	init(t_node *a, t_info *info, int argc, char *argv[])
 {
 	int 	i;
-	int		j;
+	int		num;
 	t_node	*tmp;
 	t_node	*previous;
 
-	(void)b;
 	i = 0;
 	a->data = 0;
 	tmp = a;
+	num = 0;
 	while (++i < argc)
 	{
 		char	**split = ft_split(argv[i],' ');
-		j = 0;
 		while (*split)
-		{	
-			t_node* newNode = new_node(check_num(split[j]));
+		{
+			t_node* newNode = new_node(check_num(*split));
 			tmp->next = newNode;
 			previous = tmp;
 			tmp = tmp->next;
 			tmp->prev = previous;
-			j++;
 			split++;
+			num++;
 		}
 	}
-	info->size_a = i - 1;
+	info->size_a = num;
 	info->size_b = 0;
 }
 
@@ -128,7 +127,7 @@ int main(int argc, char *argv[])
 		!(info = malloc(sizeof(t_info))))
 		exit(1);
 
-	init(a ,b, info, argc, argv);
+	init(a, info, argc, argv);
 	tmp_last = a;
 	tmp_last2 = b;
 	while (tmp_last->next)

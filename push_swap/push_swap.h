@@ -30,7 +30,7 @@ typedef struct s_info
 	int	size_b;
 }	t_info;
 
-void	init(t_node *a, t_node *b, t_info *info, int argc, char *argv[]);
+void	init(t_node *a, t_info *info, int argc, char *argv[]);
 t_node*	new_node(int data);
 void	error_message(int check);
 void	check_overlap(t_node *a);

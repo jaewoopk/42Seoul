@@ -9,6 +9,16 @@ void    ft_sandglass(t_node *a, t_node* b, t_info *info)
     size = info->size_a;
     chunk = 0.000000053 * size * size + 0.03 * size + 14.5;
     a_to_b(a, b, info, chunk);
+    b = b->next;
+    for (int i = 0; i < info->size_b; i++)
+    {
+        printf("b->data = %d -- b->id = %d\n",b->data, b->id);
+        if (b->next == NULL)
+            break;
+        b = b->next;
+    }
+    while(b->data != 0)
+        b = b->prev;
     b_to_a(a, b, info);
 }
 
@@ -61,28 +71,62 @@ void	choose_rb_rrb(t_node *b, t_info *info, int len)
 	int		i;
 	t_node	*tmp;
 
+    b = b->next;
+    for (int i = 0; i < info->size_b; i++)
+    {
+        printf("b->data = %d -- b->id = %d\n",b->data, b->id);
+        if (b->next == NULL)
+            break;
+        b = b->next;
+    }
+    while(b->data != 0)
+        b = b->prev;
+    printf("================\n");
 	i = 1;
-	tmp = b;
-	while (tmp-> != len)
+	tmp = b->next;
+	while (tmp->id != len)
 	{
 		i++;
 		tmp = tmp->next;
 	}
-	if (i <= info->size_b / 2)
+	if (i >= info->size_b / 2)
 	{
-		while (len)
+		while (i)
         {
 			rb(b);
-            len--;
-            i++;
+            b = b->next;
+            for (int i = 0; i < info->size_b; i++)
+            {
+                printf("b->data = %d -- b->id = %d\n",b->data, b->id);
+                if (b->next == NULL)
+                    break;
+                b = b->next;
+            }
+            while(b->data != 0)
+                b = b->prev;
+            printf("b->id == %d\n", tmp->id);
+            printf("len == %d\n", len);
+            i--;
         }
 	}
 	else
 	{
-		while (b->head->id != len)
-		{
+		while (i)
+        {
             rrb(b);
-            i++;
+            b = b->next;
+            for (int i = 0; i < info->size_b; i++)
+            {
+                printf("b->data = %d -- b->id = %d\n",b->data, b->id);
+                if (b->next == NULL)
+                    break;
+                b = b->next;
+            }
+            while(b->data != 0)
+                b = b->prev;
+            printf("b->id == %d\n", tmp->id);
+            printf("len == %d\n", len);
+            i--;
         }
 	}
 }

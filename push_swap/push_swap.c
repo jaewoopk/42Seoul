@@ -33,7 +33,11 @@ void	check_overlap(t_node *a)
 		tmp2 = tmp->next;
 		while (tmp2)
 		{
-			if (tmp2->data == tmp->data)
+			if (tmp->data > tmp2->data)
+				tmp->id++;
+			else if (tmp->data < tmp2->data)
+				tmp2->id++;
+			else
 				error_message(1);
 			tmp2 = tmp2->next;
 		}
@@ -142,7 +146,7 @@ int main(int argc, char *argv[])
 	b = tmp_last2;
 	for (int i = 0; i < info->size_a; i++)
 	{
-		printf("%d\n",a->data);
+		printf("data = %d -- id = %d\n",a->data, a->id);
 		a = a->prev;
 	}
 	a = tmp;

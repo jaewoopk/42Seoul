@@ -6,12 +6,8 @@ void    pa(t_node *a, t_node *b, t_info *info)
     t_node  *tmp_a;
     t_node  *tmp_b;
 
-    tmp_a = a;
-    tmp_b = b;
-    while (tmp_a->next)
-        tmp_a = tmp_a->next;
-    while (tmp_b->next)
-        tmp_b = tmp_b->next;
+    tmp_a = get_top_node(a);
+    tmp_b = get_top_node(b);
     if (info->size_b == 0)
         exit(1);
     if (tmp_b->prev != NULL)
@@ -29,12 +25,8 @@ void    pb(t_node *a, t_node *b, t_info *info)
     t_node  *tmp_a;
     t_node  *tmp_b;
 
-    tmp_a = a;
-    tmp_b = b;
-    while (tmp_a->next)
-        tmp_a = tmp_a->next;
-    while (tmp_b->next)
-        tmp_b = tmp_b->next;
+    tmp_a = get_top_node(a);
+    tmp_b = get_top_node(b);
     if (info->size_a == 0)
         exit(1);
     if (tmp_a->prev != NULL)
@@ -51,18 +43,19 @@ void    ra(t_node *a)
 {
     t_node  *tmp;
     int     tp;
+    int     tp_id;
 
-    tmp = a->next;
-    while (tmp->next)
-        tmp = tmp->next;
-    
+    tmp = get_top_node(a);
     tp = tmp->data;
+    tp_id = tmp->id;
     while (tmp != a)
     {
+        tmp->id = tmp->prev->id;
         tmp->data = tmp->prev->data;
         tmp = tmp->prev;
     }
     a->next->data = tp;
+    a->next->id = tp_id;
     printf("ra\n");
 }
 
@@ -70,18 +63,19 @@ void    rb(t_node *b)
 {
     t_node  *tmp;
     int     tp;
+    int     tp_id;
 
-    tmp = b->next;
-    while (tmp->next)
-        tmp = tmp->next;
-    
+    tmp = get_top_node(b);
     tp = tmp->data;
+    tp_id = tmp->id;
     while (tmp != b)
     {
+        tmp->id = tmp->prev->id;
         tmp->data = tmp->prev->data;
         tmp = tmp->prev;
     }
     b->next->data = tp;
+    b->next->id = tp_id;
     printf("rb\n");
 }
 

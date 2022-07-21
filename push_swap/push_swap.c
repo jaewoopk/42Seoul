@@ -146,7 +146,7 @@ int main(int argc, char *argv[])
 		a = a->prev;
 	}
 	a = tmp;
-	sa(a);
+	ft_sandglass(a,b,info);
 	a = tmp_last;
 	b = tmp_last2;
 	for (int i = 0; i < info->size_a; i++)

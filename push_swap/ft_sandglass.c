@@ -65,8 +65,8 @@ void    b_to_a(t_node *a, t_node *b, t_info *info)
         len--;
     }
 }
-
-void	choose_rb_rrb(t_node *b, t_info *info, int len)
+cant
+void	    choose_rb_rrb(t_node *b, t_info *info, int len)
 {
 	int		i;
 	t_node	*tmp;

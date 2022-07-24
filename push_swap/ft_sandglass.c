@@ -31,18 +31,18 @@ void    a_to_b(t_node *a, t_node *b, t_info *info, int chunk)
     i = 0;
     while (info->size_a)
     {
-        if (get_top(a) <= i)
+        if (get_top_node(a)->id <= i)
         {
             pb(a, b, info);
             i++;
         }
-        else if (get_top(a) > i && get_top(a) <= i + chunk)
+        else if (get_top_node(a)->id > i && get_top_node(a)->id <= i + chunk)
         {
             pb(a, b, info);
             rb(b);
             i++;
         }
-        else if (get_top(a) > (i + chunk))
+        else if (get_top_node(a)->id > (i + chunk))
         {
             if (i < info->size_a / 2 && i >= 0)
                 rra(a);
@@ -65,7 +65,7 @@ void    b_to_a(t_node *a, t_node *b, t_info *info)
         len--;
     }
 }
-cant
+
 void	    choose_rb_rrb(t_node *b, t_info *info, int len)
 {
 	int		i;

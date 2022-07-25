@@ -1,6 +1,8 @@
 #include "push_swap.h"
 #include "libft/libft.h"
 
+// 여기서 부터 수정해야함 b의 next와 prev가 무한 반복 됨
+
 void    pa(t_node *a, t_node *b, t_info *info)
 {
     t_node  *tmp_a;

@@ -4,40 +4,38 @@
 void    rra(t_node *a)
 {
     t_node  *tmp;
-    int     tp;
-    int     tp_id;
+    t_node  *tmp2;
 
     tmp = a->next;
-    tp = tmp->data;
-    tp_id = tmp->id;
-    while (tmp->next)
-    {
-        tmp->id = tmp->next->id;
-        tmp->data = tmp->next->data;
-        tmp = tmp->next;
-    }
-    tmp->data = tp;
-    tmp->id = tp_id;
+    tmp2 = a;
+    while(tmp2->next)
+        tmp2 = tmp2->next;
+    
+    tmp2->next = tmp;
+    tmp->prev = tmp2;
+    tmp2->prev->next = NULL;
+    tmp2->prev = a;
+    a->next = tmp2;
+    
     printf("rra\n");
 }
 
 void    rrb(t_node *b)
 {
     t_node  *tmp;
-    int     tp;
-    int     tp_id;
+    t_node  *tmp2;
 
     tmp = b->next;
-    tp = tmp->data;
-    tp_id = tmp->id;
-    while (tmp->next)
-    {
-        tmp->id = tmp->next->id;
-        tmp->data = tmp->next->data;
-        tmp = tmp->next;
-    }
-    tmp->data = tp;
-    tmp->id = tp_id;
+    tmp2 = b;
+    while(tmp2->next)
+        tmp2 = tmp2->next;
+    
+    tmp2->next = tmp;
+    tmp->prev = tmp2;
+    tmp2->prev->next = NULL;
+    tmp2->prev = b;
+    b->next = tmp2;
+    
     printf("rrb\n");
 }
 

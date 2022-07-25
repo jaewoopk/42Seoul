@@ -118,8 +118,6 @@ int main(int argc, char *argv[])
 	t_info	*info;
 	t_node	*tmp;
 	t_node	*tmp2;
-	t_node	*tmp_last;
-	t_node	*tmp_last2;
 
 	if (!(a = malloc(sizeof(t_node))) ||\
 		!(b = malloc(sizeof(t_node))) ||\
@@ -128,12 +126,6 @@ int main(int argc, char *argv[])
 
 	init(a, info, argc, argv);
 	check_overlap(a);
-	tmp_last = a;
-	tmp_last2 = b;
-	while (tmp_last->next)
-		tmp_last = tmp_last->next;
-	while (tmp_last2->next)
-		tmp_last2 = tmp_last2->next;
 
 	tmp = a;
 	tmp2= b;
@@ -144,43 +136,38 @@ int main(int argc, char *argv[])
 		printf("data = %d -- id = %d\n",a->data, a->id);
 	}
 	a = tmp;
-	ft_sandglass(a,b,info);
-	a = tmp_last;
-	b = tmp_last2;
+	b = tmp2;
+	//ft_sandglass(a,b,info);
+	printf("=====================\n");
 	for (int i = 0; i < info->size_a; i++)
 	{
-		printf("%d\n",a->data);
-		a = a->prev;
-	}
-	a = tmp;
-	b = tmp2;
-	pb(a,b,info);
-	a = tmp;
-	b = tmp2;
-	pb(a,b,info);
-	a = tmp;
-	b = tmp2;
-	pb(a,b,info);
-	a = tmp;
-	b = tmp2;
-	tmp_last = a;
-	tmp_last2 = b;
-	while (tmp_last->next)
-		tmp_last = tmp_last->next;
-	while (tmp_last2->next)
-		tmp_last2 = tmp_last2->next;
-	a = tmp_last;
-	b = tmp_last2;
-	for (int i = 0; i < info->size_a; i++)
-	{
-		printf("%d\n",a->data);
-		a = a->prev;
+		a = a->next;
+		printf("data = %d -- id = %d\n",a->data, a->id);
 	}
 	printf("=====================\n");
-	for (int i = 0; i < info->size_b; i++)
+	a = tmp;
+	b = tmp2;
+	pb(a,b,info);
+	a = tmp;
+	b = tmp2;
+	pb(a,b,info);
+	a = tmp;
+	b = tmp2;
+	pb(a,b,info);
+	a = tmp;
+	b = tmp2;
+	for (int i = 0; i < info->size_a; i++)
 	{
-		printf("%d\n",b->data);
-		b = b->prev;
+		a = a->next;
+		printf("data = %d -- id = %d\n",a->data, a->id);
+	}
+	printf("=====================\n");
+	a = tmp;
+	b = tmp2;
+	for (int i = 0; i < info->size_a; i++)
+	{
+		b = b->next;
+		printf("data = %d -- id = %d\n",b->data, b->id);
 	}
 	a = tmp;
 	b = tmp2;
@@ -188,35 +175,38 @@ int main(int argc, char *argv[])
 	rr(a,b);
 	
 	printf("=====================\n");
-	a = tmp_last;
-	b = tmp_last2;
+	
+	a = tmp;
+	b = tmp2;
 	for (int i = 0; i < info->size_a; i++)
 	{
-		printf("%d\n",a->data);
-		a = a->prev;
+		a = a->next;
+		printf("data = %d -- id = %d\n",a->data, a->id);
 	}
 	printf("=====================\n");
-	for (int i = 0; i < info->size_b; i++)
+	for (int i = 0; i < info->size_a; i++)
 	{
-		printf("%d\n",b->data);
-		b = b->prev;
+		b = b->next;
+		printf("data = %d -- id = %d\n",b->data, b->id);
 	}
 	a = tmp;
 	b = tmp2;
 	rrr(a,b);
 	printf("=====================\n");
-	a = tmp_last;
-	b = tmp_last2;
+	a = tmp;
+	b = tmp2;
 	for (int i = 0; i < info->size_a; i++)
 	{
-		printf("%d\n",a->data);
-		a = a->prev;
+		a = a->next;
+		printf("data = %d -- id = %d\n",a->data, a->id);
 	}
+	a = tmp;
+	b = tmp2;
 	printf("=====================\n");
-	for (int i = 0; i < info->size_b; i++)
+	for (int i = 0; i < info->size_a; i++)
 	{
-		printf("%d\n",b->data);
-		b = b->prev;
+		b = b->next;
+		printf("data = %d -- id = %d\n",b->data, b->id);
 	}
 	a = tmp;
 	b = tmp2;

@@ -33,6 +33,8 @@ typedef struct s_info
 
 void	init(t_node *a, t_info *info, int argc, char *argv[]);
 t_node*	new_node(int data);
+void    push_front(t_node *node, t_node *newNode);
+void    push_last(t_node *node, t_node *newNode);
 void	error_message(int check);
 void	check_overlap(t_node *a);
 int		check_num(const char *str);

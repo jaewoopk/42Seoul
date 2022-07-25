@@ -78,12 +78,9 @@ void	init(t_node *a, t_info *info, int argc, char *argv[])
 {
 	int 	i;
 	int		num;
-	t_node	*tmp;
-	t_node	*previous;
 
 	i = 0;
 	a->data = 0;
-	tmp = a;
 	num = 0;
 	while (++i < argc)
 	{
@@ -91,10 +88,7 @@ void	init(t_node *a, t_info *info, int argc, char *argv[])
 		while (*split)
 		{
 			t_node* newNode = new_node(check_num(*split));
-			tmp->next = newNode;
-			previous = tmp;
-			tmp = tmp->next;
-			tmp->prev = previous;
+			push_last(a, newNode);
 			split++;
 			num++;
 		}
@@ -111,6 +105,7 @@ t_node*	new_node(int data)
 	if (!t)
 		exit (1);
 	t->data = data;
+	t->id = 0;
 	t->next = NULL;
 	t->prev = NULL;
 	return (t);
@@ -142,12 +137,11 @@ int main(int argc, char *argv[])
 
 	tmp = a;
 	tmp2= b;
-	a = tmp_last;
-	b = tmp_last2;
+
 	for (int i = 0; i < info->size_a; i++)
 	{
+		a = a->next;
 		printf("data = %d -- id = %d\n",a->data, a->id);
-		a = a->prev;
 	}
 	a = tmp;
 	ft_sandglass(a,b,info);

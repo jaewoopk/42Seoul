@@ -217,21 +217,6 @@ int main(int argc, char *argv[])
 	*/
 	a = tmp;
 	b = tmp2;
-	tmp = a->next;
-	printf("=====================\n");
-	for (int i = 0; i < info->size_a; i++)
-	{
-		free(a);
-		a = tmp;
-		tmp = tmp->next;
-	}
-	tmp2 = b->next;
-	for (int i = 0; i < info->size_b; i++)
-	{
-		free(b);
-		b = tmp2;
-		tmp2 = tmp2->next;
-	}
-	free(info);
+	free_node(a, b, info);
 	return (0);
 }

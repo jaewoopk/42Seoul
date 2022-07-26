@@ -54,5 +54,9 @@ void    rrr(t_node *a, t_node *b);
 void    ft_sandglass(t_node *a, t_node* b, t_info *info);
 void    a_to_b(t_node *a, t_node *b, t_info *info, int chunk);
 void    b_to_a(t_node *a, t_node *b, t_info *info);
+void    size_three_sort(t_node *a);
+void    size_four_sort(t_node *a, t_node *b, t_info *info);
+void    size_five_sort(t_node *a, t_node *b, t_info *info);
+void    free_node(t_node *a, t_node *b, t_info *info);
 
 #endif

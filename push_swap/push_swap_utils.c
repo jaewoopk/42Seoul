@@ -52,3 +52,29 @@ void    free_split(char **split, int size)
     }
     free(split);
 }
+
+void    free_node(t_node *a, t_node *b, t_info *info)
+{
+    t_node  *tmp_a;
+    t_node  *tmp_b;
+
+    tmp_a = a->next;
+    while (info->size_a)
+    {
+        free(a);
+        a = tmp_a;
+        tmp_a = tmp_a->next;
+        info->size_a--;
+    }
+
+    tmp_b = b->next;
+	while (info->size_b)
+    {
+        free(b);
+        b = tmp_b;
+        tmp_b = tmp_b->next;
+        info->size_b--;
+    }
+    free(info);
+    exit(1);
+}

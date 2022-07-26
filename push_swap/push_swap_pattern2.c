@@ -68,6 +68,8 @@ void    ra(t_node *a)
 
     tmp = a->next;
     tmp2 = a;
+    if (tmp->next == NULL || tmp2->next == NULL)
+        return ;
     while(tmp2->next)
         tmp2 = tmp2->next;
     
@@ -87,11 +89,12 @@ void    rb(t_node *b)
 
     tmp = b->next;
     tmp2 = b;
+    if (tmp->next == NULL || tmp2->next == NULL)
+        return ;
     while(tmp2->next)
         tmp2 = tmp2->next;
     
     b->next = tmp->next;
-    tmp->next->prev = b;
     tmp2->next = tmp;
     tmp->prev = tmp2;
     tmp->next = NULL;

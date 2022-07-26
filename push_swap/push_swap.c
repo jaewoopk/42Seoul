@@ -137,7 +137,7 @@ int main(int argc, char *argv[])
 	}
 	a = tmp;
 	b = tmp2;
-	//ft_sandglass(a,b,info);
+	ft_sandglass(a,b,info);
 	printf("=====================\n");
 	for (int i = 0; i < info->size_a; i++)
 	{

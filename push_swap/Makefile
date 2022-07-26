@@ -21,6 +21,7 @@ SRCS = 	push_swap.c \
 		push_swap_pattern.c \
 		push_swap_pattern2.c \
 		push_swap_pattern3.c \
+		ft_sort.c \
 		ft_sandglass.c
 
 OBJS = $(SRCS:.c=.o) 

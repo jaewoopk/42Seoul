@@ -9,7 +9,7 @@ void    pa(t_node *a, t_node *b, t_info *info)
     tmp_a = a->next;
     tmp_b = b->next;
     if (info->size_b == 0)
-        error_message(1);
+        error_message(3);
     if (tmp_b->next != NULL)
     {
         b->next = tmp_b->next;
@@ -39,7 +39,7 @@ void    pb(t_node *a, t_node *b, t_info *info)
     tmp_a = a->next;
     tmp_b = b->next;
     if (info->size_a == 0)
-        error_message(1);
+        error_message(3);
     if (tmp_a->next != NULL)
     {
         a->next = tmp_a->next;

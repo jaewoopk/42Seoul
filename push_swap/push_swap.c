@@ -16,10 +16,12 @@
 void	error_message(int check)
 {
 	if (check == 1)
-	{
 		printf("Error\nIt's not number\n");
-		exit(1);
-	}
+	else if (check == 2)
+		printf("Error\nIt's overlapped\n");
+	else if (check == 3)
+		printf("Error\nIt's no data to push something\n");
+	exit(1);
 }
 
 void	check_overlap(t_node *a)
@@ -38,7 +40,7 @@ void	check_overlap(t_node *a)
 			else if (tmp->data < tmp2->data)
 				tmp2->id++;
 			else
-				error_message(1);
+				error_message(2);
 			tmp2 = tmp2->next;
 		}
 		tmp = tmp->next;
@@ -121,6 +123,8 @@ int main(int argc, char *argv[])
 	t_node	*tmp;
 	t_node	*tmp2;
 
+	if (argc < 2)
+		exit(1);
 	if (!(a = malloc(sizeof(t_node))) ||\
 		!(b = malloc(sizeof(t_node))) ||\
 		!(info = malloc(sizeof(t_info))))
@@ -147,7 +151,7 @@ int main(int argc, char *argv[])
 		printf("data = %d -- id = %d\n",a->data, a->id);
 	}
 	printf("=====================\n");
-	a = tmp;
+	/*a = tmp;
 	b = tmp2;
 	pb(a,b,info);
 	a = tmp;
@@ -210,6 +214,7 @@ int main(int argc, char *argv[])
 		b = b->next;
 		printf("data = %d -- id = %d\n",b->data, b->id);
 	}
+	*/
 	a = tmp;
 	b = tmp2;
 	tmp = a->next;

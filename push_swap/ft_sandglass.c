@@ -12,7 +12,7 @@ void    ft_sandglass(t_node *a, t_node* b, t_info *info)
     chunk = 2;
     tmp = b;
     a_to_b(a, b, info, chunk);
-    b = tmp;
+    tmp = b->next;
     for (int i = 0; i < info->size_b; i++)
     {
         printf("b->data = %d -- b->id = %d\n",tmp->data, tmp->id);
@@ -20,24 +20,23 @@ void    ft_sandglass(t_node *a, t_node* b, t_info *info)
             break;
         tmp = tmp->next;
     }
+    printf("===================\n");
     b_to_a(a, b, info);
 }
 
 void    a_to_b(t_node *a, t_node *b, t_info *info, int chunk)
 {
-    t_node  *tmp;
     int i;
 
-    tmp = a->next;
     i = 0;
     while (info->size_a)
     {
-        if (tmp->id <= i)
+        if (a->next->id <= i)
         {
             pb(a, b, info);
             i++;
         }
-        else if (tmp->id <= i + chunk)
+        else if (a->next->id <= i + chunk)
         {
             pb(a, b, info);
             rb(b);

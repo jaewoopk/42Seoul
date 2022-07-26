@@ -164,7 +164,7 @@ int main(int argc, char *argv[])
 	printf("=====================\n");
 	a = tmp;
 	b = tmp2;
-	for (int i = 0; i < info->size_a; i++)
+	for (int i = 0; i < info->size_b; i++)
 	{
 		b = b->next;
 		printf("data = %d -- id = %d\n",b->data, b->id);
@@ -184,7 +184,7 @@ int main(int argc, char *argv[])
 		printf("data = %d -- id = %d\n",a->data, a->id);
 	}
 	printf("=====================\n");
-	for (int i = 0; i < info->size_a; i++)
+	for (int i = 0; i < info->size_b; i++)
 	{
 		b = b->next;
 		printf("data = %d -- id = %d\n",b->data, b->id);
@@ -203,7 +203,7 @@ int main(int argc, char *argv[])
 	a = tmp;
 	b = tmp2;
 	printf("=====================\n");
-	for (int i = 0; i < info->size_a; i++)
+	for (int i = 0; i < info->size_b; i++)
 	{
 		b = b->next;
 		printf("data = %d -- id = %d\n",b->data, b->id);

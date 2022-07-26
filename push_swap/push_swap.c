@@ -90,7 +90,8 @@ void	init(t_node *a, t_info *info, int argc, char *argv[])
 		int		tmp_num = num;
 		while (*split)
 		{
-			t_node* newNode = new_node(check_num(*split));
+			t_node* newNode;
+			newNode = new_node(check_num(*split));
 			push_last(a, newNode);
 			split++;
 			num++;

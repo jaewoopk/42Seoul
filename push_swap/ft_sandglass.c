@@ -3,15 +3,22 @@
 
 void    ft_sandglass(t_node *a, t_node* b, t_info *info)
 {
-    t_node  *tmp;
     int chunk;
-    int size;
 
-    size = info->size_a;
     //chunk = 0.000000053 * size * size + 0.03 * size + 14.5;
     chunk = 2;
-    tmp = b;
-    a_to_b(a, b, info, chunk);
+    if (info->size_a == 2)
+        sa(a);
+    else if (info->size_a == 3)
+        size_three_sort(a);
+    else if (info->size_a == 4)
+        size_four_sort(a, b, info);
+    else if (info->size_a == 5)
+        size_five_sort(a, b, info);
+    else
+    {
+        a_to_b(a, b, info, chunk);
+    /*
     tmp = b->next;
     for (int i = 0; i < info->size_b; i++)
     {
@@ -21,7 +28,9 @@ void    ft_sandglass(t_node *a, t_node* b, t_info *info)
         tmp = tmp->next;
     }
     printf("===================\n");
-    b_to_a(a, b, info);
+    */
+        b_to_a(a, b, info);
+    }
 }
 
 void    a_to_b(t_node *a, t_node *b, t_info *info, int chunk)

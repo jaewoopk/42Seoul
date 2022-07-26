@@ -116,6 +116,8 @@ t_node*	new_node(int data)
 	return (t);
 }
 
+// 거의 마지막 수정, 꼼꼼하게 
+
 int main(int argc, char *argv[])
 {
 	t_node	*a;
@@ -125,11 +127,10 @@ int main(int argc, char *argv[])
 	t_node	*tmp2;
 
 	if (argc < 2)
-		exit(1);
-	if (!(a = malloc(sizeof(t_node))) ||\
-		!(b = malloc(sizeof(t_node))) ||\
+		return (0);
+	if (!(a = malloc(sizeof(t_node))) || !(b = malloc(sizeof(t_node))) || \
 		!(info = malloc(sizeof(t_info))))
-		exit(1);
+		return (0);
 
 	init(a, info, argc, argv);
 	check_overlap(a);

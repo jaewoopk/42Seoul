@@ -1,6 +1,7 @@
 #include "push_swap.h"
 #include "libft/libft.h"
 
+/*
 void    push_front(t_node *node, t_node *newNode)
 {
     if (!(node->next))
@@ -17,6 +18,7 @@ void    push_front(t_node *node, t_node *newNode)
         newNode->prev = node;
     }
 }
+*/
 
 void    push_last(t_node *node, t_node *newNode)
 {
@@ -29,4 +31,24 @@ void    push_last(t_node *node, t_node *newNode)
     
     tmp->next = newNode;
     newNode->prev = tmp;
+}
+
+void    free_split(char **split, int size)
+{
+    int num;
+
+    num = 0;
+    while (size)
+    {
+        free(*split);
+        split++;
+        size--;
+        num++;
+    }
+    while (num)
+    {
+        split--;
+        num--;
+    }
+    free(split);
 }

@@ -69,15 +69,7 @@ void	    choose_rb_rrb(t_node *b, t_info *info, int len)
 {
 	int		i;
 	t_node	*tmp;
-    t_node  *b_tmp;
 
-    b_tmp = b->next;
-    for (int i = 0; i < info->size_b; i++)
-    {
-        printf("b->data = %d -- b->id = %d\n",b_tmp->data, b_tmp->id);
-        b_tmp = b_tmp->next;
-    }
-    printf("================\n");
 	i = 1;
 	tmp = b->next;
 	while (tmp->id != len)

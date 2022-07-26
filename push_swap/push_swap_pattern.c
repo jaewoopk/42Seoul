@@ -44,22 +44,3 @@ void    ss(t_node *a, t_node *b)
     printf("ss\n");
 }
 
-int     get_top(t_node *node)
-{
-    t_node  *tmp;
-
-    tmp = node;
-    while(tmp->next)
-        tmp = tmp->next;
-    return (tmp->data);
-}
-
-t_node  *get_top_node(t_node *node)
-{
-    t_node  *tmp;
-
-    tmp = node;
-    while(tmp->next)
-        tmp = tmp->next;
-    return (tmp);
-}

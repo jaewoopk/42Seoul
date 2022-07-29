@@ -22,8 +22,6 @@ void	error_message(int check)
 	else if (check == 3)
 		write(1, "Error\nIt's no data to push something\n", 37);
 	else if (check == 4)
-		write(1, "Error\nIt's already sorted\n", 26);
-	else if (check == 5)
 		write(1, "Error\nIt's wrong input\n", 23);
 	exit(1);
 }

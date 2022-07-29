@@ -89,7 +89,7 @@ void	init(t_node *a, t_info *info, int argc, char *argv[])
 		if (split - (num - tmp_num))
 			free_split(split - (num - tmp_num), num - tmp_num);
 		else
-			error_message(5);
+			error_message(4);
 	}
 	info->size_a = num;
 }

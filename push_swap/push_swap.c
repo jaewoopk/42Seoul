@@ -33,13 +33,9 @@ int	main(int argc, char *argv[])
 	if (prev_sorted(a))
 	{
 		free_node(a, b, info);
-		error_message(4);
+		return (0);
 	}
 	ft_sandglass(a, b, info);
 	free_node(a, b, info);
-	while(1)
-	{
-		pause();
-	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jaewopar <jaewopar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 14:20:53 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/07/29 14:20:55 by jaewopar         ###   ########.fr       */
+/*   Updated: 2022/07/29 14:25:09 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void    sa(t_node *a)
     tmp2->prev = a;
     tmp1->prev = tmp2;
 
-    printf("sa\n");
+    write(1, "sa\n", 3);
 }
 
 void    sb(t_node *b)
@@ -46,13 +46,13 @@ void    sb(t_node *b)
     tmp2->prev = b;
     tmp1->prev = tmp2;
 
-    printf("sb\n");
+    write(1, "sb\n", 3);
 }
 
 void    ss(t_node *a, t_node *b)
 {
     sa(a);
     sb(b);
-    printf("ss\n");
+    write(1, "ss\n", 3);
 }
 

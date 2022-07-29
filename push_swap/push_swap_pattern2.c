@@ -6,7 +6,7 @@
 /*   By: jaewopar <jaewopar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 14:21:57 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/07/29 14:21:58 by jaewopar         ###   ########.fr       */
+/*   Updated: 2022/07/29 14:26:09 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void    pa(t_node *a, t_node *b, t_info *info)
 
     info->size_a += 1;
     info->size_b -= 1;
-    printf("pa\n");
+    write(1, "pa\n", 3);
 }
 
 void    pb(t_node *a, t_node *b, t_info *info)
@@ -70,7 +70,7 @@ void    pb(t_node *a, t_node *b, t_info *info)
 
     info->size_a -= 1;
     info->size_b += 1;
-    printf("pb\n");
+    write(1, "pb\n", 3);
 }
 
 void    ra(t_node *a)
@@ -91,7 +91,7 @@ void    ra(t_node *a)
     tmp->prev = tmp2;
     tmp->next = NULL;
 
-    printf("ra\n");
+    write(1, "ra\n", 3);
 }
 
 void    rb(t_node *b)
@@ -111,12 +111,12 @@ void    rb(t_node *b)
     tmp->prev = tmp2;
     tmp->next = NULL;
 
-    printf("rb\n");
+    write(1, "rb\n", 3);
 }
 
 void    rr(t_node *a, t_node *b)
 {
     ra(a);
     rb(b);
-    printf("rr\n");
+    write(1, "rr\n", 3);
 }

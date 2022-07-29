@@ -6,7 +6,7 @@
 /*   By: jaewopar <jaewopar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 14:22:05 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/07/29 14:22:05 by jaewopar         ###   ########.fr       */
+/*   Updated: 2022/07/29 14:26:28 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void    rra(t_node *a)
     tmp2->prev = a;
     a->next = tmp2;
     
-    printf("rra\n");
+    write(1, "rra\n", 4);
 }
 
 void    rrb(t_node *b)
@@ -48,12 +48,12 @@ void    rrb(t_node *b)
     tmp2->prev = b;
     b->next = tmp2;
     
-    printf("rrb\n");
+    write(1, "rrb\n", 4);
 }
 
 void    rrr(t_node *a, t_node *b)
 {
     rra(a);
     rrb(b);
-    printf("rrr\n");
+    write(1, "rrr\n", 4);
 }

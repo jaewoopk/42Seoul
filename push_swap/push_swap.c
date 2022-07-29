@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
+/*   By: jaewopar <jaewopar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 17:33:09 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/07/05 19:16:46 by jaewopar         ###   ########.fr       */
+/*   Updated: 2022/07/29 14:30:25 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,65 +32,6 @@ int main(int argc, char *argv[])
 		error_message(4);
 	}
 	ft_sandglass(a,b,info);
-	/*
-	printf("=====================\n");
-	for (int i = 0; i < info->size_a; i++)
-	{
-		a = a->next;
-		printf("data = %d -- id = %d\n",a->data, a->id);
-	}
-	printf("=====================\n");
-	a = tmp;
-	b = tmp2;
-	pb(a,b,info);
-	a = tmp;
-	b = tmp2;
-	pb(a,b,info);
-	a = tmp;
-	b = tmp2;
-	pb(a,b,info);
-	a = tmp;
-	b = tmp2;
-	for (int i = 0; i < info->size_a; i++)
-	{
-		a = a->next;
-		printf("data = %d -- id = %d\n",a->data, a->id);
-	}
-	printf("=====================\n");
-	a = tmp;
-	b = tmp2;
-	for (int i = 0; i < info->size_b; i++)
-	{
-		b = b->next;
-		printf("data = %d -- id = %d\n",b->data, b->id);
-	}
-	a = tmp;
-	b = tmp2;
-
-	rr(a,b);
-	
-	printf("=====================\n");
-	
-	a = tmp;
-	b = tmp2;
-	for (int i = 0; i < info->size_a; i++)
-	{
-		a = a->next;
-		printf("data = %d -- id = %d\n",a->data, a->id);
-	}
-	printf("=====================\n");
-	for (int i = 0; i < info->size_b; i++)
-	{
-		b = b->next;
-		printf("data = %d -- id = %d\n",b->data, b->id);
-	}
-	a = tmp;
-	b = tmp2;
-	rrr(a,b);
-	printf("=====================\n");
-	a = tmp;
-	b = tmp2;
-	*/
 	for (int i = 0; i < info->size_a; i++)
 	{
 		a = a->next;

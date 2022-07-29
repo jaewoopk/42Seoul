@@ -6,7 +6,7 @@
 /*   By: jaewopar <jaewopar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 14:22:09 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/07/29 14:22:10 by jaewopar         ###   ########.fr       */
+/*   Updated: 2022/07/29 14:29:19 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@
 void	error_message(int check)
 {
 	if (check == 1)
-		printf("Error\nIt's not number\n");
+		write(1, "Error\nIt's not number\n", 22);
 	else if (check == 2)
-		printf("Error\nIt's overlapped\n");
+		write(1, "Error\nIt's overlapped\n", 22);
 	else if (check == 3)
-		printf("Error\nIt's no data to push something\n");
+		write(1, "Error\nIt's no data to push something\n", 37);
     else if (check == 4)
-        printf("Error\nIt's already sorted\n");
+        write(1, "Error\nIt's already sorted\n", 26);
     else if (check == 5)
-        printf("Error\nIt's wrong input\n");
+        write(1, "Error\nIt's wrong input\n", 23);
 	exit(1);
 }
 

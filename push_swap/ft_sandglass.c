@@ -13,81 +13,70 @@
 #include "push_swap.h"
 #include "libft/libft.h"
 
-void    ft_sandglass(t_node *a, t_node* b, t_info *info)
+void	ft_sandglass(t_node *a, t_node *b, t_info *info)
 {
-    int chunk;
+	int	chunk;
 	int	size;
 
 	size = info->size_a;
-    chunk = 0.000000053 * size * size + 0.03 * size + 15;
+	chunk = 0.000000053 * size * size + 0.03 * size + 15;
 	if (info->size_a == 2)
-        sa(a);
-    else if (info->size_a == 3)
-        size_three_sort(a);
-    else if (info->size_a == 4)
-        size_four_sort(a, b, info);
-    else if (info->size_a == 5)
-        size_five_sort(a, b, info);
-    else
-    {
-        a_to_b(a, b, info, chunk);
-    /*
-    tmp = b->next;
-    for (int i = 0; i < info->size_b; i++)
-    {
-        printf("b->data = %d -- b->id = %d\n",tmp->data, tmp->id);
-        if (tmp->next == NULL)
-            break;
-        tmp = tmp->next;
-    }
-    printf("===================\n");
-    */
-        b_to_a(a, b, info);
-    }
+		sa(a);
+	else if (info->size_a == 3)
+		size_three_sort(a);
+	else if (info->size_a == 4)
+		size_four_sort(a, b, info);
+	else if (info->size_a == 5)
+		size_five_sort(a, b, info);
+	else
+	{
+		a_to_b(a, b, info, chunk);
+		b_to_a(a, b, info);
+	}
 }
 
-void    a_to_b(t_node *a, t_node *b, t_info *info, int chunk)
+void	a_to_b(t_node *a, t_node *b, t_info *info, int chunk)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (info->size_a)
-    {
-        if (a->next->id <= i)
-        {
-            pb(a, b, info);
-            i++;
-        }
-        else if (a->next->id <= i + chunk)
-        {
-            pb(a, b, info);
-            rb(b);
-            i++;
-        }
-        else
-        {
-            if (i < info->size_a / 2 && i >= 0)
-                rra(a);
-            else
-                ra(a);
-        }
-    }
+	i = 0;
+	while (info->size_a)
+	{
+		if (a->next->id <= i)
+		{
+			pb(a, b, info);
+			i++;
+		}
+		else if (a->next->id <= i + chunk)
+		{
+			pb(a, b, info);
+			rb(b);
+			i++;
+		}
+		else
+		{
+			if (i < info->size_a / 2 && i >= 0)
+				rra(a);
+			else
+				ra(a);
+		}
+	}
 }
 
-void    b_to_a(t_node *a, t_node *b, t_info *info)
+void	b_to_a(t_node *a, t_node *b, t_info *info)
 {
-    int len;
+	int	len;
 
-    len = info->size_b - 1;
-    while (info->size_b)
-    {
-        choose_rb_rrb(b, info, len);
-        pa(a, b, info);
-        len--;
-    }
+	len = info->size_b - 1;
+	while (info->size_b)
+	{
+		choose_rb_rrb(b, info, len);
+		pa(a, b, info);
+		len--;
+	}
 }
 
-void	    choose_rb_rrb(t_node *b, t_info *info, int len)
+void	choose_rb_rrb(t_node *b, t_info *info, int len)
 {
 	int		i;
 	t_node	*tmp;

@@ -36,7 +36,7 @@ void	check_overlap(t_node *a)
 	}
 }
 
-int		check_num(const char *str)
+int	check_num(const char *str)
 {
 	long long		sign;
 	long long		n;
@@ -67,20 +67,20 @@ int		check_num(const char *str)
 
 void	init(t_node *a, t_info *info, int argc, char *argv[])
 {
-	int 	i;
+	int		i;
 	int		num;
 	int		tmp_num;
+	char	**split;
+	t_node	*new_node;
 
 	i = 0;
-	a->data = 0;
 	num = 0;
 	while (++i < argc)
 	{
-		char	**split = ft_split(argv[i],' ');
+		split = ft_split(argv[i], ' ');
 		tmp_num = num;
 		while (*split)
 		{
-			t_node* new_node;
 			new_node = make_new_node(check_num(*split));
 			push_last(a, new_node);
 			split++;
@@ -92,12 +92,11 @@ void	init(t_node *a, t_info *info, int argc, char *argv[])
 			error_message(5);
 	}
 	info->size_a = num;
-	info->size_b = 0;
 }
 
-t_node*	make_new_node(int data)
+t_node	*make_new_node(int data)
 {
-	t_node *t;
+	t_node	*t;
 
 	t = (t_node *)malloc(sizeof(t_node));
 	if (!t)

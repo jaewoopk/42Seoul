@@ -13,17 +13,21 @@
 #include "push_swap.h"
 #include "libft/libft.h"
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
 	t_node	*a;
 	t_node	*b;
-	t_node	*tmp;
 	t_info	*info;
 
-	if (argc < 2 || !(a = malloc(sizeof(t_node))) || \
-		!(b = malloc(sizeof(t_node))) || !(info = malloc(sizeof(t_info))))
+	a = malloc(sizeof(t_node));
+	if (!a || argc < 2)
 		return (0);
-	tmp = a;
+	b = malloc(sizeof(t_node));
+	if (!b)
+		return (0);
+	info = malloc(sizeof(t_info));
+	if (!info)
+		return (0);
 	init(a, info, argc, argv);
 	check_overlap(a);
 	if (prev_sorted(a))
@@ -31,8 +35,7 @@ int main(int argc, char *argv[])
 		free_node(a, b, info);
 		error_message(4);
 	}
-	ft_sandglass(a,b,info);
-	a = tmp;
+	ft_sandglass(a, b, info);
 	free_node(a, b, info);
 	return (0);
 }

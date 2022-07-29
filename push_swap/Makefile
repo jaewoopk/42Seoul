@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+         #
+#    By: jaewopar <jaewopar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/07/05 17:33:26 by jaewopar          #+#    #+#              #
-#    Updated: 2022/07/05 19:13:15 by jaewopar         ###   ########.fr        #
+#    Created: 2022/07/29 14:21:38 by jaewopar          #+#    #+#              #
+#    Updated: 2022/07/29 14:21:42 by jaewopar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

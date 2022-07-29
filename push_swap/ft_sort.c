@@ -1,6 +1,20 @@
 #include "push_swap.h"
 #include "libft/libft.h"
 
+int     prev_sorted(t_node *a)
+{
+    t_node  *tmp;
+
+    tmp = a;
+    while (tmp->next)
+    {
+        if (tmp->id > tmp->next->id)
+            return (0);
+        tmp = tmp->next;
+    }
+    return (1);
+}
+
 void    size_three_sort(t_node *a)
 {
     int a1;

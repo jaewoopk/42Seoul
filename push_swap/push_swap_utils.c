@@ -1,24 +1,18 @@
 #include "push_swap.h"
 #include "libft/libft.h"
 
-/*
-void    push_front(t_node *node, t_node *newNode)
+void	error_message(int check)
 {
-    if (!(node->next))
-    {
-        node->next = newNode;
-        newNode->prev = node;
-        newNode->next = NULL;
-    }
-    else
-    {
-        newNode->next = node->next;
-        node->next = newNode;
-        newNode->next->prev = newNode;
-        newNode->prev = node;
-    }
+	if (check == 1)
+		printf("Error\nIt's not number\n");
+	else if (check == 2)
+		printf("Error\nIt's overlapped\n");
+	else if (check == 3)
+		printf("Error\nIt's no data to push something\n");
+    else if (check == 4)
+        printf("Error\nIt's already sorted\n");
+	exit(1);
 }
-*/
 
 void    push_last(t_node *node, t_node *newNode)
 {
@@ -76,5 +70,5 @@ void    free_node(t_node *a, t_node *b, t_info *info)
         info->size_b--;
     }
     free(info);
-    exit(1);
+    error_message(4);
 }

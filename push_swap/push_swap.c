@@ -13,17 +13,6 @@
 #include "push_swap.h"
 #include "libft/libft.h"
 
-void	error_message(int check)
-{
-	if (check == 1)
-		printf("Error\nIt's not number\n");
-	else if (check == 2)
-		printf("Error\nIt's overlapped\n");
-	else if (check == 3)
-		printf("Error\nIt's no data to push something\n");
-	exit(1);
-}
-
 void	check_overlap(t_node *a)
 {
 	t_node	*tmp;
@@ -80,6 +69,7 @@ void	init(t_node *a, t_info *info, int argc, char *argv[])
 {
 	int 	i;
 	int		num;
+	int		tmp_num;
 
 	i = 0;
 	a->data = 0;
@@ -87,12 +77,12 @@ void	init(t_node *a, t_info *info, int argc, char *argv[])
 	while (++i < argc)
 	{
 		char	**split = ft_split(argv[i],' ');
-		int		tmp_num = num;
+		tmp_num = num;
 		while (*split)
 		{
-			t_node* newNode;
-			newNode = new_node(check_num(*split));
-			push_last(a, newNode);
+			t_node* new_node;
+			new_node = make_new_node(check_num(*split));
+			push_last(a, new_node);
 			split++;
 			num++;
 		}
@@ -102,7 +92,7 @@ void	init(t_node *a, t_info *info, int argc, char *argv[])
 	info->size_b = 0;
 }
 
-t_node*	new_node(int data)
+t_node*	make_new_node(int data)
 {
 	t_node *t;
 
@@ -123,29 +113,17 @@ int main(int argc, char *argv[])
 	t_node	*a;
 	t_node	*b;
 	t_info	*info;
-	t_node	*tmp;
-	t_node	*tmp2;
 
-	if (argc < 2)
-		return (0);
-	if (!(a = malloc(sizeof(t_node))) || !(b = malloc(sizeof(t_node))) || \
-		!(info = malloc(sizeof(t_info))))
+	if (argc < 2 || !(a = malloc(sizeof(t_node))) || \
+		!(b = malloc(sizeof(t_node))) || !(info = malloc(sizeof(t_info))))
 		return (0);
 
 	init(a, info, argc, argv);
 	check_overlap(a);
-
-	tmp = a;
-	tmp2= b;
-
-	for (int i = 0; i < info->size_a; i++)
-	{
-		a = a->next;
-		printf("data = %d -- id = %d\n",a->data, a->id);
-	}
-	a = tmp;
-	b = tmp2;
+	if (prev_sorted(a))
+		free_node(a, b, info);
 	ft_sandglass(a,b,info);
+	/*
 	printf("=====================\n");
 	for (int i = 0; i < info->size_a; i++)
 	{
@@ -153,7 +131,7 @@ int main(int argc, char *argv[])
 		printf("data = %d -- id = %d\n",a->data, a->id);
 	}
 	printf("=====================\n");
-	/*a = tmp;
+	a = tmp;
 	b = tmp2;
 	pb(a,b,info);
 	a = tmp;
@@ -203,22 +181,13 @@ int main(int argc, char *argv[])
 	printf("=====================\n");
 	a = tmp;
 	b = tmp2;
+	*/
 	for (int i = 0; i < info->size_a; i++)
 	{
 		a = a->next;
 		printf("data = %d -- id = %d\n",a->data, a->id);
 	}
-	a = tmp;
-	b = tmp2;
 	printf("=====================\n");
-	for (int i = 0; i < info->size_b; i++)
-	{
-		b = b->next;
-		printf("data = %d -- id = %d\n",b->data, b->id);
-	}
-	*/
-	a = tmp;
-	b = tmp2;
-	free_node(a, b, info);
+	//free_node(a, b, info);
 	return (0);
 }

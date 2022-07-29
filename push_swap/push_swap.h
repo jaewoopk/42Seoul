@@ -32,7 +32,7 @@ typedef struct s_info
 }	t_info;
 
 void	init(t_node *a, t_info *info, int argc, char *argv[]);
-t_node*	new_node(int data);
+t_node*	make_new_node(int data);
 void    push_front(t_node *node, t_node *newNode);
 void    push_last(t_node *node, t_node *newNode);
 void	error_message(int check);
@@ -54,6 +54,7 @@ void    rrr(t_node *a, t_node *b);
 void    ft_sandglass(t_node *a, t_node* b, t_info *info);
 void    a_to_b(t_node *a, t_node *b, t_info *info, int chunk);
 void    b_to_a(t_node *a, t_node *b, t_info *info);
+int     prev_sorted(t_node *a);
 void    size_three_sort(t_node *a);
 void    size_four_sort(t_node *a, t_node *b, t_info *info);
 void    size_five_sort(t_node *a, t_node *b, t_info *info);

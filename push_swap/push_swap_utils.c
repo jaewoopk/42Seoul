@@ -11,6 +11,8 @@ void	error_message(int check)
 		printf("Error\nIt's no data to push something\n");
     else if (check == 4)
         printf("Error\nIt's already sorted\n");
+    else if (check == 5)
+        printf("Error\nIt's wrong input\n");
 	exit(1);
 }
 
@@ -53,6 +55,8 @@ void    free_node(t_node *a, t_node *b, t_info *info)
     t_node  *tmp_b;
 
     tmp_a = a->next;
+    if (info->size_a == 0)
+        free(a);
     while (info->size_a)
     {
         free(a);
@@ -60,8 +64,9 @@ void    free_node(t_node *a, t_node *b, t_info *info)
         tmp_a = tmp_a->next;
         info->size_a--;
     }
-
     tmp_b = b->next;
+    if (info->size_b == 0)
+        free(b);
 	while (info->size_b)
     {
         free(b);
@@ -70,5 +75,5 @@ void    free_node(t_node *a, t_node *b, t_info *info)
         info->size_b--;
     }
     free(info);
-    error_message(4);
+    exit(0);
 }

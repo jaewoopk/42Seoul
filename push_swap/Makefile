@@ -18,6 +18,7 @@ CFLAGS = -Wall -Werror -Wextra
 
 SRCS = 	push_swap.c \
 		push_swap_utils.c \
+		push_swap_utils2.c \
 		push_swap_pattern.c \
 		push_swap_pattern2.c \
 		push_swap_pattern3.c \

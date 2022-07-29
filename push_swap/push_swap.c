@@ -6,7 +6,7 @@
 /*   By: jaewopar <jaewopar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 17:33:09 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/07/29 14:30:25 by jaewopar         ###   ########.fr       */
+/*   Updated: 2022/07/29 18:04:47 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,9 @@ int	main(int argc, char *argv[])
 	}
 	ft_sandglass(a, b, info);
 	free_node(a, b, info);
+	while(1)
+	{
+		pause();
+	}
 	return (0);
 }

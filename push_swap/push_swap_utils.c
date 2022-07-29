@@ -6,7 +6,7 @@
 /*   By: jaewopar <jaewopar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 14:22:09 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/07/29 14:29:19 by jaewopar         ###   ########.fr       */
+/*   Updated: 2022/07/29 18:03:22 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,6 @@ void	free_node(t_node *a, t_node *b, t_info *info)
 	t_node	*tmp_b;
 
 	tmp_a = a->next;
-	if (info->size_a == 0)
-		free(a);
 	while (info->size_a)
 	{
 		free(a);
@@ -74,9 +72,9 @@ void	free_node(t_node *a, t_node *b, t_info *info)
 		tmp_a = tmp_a->next;
 		info->size_a--;
 	}
+    if (info->size_a == 0)
+		free(a);
 	tmp_b = b->next;
-	if (info->size_b == 0)
-		free(b);
 	while (info->size_b)
 	{
 		free(b);
@@ -84,6 +82,8 @@ void	free_node(t_node *a, t_node *b, t_info *info)
 		tmp_b = tmp_b->next;
 		info->size_b--;
 	}
+    if (info->size_b == 0)
+		free(b);
 	free(info);
 	return ;
 }

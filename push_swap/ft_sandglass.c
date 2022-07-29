@@ -16,10 +16,11 @@
 void    ft_sandglass(t_node *a, t_node* b, t_info *info)
 {
     int chunk;
+	int	size;
 
-    //chunk = 0.000000053 * size * size + 0.03 * size + 14.5;
-    chunk = 2;
-    if (info->size_a == 2)
+	size = info->size_a;
+    chunk = 0.000000053 * size * size + 0.03 * size + 15;
+	if (info->size_a == 2)
         sa(a);
     else if (info->size_a == 3)
         size_three_sort(a);

@@ -87,5 +87,5 @@ void    free_node(t_node *a, t_node *b, t_info *info)
         info->size_b--;
     }
     free(info);
-    exit(0);
+    return ;
 }

@@ -32,12 +32,6 @@ int main(int argc, char *argv[])
 		error_message(4);
 	}
 	ft_sandglass(a,b,info);
-	for (int i = 0; i < info->size_a; i++)
-	{
-		a = a->next;
-		printf("data = %d -- id = %d\n",a->data, a->id);
-	}
-	printf("=====================\n");
 	a = tmp;
 	free_node(a, b, info);
 	return (0);

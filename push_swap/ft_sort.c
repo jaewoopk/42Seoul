@@ -36,8 +36,8 @@ void    size_three_sort(t_node *a)
     a1 = a->next->id;
     a2 = a->next->next->id;
     a3 = a->next->next->next->id;
-    //if (prev_sorted(a))
-    //    return ;
+    if (prev_sorted(a))
+        return ;
     if (a1 == a2 - 2 && a1 == a3 - 1)
     {
         sa(a);

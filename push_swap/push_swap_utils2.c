@@ -6,7 +6,7 @@
 /*   By: jaewopar <jaewopar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 14:22:14 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/07/29 14:22:20 by jaewopar         ###   ########.fr       */
+/*   Updated: 2022/07/30 17:59:51 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ void	init(t_node *a, t_info *info, int argc, char *argv[])
 	while (++i < argc)
 	{
 		split = ft_split(argv[i], ' ');
+		if (*split == NULL || !split)
+			error_message(4);
 		tmp_num = num;
 		while (*split)
 		{
@@ -86,10 +88,7 @@ void	init(t_node *a, t_info *info, int argc, char *argv[])
 			split++;
 			num++;
 		}
-		if (split - (num - tmp_num))
-			free_split(split - (num - tmp_num), num - tmp_num);
-		else
-			error_message(4);
+		free_split(split - (num - tmp_num), num - tmp_num);
 	}
 	info->size_a = num;
 }

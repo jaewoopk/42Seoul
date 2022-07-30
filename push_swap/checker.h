@@ -30,7 +30,7 @@ void	sa_checker(t_node *a, t_info *info);
 void	sb_checker(t_node *b, t_info *info);
 void	ss_checker(t_node *a, t_node *b, t_info *info);
 void	pa_checker(t_node *a, t_node *b, t_info *info);
-void    pb_checker(t_node *a, t_node *b, t_info *info);
+void	pb_checker(t_node *a, t_node *b, t_info *info);
 void	ra_checker(t_node *a, t_info *info);
 void	rb_checker(t_node *b, t_info *info);
 void	rr_checker(t_node *a, t_node *b, t_info *info);

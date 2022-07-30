@@ -6,7 +6,7 @@
 /*   By: jaewopar <jaewopar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 14:20:53 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/07/30 16:06:30 by jaewopar         ###   ########.fr       */
+/*   Updated: 2022/07/30 17:48:32 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ void	sa(t_node *a, t_info *info)
 	tmp2 = tmp1->next;
 	tmp1->next = tmp2->next;
 	tmp2->next = tmp1;
-	tmp1->next->prev = tmp1;
+	if (tmp1->next != NULL)
+		tmp1->next->prev = tmp1;
 	a->next = tmp2;
 	tmp2->prev = a;
 	tmp1->prev = tmp2;
@@ -42,7 +43,8 @@ void	sb(t_node *b, t_info *info)
 	tmp2 = tmp1->next;
 	tmp1->next = tmp2->next;
 	tmp2->next = tmp1;
-	tmp1->next->prev = tmp1;
+	if (tmp1->next != NULL)
+		tmp1->next->prev = tmp1;
 	b->next = tmp2;
 	tmp2->prev = b;
 	tmp1->prev = tmp2;

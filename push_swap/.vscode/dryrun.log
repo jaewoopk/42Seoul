@@ -5,6 +5,7 @@ gcc -Wall -Werror -Wextra -g3 -c push_swap_utils.c -o push_swap_utils.o
 gcc -Wall -Werror -Wextra -g3 -c push_swap_utils2.c -o push_swap_utils2.o
 gcc -Wall -Werror -Wextra -g3 -c push_swap_pattern.c -o push_swap_pattern.o
 gcc -Wall -Werror -Wextra -g3 -c push_swap_pattern2.c -o push_swap_pattern2.o
+ 
 gcc -Wall -Werror -Wextra -g3 -c push_swap_pattern3.c -o push_swap_pattern3.o
 gcc -Wall -Werror -Wextra -g3 -c ft_sort.c -o ft_sort.o
 gcc -Wall -Werror -Wextra -g3 -c ft_sandglass.c -o ft_sandglass.o

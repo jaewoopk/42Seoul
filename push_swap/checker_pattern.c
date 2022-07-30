@@ -25,7 +25,8 @@ void	sa_checker(t_node *a, t_info *info)
 	tmp2 = tmp1->next;
 	tmp1->next = tmp2->next;
 	tmp2->next = tmp1;
-	tmp1->next->prev = tmp1;
+	if (tmp1->next != NULL)
+		tmp1->next->prev = tmp1;
 	a->next = tmp2;
 	tmp2->prev = a;
 	tmp1->prev = tmp2;
@@ -42,7 +43,8 @@ void	sb_checker(t_node *b, t_info *info)
 	tmp2 = tmp1->next;
 	tmp1->next = tmp2->next;
 	tmp2->next = tmp1;
-	tmp1->next->prev = tmp1;
+	if (tmp1->next != NULL)
+		tmp1->next->prev = tmp1;
 	b->next = tmp2;
 	tmp2->prev = b;
 	tmp1->prev = tmp2;
@@ -50,6 +52,6 @@ void	sb_checker(t_node *b, t_info *info)
 
 void	ss_checker(t_node *a, t_node *b, t_info *info)
 {
-	sa(a, info);
-	sb(b, info);
+	sa_checker(a, info);
+	sb_checker(b, info);
 }

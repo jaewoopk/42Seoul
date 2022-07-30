@@ -111,6 +111,6 @@ void	rb_checker(t_node *b, t_info *info)
 
 void	rr_checker(t_node *a, t_node *b, t_info *info)
 {
-	ra(a, info);
-	rb(b, info);
+	ra_checker(a, info);
+	rb_checker(b, info);
 }

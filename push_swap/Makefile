@@ -6,7 +6,7 @@
 #    By: jaewopar <jaewopar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/29 14:21:38 by jaewopar          #+#    #+#              #
-#    Updated: 2022/07/29 14:21:42 by jaewopar         ###   ########.fr        #
+#    Updated: 2022/07/30 16:19:23 by jaewopar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,9 @@ BONUS_SRCS = get_next_line.c \
 			 push_swap_pattern.c \
 			 push_swap_pattern2.c \
 			 push_swap_pattern3.c \
+			 checker_pattern.c \
+			 checker_pattern2.c \
+			 checker_pattern3.c \
 			 ft_sort.c \
 			 checker.c
 
@@ -48,7 +51,7 @@ all: $(NAME)
 bonus : $(BONUS)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -g3 -c $< -o $@
 
 $(NAME): $(OBJS)
 	make -C $(NAME_LIBFT)

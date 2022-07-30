@@ -6,7 +6,7 @@
 /*   By: jaewopar <jaewopar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 14:11:50 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/07/30 16:06:26 by jaewopar         ###   ########.fr       */
+/*   Updated: 2022/07/30 16:16:01 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,16 @@ char	*ft_strdup(const char *s1);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 void	push_swap_checker(char *s, t_node *a, t_node *b, t_info *info);
 void	ft_checker(t_node *a, t_node *b, t_info *info);
+void	sa_checker(t_node *a, t_info *info);
+void	sb_checker(t_node *b, t_info *info);
+void	ss_checker(t_node *a, t_node *b, t_info *info);
+void	pa_checker(t_node *a, t_node *b, t_info *info);
+void    pb_checker(t_node *a, t_node *b, t_info *info);
+void	ra_checker(t_node *a, t_info *info);
+void	rb_checker(t_node *b, t_info *info);
+void	rr_checker(t_node *a, t_node *b, t_info *info);
+void	rra_checker(t_node *a, t_info *info);
+void	rrb_checker(t_node *b, t_info *info);
+void	rrr_checker(t_node *a, t_node *b, t_info *info);
 
 #endif

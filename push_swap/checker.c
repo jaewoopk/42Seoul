@@ -6,7 +6,7 @@
 /*   By: jaewopar <jaewopar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 14:12:33 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/07/30 16:06:25 by jaewopar         ###   ########.fr       */
+/*   Updated: 2022/07/30 16:18:19 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,27 @@
 void	push_swap_checker(char *s, t_node *a, t_node *b, t_info *info)
 {
 	if (!ft_strncmp(s, "sa\n", 3))
-		sa(a, info);
+		sa_checker(a, info);
 	else if (!ft_strncmp(s, "sb\n", 3))
-		sb(b, info);
+		sb_checker(b, info);
 	else if (!ft_strncmp(s, "ss\n", 3))
-		ss(a, b, info);
+		ss_checker(a, b, info);
 	else if (!ft_strncmp(s, "pa\n", 3))
-		pa(a, b, info);
+		pa_checker(a, b, info);
 	else if (!ft_strncmp(s, "pb\n", 3))
-		pb(a, b, info);
+		pb_checker(a, b, info);
 	else if (!ft_strncmp(s, "ra\n", 3))
-		ra(a, info);
+		ra_checker(a, info);
 	else if (!ft_strncmp(s, "rb\n", 3))
-		rb(b, info);
+		rb_checker(b, info);
 	else if (!ft_strncmp(s, "rr\n", 3))
-		rr(a, b, info);
+		rr_checker(a, b, info);
 	else if (!ft_strncmp(s, "rra\n", 4))
-		rra(a, info);
+		rra_checker(a, info);
 	else if (!ft_strncmp(s, "rrb\n", 4))
-		rrb(b, info);
+		rrb_checker(b, info);
 	else if (!ft_strncmp(s, "rrr\n", 4))
-		rrr(a, b, info);
+		rrr_checker(a, b, info);
 	else
 		error_message(1);
 }
@@ -49,8 +49,8 @@ void	ft_checker(t_node *a, t_node *b, t_info *info)
 	command = get_next_line(0);
 	while (command)
 	{
-		push_swap_checker(command, a, b, info);
 		free(command);
+		push_swap_checker(command, a, b, info);
 		command = get_next_line(0);
 	}
 	if (info->size_b == 0 && prev_sorted(a))

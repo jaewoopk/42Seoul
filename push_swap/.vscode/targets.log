@@ -8,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Fri Jul 29 17:20:23 2022
+# Make data base, printed on Sat Jul 30 14:11:48 2022
 
 # Variables
 
@@ -43,7 +43,7 @@ VSCODE_VERBOSE_LOGGING = true
 # makefile (from `Makefile', line 28)
 OBJS = $(SRCS:.c=.o) 
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000cmbc00352v/T/vscode-ipc-0036af96-64f2-405f-a570-ada7e304a691.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000cmbc00352v/T/vscode-ipc-6b8f5a6f-ca4f-4f00-b294-bae562dc409a.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -55,7 +55,7 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.jtzbnBdIW3/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.unLvB081lg/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -121,7 +121,7 @@ MFLAGS = -Rrqp
 # environment
 MAIL = jaewoopk000@naver.com
 # environment
-XPC_SERVICE_NAME = com.microsoft.VSCode.4716
+XPC_SERVICE_NAME = com.microsoft.VSCode.2352
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -144,9 +144,8 @@ SUFFIXES :=
 MAKELEVEL := 0
 # environment
 LANG = C
- 
 # environment
-VSCODE_PID = 13823
+VSCODE_PID = 35256
 # variable set hash-table stats:
 # Load=67/1024=7%, Rehash=0, Collisions=3/99=3%
 
@@ -156,15 +155,15 @@ VSCODE_PID = 13823
 
 # Directories
 
-# . (device 16777225, inode 2954735): 26 files, no impossibilities.
+# . (device 16777225, inode 2954735): 19 files, no impossibilities.
 
-# 26 files, no impossibilities in 1 directories.
+# 19 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
 %.o: %.c
 #  commands to execute (from `Makefile', line 33):
-	$(CC) $(CFLAGS) -g3 -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 	
 
 # 1 implicit rules, 0 (0.0%) terminal.
@@ -174,7 +173,7 @@ VSCODE_PID = 13823
 # Not a target:
 push_swap.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-29 17:20:08
+#  Last modified 2022-07-29 18:08:05
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -194,6 +193,7 @@ all: push_swap
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+ 
 
 # Not a target:
 push_swap_pattern3.o:
@@ -210,7 +210,7 @@ push_swap_pattern3.o:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-29 14:21:42
+#  Last modified 2022-07-30 13:46:20
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -268,7 +268,7 @@ clean:
 push_swap.o: push_swap.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `push_swap'
-#  Last modified 2022-07-29 17:19:04
+#  File does not exist.
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # automatic
@@ -290,12 +290,12 @@ push_swap.o: push_swap.c
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=1/14=7%
 #  commands to execute (from `Makefile', line 33):
-	$(CC) $(CFLAGS) -g3 -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 	
 
 push_swap: push_swap.o push_swap_utils.o push_swap_utils2.o push_swap_pattern.o push_swap_pattern2.o push_swap_pattern3.o ft_sort.o ft_sandglass.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-29 17:19:06
+#  File does not exist.
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
@@ -312,7 +312,6 @@ ft_sandglass.o:
 #  File has not been updated.
 
 # Not a target:
- 
 push_swap_pattern2.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -337,6 +336,6 @@ push_swap_utils2.o:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Fri Jul 29 17:20:23 2022
+# Finished Make data base on Sat Jul 30 14:11:48 2022
 
  

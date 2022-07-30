@@ -6,18 +6,20 @@
 /*   By: jaewopar <jaewopar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 14:22:05 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/07/29 14:26:28 by jaewopar         ###   ########.fr       */
+/*   Updated: 2022/07/30 16:06:31 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft/libft.h"
 
-void	rra(t_node *a)
+void	rra(t_node *a, t_info *info)
 {
 	t_node	*tmp;
 	t_node	*tmp2;
 
+	if (info->size_a < 2)
+		return ;
 	tmp = a->next;
 	tmp2 = a;
 	while (tmp2->next)
@@ -30,11 +32,13 @@ void	rra(t_node *a)
 	write(1, "rra\n", 4);
 }
 
-void	rrb(t_node *b)
+void	rrb(t_node *b, t_info *info)
 {
 	t_node	*tmp;
 	t_node	*tmp2;
 
+	if (info->size_b < 2)
+		return ;
 	tmp = b->next;
 	tmp2 = b;
 	while (tmp2->next)
@@ -47,9 +51,9 @@ void	rrb(t_node *b)
 	write(1, "rrb\n", 4);
 }
 
-void	rrr(t_node *a, t_node *b)
+void	rrr(t_node *a, t_node *b, t_info *info)
 {
-	rra(a);
-	rrb(b);
+	rra(a, info);
+	rrb(b, info);
 	write(1, "rrr\n", 4);
 }

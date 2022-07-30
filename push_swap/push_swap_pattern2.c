@@ -6,7 +6,7 @@
 /*   By: jaewopar <jaewopar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 14:21:57 by jaewopar          #+#    #+#             */
-/*   Updated: 2022/07/29 14:26:09 by jaewopar         ###   ########.fr       */
+/*   Updated: 2022/07/30 16:06:30 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ void	pa(t_node *a, t_node *b, t_info *info)
 	t_node	*tmp_a;
 	t_node	*tmp_b;
 
-	tmp_a = a->next;
-	tmp_b = b->next;
 	if (info->size_b == 0)
 		error_message(3);
+	tmp_a = a->next;
+	tmp_b = b->next;
 	if (tmp_b->next != NULL)
 	{
 		b->next = tmp_b->next;
@@ -47,10 +47,10 @@ void	pb(t_node *a, t_node *b, t_info *info)
 	t_node	*tmp_a;
 	t_node	*tmp_b;
 
-	tmp_a = a->next;
-	tmp_b = b->next;
 	if (info->size_a == 0)
 		error_message(3);
+	tmp_a = a->next;
+	tmp_b = b->next;
 	if (tmp_a->next != NULL)
 	{
 		a->next = tmp_a->next;
@@ -71,11 +71,13 @@ void	pb(t_node *a, t_node *b, t_info *info)
 	write(1, "pb\n", 3);
 }
 
-void	ra(t_node *a)
+void	ra(t_node *a, t_info *info)
 {
 	t_node	*tmp;
 	t_node	*tmp2;
 
+	if (info->size_a < 2)
+		return ;
 	tmp = a->next;
 	tmp2 = a;
 	if (tmp->next == NULL || tmp2->next == NULL)
@@ -90,11 +92,13 @@ void	ra(t_node *a)
 	write(1, "ra\n", 3);
 }
 
-void	rb(t_node *b)
+void	rb(t_node *b, t_info *info)
 {
 	t_node	*tmp;
 	t_node	*tmp2;
 
+	if (info->size_b < 2)
+		return ;
 	tmp = b->next;
 	tmp2 = b;
 	if (tmp->next == NULL || tmp2->next == NULL)
@@ -108,9 +112,9 @@ void	rb(t_node *b)
 	write(1, "rb\n", 3);
 }
 
-void	rr(t_node *a, t_node *b)
+void	rr(t_node *a, t_node *b, t_info *info)
 {
-	ra(a);
-	rb(b);
+	ra(a, info);
+	rb(b, info);
 	write(1, "rr\n", 3);
 }

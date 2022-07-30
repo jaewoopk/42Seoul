@@ -19,7 +19,7 @@ void	ft_sandglass(t_node *a, t_node *b, t_info *info)
 	int	size;
 
 	size = info->size_a;
-	chunk = 0.000000053 * size * size + 0.03 * size + 15;
+	chunk = 0.000000053 * size * size + 0.028 * size + 14;
 	if (info->size_a == 2)
 		sa(a);
 	else if (info->size_a == 3)

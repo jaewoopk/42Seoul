@@ -16,13 +16,13 @@
 void	error_message(int check)
 {
 	if (check == 1)
-		write(1, "Error\nIt's not number\n", 22);
+		write(1, "Error\n", 6);
 	else if (check == 2)
-		write(1, "Error\nIt's overlapped\n", 22);
+		write(1, "Error\n", 6);
 	else if (check == 3)
-		write(1, "Error\nIt's no data to push something\n", 37);
+		write(1, "Error\n", 6);
 	else if (check == 4)
-		write(1, "Error\nIt's wrong input\n", 23);
+		write(1, "Error\n", 6);
 	exit(1);
 }
 
@@ -70,7 +70,7 @@ void	free_node(t_node *a, t_node *b, t_info *info)
 		tmp_a = tmp_a->next;
 		info->size_a--;
 	}
-    if (info->size_a == 0)
+	if (info->size_a == 0)
 		free(a);
 	tmp_b = b->next;
 	while (info->size_b)
@@ -80,7 +80,7 @@ void	free_node(t_node *a, t_node *b, t_info *info)
 		tmp_b = tmp_b->next;
 		info->size_b--;
 	}
-    if (info->size_b == 0)
+	if (info->size_b == 0)
 		free(b);
 	free(info);
 	return ;

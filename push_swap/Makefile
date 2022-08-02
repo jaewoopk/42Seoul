@@ -51,7 +51,7 @@ all: $(NAME)
 bonus : $(BONUS)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -g3 -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
 	make -C $(NAME_LIBFT)
